@@ -1,0 +1,545 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gean Memory Vault</title>
+<meta name="title" content="Gean Memory Vault — Personal Developer Vault & Cheatsheet Dashboard" />
+<meta name="description" content="A fast, dark-neon personal developer vault to organize AI prompts, SQL formulas, workflows, shortcuts, and code snippets with live search and dynamic filters." />
+<meta name="keywords" content="developer cheatsheet, memory vault, code snippets, AI prompts, SQL formulas, keyboard shortcuts, developer dashboard, dark UI" />
+<meta name="author" content="Kabindra Basumatary" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#060913" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourusername.github.io/gean_memory_vault/" />
+<meta property="og:title" content="Gean Memory Vault — Personal Knowledge & Cheatsheet Vault" />
+<meta property="og:description" content="Organize your thoughts, code snippets, formulas, and prompts beautifully with a dark-neon dashboard interface." />
+<meta property="og:image" content="https://yourusername.github.io/gean_memory_vault/preview.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Gean Memory Vault" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://yourusername.github.io/gean_memory_vault/" />
+<meta name="twitter:title" content="Gean Memory Vault — Personal Knowledge & Cheatsheet Vault" />
+<meta name="twitter:description" content="A fast, dark-neon personal developer vault to organize AI prompts, SQL formulas, workflows, shortcuts, and code snippets." />
+<meta name="twitter:image" content="https://yourusername.github.io/gean_memory_vault/preview.jpg" />
+
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <header>
+    <div class="header-left">
+      <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="brand" id="brand">
+        <div class="logo-badge">G</div>
+        <div class="brand-text">
+          <div class="brand-title">Gean Memory Vault</div>
+          <div class="brand-sub">Your thoughts, organized beautifully</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search memories, formulas, notes, tags..." />
+      <span class="search-kbd" id="searchKbd">⌘K</span>
+    </div>
+
+    <div class="header-actions">
+      <!-- <button class="icon-btn mobile-panel-btn" id="mobileRightPanelBtn" title="Calendar & Activity">
+        <i data-lucide="calendar-days"></i>
+      </button> -->
+      
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme">
+        <i data-lucide="sun" id="themeIcon"></i>
+      </button>
+      <button class="icon-btn" id="notifBtn" title="Notifications">
+        <i data-lucide="bell"></i>
+        <span class="badge-dot" id="notifBadge">3</span>
+      </button>
+      <div class="user-profile">
+        <a href="me2.jpg" target="_blank"><img src="me2.jpg" alt="Alex R." class="avatar" /></a>
+        
+        <div class="user-info">
+          <div class="user-name">Kabind B.</div>
+          <div class="user-email">gwswsw88@gmail.com</div>
+        </div> 
+      </div>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top-bar">
+        <span>Navigation</span>
+        <button class="drawer-close-btn" id="closeSidebarBtn">&times;</button>
+      </div>
+      <div class="sidebar-content">
+        <ul class="nav-list" id="sidebarNav">
+          <li class="nav-item active" data-filter="All"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></li>
+          <li class="nav-item" data-filter="All"><i data-lucide="layers"></i> <span>All Memories</span></li>
+          <li class="nav-item" data-filter="PROMPT"><i data-lucide="message-square"></i> <span>Prompts</span></li>
+          <li class="nav-item" data-filter="FORMULA"><i data-lucide="function-square"></i> <span>Formulas</span></li>
+          <li class="nav-item" data-filter="STEP"><i data-lucide="list-ordered"></i> <span>Steps</span></li>
+          <li class="nav-item" data-filter="KEY"><i data-lucide="key"></i> <span>Keys</span></li>
+          <li class="nav-item" data-filter="NOTE"><i data-lucide="file-text"></i> <span>Notes</span></li>
+        </ul>
+
+        <div class="tag-section-title">
+          <span>TAGS</span>
+        </div>
+
+        <div id="tagListContainer"></div>
+      </div>
+
+      <div class="backup-card">
+        <i data-lucide="cloud" style="width: 20px; height: 20px; color: #60a5fa; margin-bottom: 6px;"></i>
+        <h4>Public Knowledge Vault</h4>
+        <p>Curated developer notes, commands, and formulas.</p>
+        <button class="btn-sync" id="syncBtn">Share Vault</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="welcome-header">
+        <div class="welcome-text">
+          <h1 class="welcome-title" id="welcomeTitle">Good morning</h1>
+          <p class="welcome-sub" id="welcomeSub">Loading statistics...</p>
+        </div>
+      </div>
+
+      <div class="filter-pills" id="filterPillsContainer">
+        <button class="pill active" data-filter="All"><i data-lucide="grid"></i> All</button>
+        <button class="pill" data-filter="PROMPT"><i data-lucide="message-square"></i> Prompts</button>
+        <button class="pill" data-filter="FORMULA"><i data-lucide="function-square"></i> Formulas</button>
+        <button class="pill" data-filter="STEP"><i data-lucide="list-ordered"></i> Steps</button>
+        <button class="pill" data-filter="KEY"><i data-lucide="key"></i> Keys</button>
+        <button class="pill" data-filter="NOTE"><i data-lucide="file-text"></i> Notes</button>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card purple">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="layers" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Total Memories</span>
+          </div>
+          <div class="metric-value" id="statTotalMemories">0</div>
+          <div class="metric-foot">Vault collection</div>
+        </div>
+
+        <div class="metric-card blue">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">This Week</span>
+          </div>
+          <div class="metric-value" id="statWeekMemories">0</div>
+          <div class="metric-foot">Recent additions</div>
+        </div>
+
+        <div class="metric-card teal">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="star" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Favorites</span>
+          </div>
+          <div class="metric-value" id="statFavorites">0</div>
+          <div class="metric-foot">Marked as important</div>
+        </div>
+
+        <div class="metric-card amber">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="zap" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Streak</span>
+          </div>
+          <div class="metric-value">7</div>
+          <div class="metric-foot">Days active</div>
+        </div>
+
+        <div class="metric-card pink">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="folder" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Categories</span>
+          </div>
+          <div class="metric-value" id="statCategories">0</div>
+          <div class="metric-foot">Organized sections</div>
+        </div>
+      </div>
+
+      <div class="section-bar" id="sectionBar">
+        <h2 class="section-title"><i data-lucide="clock" style="width: 18px; height: 18px;"></i> <span id="sectionTitleText">Recent Memories</span></h2>
+        <a href="#" class="view-all-link" id="resetFilterLink">View all <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
+      </div>
+
+      <div class="cards-grid" id="cardsGrid">
+       
+        <!-- addd memory card here -->
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-28T09:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Typing Master Product Key</h3>
+          <p class="card-description">A Valid Product Key for Typing Master</p>
+          <table class="card-table">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Description</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>icycool</code></td>
+                <td>Licence Id</td>
+                
+              </tr>
+              <tr>
+                <td><code>E5XQWKF-XYE3-YRCK-3PPC24K</code></td>
+                <td>Product Key</td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+          <div class="card-tags">
+            <span class="tag-chip">Web Dev</span>
+            <span class="tag-chip">API</span>
+            <span class="tag-chip">Reference</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="memory-card" data-category="PROMPT" data-starred="false" data-date="2026-08-31T18:00:00Z">
+          <span class="card-badge badge-blue">PROMPT</span>
+          <h3 class="card-title">AI System Architect Prompt</h3>
+          <p class="card-description">AI system architect prompt, projects mode, send ideates, and configuration and personal automation.</p>
+          <div class="code-snippet">{
+  "role": "system",
+  "content": "You are a senior architect..."
+}</div>
+          <div class="card-tags">
+            <span class="tag-chip">AI</span>
+            <span class="tag-chip">Architecture</span>
+            <span class="tag-chip">React</span>
+            <span class="tag-chip">Coding</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="FORMULA" data-starred="false" data-date="2026-08-31T10:00:00Z">
+          <span class="card-badge badge-green">FORMULA</span>
+          <h3 class="card-title">Advanced SQL Join</h3>
+          <p class="card-description">Used to advance SQL Join from float stores the syntaxic human code.</p>
+          <div class="code-snippet">SELECT *
+FROM users u
+JOIN orders o ON u.id = o.user_id
+WHERE o.status = 'completed';</div>
+          <div class="card-tags">
+            <span class="tag-chip">SQL</span>
+            <span class="tag-chip">Database</span>
+            <span class="tag-chip">Join</span>
+            <span class="tag-chip">Coding</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="STEP" data-starred="false" data-date="2026-08-28T10:00:00Z">
+          <span class="card-badge badge-amber">STEP</span>
+          <h3 class="card-title">Project Deployment Workflow</h3>
+          <p class="card-description">Standard checklist for continuous integration and staging.</p>
+          <ul class="step-list">
+            <li><i data-lucide="check-square" class="step-icon done"></i> Step 1: Deployment</li>
+            <li><i data-lucide="check-square" class="step-icon done"></i> New Hire Onboarding</li>
+            <li><i data-lucide="square" class="step-icon pending"></i> Production Verification</li>
+          </ul>
+          <div class="card-tags">
+            <span class="tag-chip">Workflow</span>
+            <span class="tag-chip">Deployment</span>
+            <span class="tag-chip">Productivity</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="KEY" data-starred="false" data-date="2026-08-28T12:00:00Z">
+          <span class="card-badge badge-purple">KEY</span>
+          <h3 class="card-title">VS Code Keyboard Shortcuts</h3>
+          <p class="card-description">Essential editor shortcuts for productivity and speed.</p>
+          <div class="key-list">
+            <div class="key-row">
+              <span class="shortcut-kbd">Ctrl + Shift + P</span>
+              <span class="key-desc">Command Palette</span>
+            </div>
+            <div class="key-row">
+              <span class="shortcut-kbd">Ctrl + D</span>
+              <span class="key-desc">Select Next Match</span>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="tag-chip">VS Code</span>
+            <span class="tag-chip">Shortcuts</span>
+            <span class="tag-chip">Productivity</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-28T09:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">HTTP Status Code Reference</h3>
+          <p class="card-description">Quick cheat sheet for standard REST responses.</p>
+          <table class="card-table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Status</th>
+                <th>Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>200</code></td>
+                <td>OK</td>
+                <td>Standard success</td>
+              </tr>
+              <tr>
+                <td><code>201</code></td>
+                <td>Created</td>
+                <td>Resource inserted</td>
+              </tr>
+              <tr>
+                <td><code>401</code></td>
+                <td>Unauthorized</td>
+                <td>Token missing/expired</td>
+              </tr>
+              <tr>
+                <td><code>404</code></td>
+                <td>Not Found</td>
+                <td>Route doesn't exist</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card-tags">
+            <span class="tag-chip">Web Dev</span>
+            <span class="tag-chip">API</span>
+            <span class="tag-chip">Reference</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-27T14:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Responsive Grid System</h3>
+          <p class="card-description">Diagram preview of 12-column mobile breakpoint architecture.</p>
+          <div class="card-image-wrap">
+            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500&auto=format&fit=crop&q=80" alt="Grid preview" class="card-image" />
+            <span class="card-image-caption">Breakpoints: 576px, 768px, 992px, 1200px</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag-chip">CSS</span>
+            <span class="tag-chip">UI/UX</span>
+            <span class="tag-chip">Layout</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="FORMULA" data-starred="false" data-date="2026-08-26T11:00:00Z">
+          <span class="card-badge badge-green">FORMULA</span>
+          <h3 class="card-title">Excel Financial Model</h3>
+          <p class="card-description">Excel Financial Model assists model calculation and sales rollup.</p>
+          <div class="code-snippet">=SUMIF(B2:B100, "Sales", C2:C100)</div>
+          <div class="card-tags">
+            <span class="tag-chip">Excel</span>
+            <span class="tag-chip">Finance</span>
+            <span class="tag-chip">Model</span>
+            <span class="tag-chip">Work</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-25T08:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Web Dev Learning Resources</h3>
+          <p class="card-description">Essential web tech documentation and interactive tutorials.</p>
+          <ul class="bullet-list">
+            <li>MDN Web Docs (Comprehensive JavaScript Reference)</li>
+            <li>freeCodeCamp Interactive Curriculum</li>
+            <li>JavaScript.info Modern Tutorials</li>
+          </ul>
+          <div class="card-tags">
+            <span class="tag-chip">Web Dev</span>
+            <span class="tag-chip">Learning</span>
+            <span class="tag-chip">Resources</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="vault-footer">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo">N</div>
+            <div class="footer-brand-info">
+              <h4>Kabind Memory Vault</h4>
+              <p>Personal knowledge vault for code snippets, formulas, keys, and notes.</p>
+            </div>
+          </div>
+
+          <div class="footer-meta">
+            <div class="footer-stat-pill">
+              <span class="pulse-dot"></span>
+              <span id="footerCardCount">8</span> Memories Indexed
+            </div>
+            <!-- <button class="back-to-top-btn" id="backToTopBtn" title="Back to top">
+              <i data-lucide="arrow-up"></i>
+              <span>Back to Top</span>
+            </button> -->
+            
+            <a href="#sectionBar" class="back-to-top-btn" id="backToBrandBtn" title="Back to top" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+              <i data-lucide="arrow-up"></i> Back to Top
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <div class="footer-copy">
+            &copy; <span id="currentYear"></span> Nexus Memory. All rights reserved.
+          </div>
+          <div class="footer-links">
+            <a href="#searchInput" class="footer-link"><i data-lucide="search"></i> Search Vault</a>
+            <a href="#" class="footer-link" id="footerResetLink"><i data-lucide="rotate-ccw"></i> Reset Filters</a>
+            <a href="https://github.com/Basumatary321" target="_blank" rel="noopener noreferrer" class="footer-link">
+              <i data-lucide="github"></i> Source</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+    </main>
+
+    <aside class="right-panel" id="rightPanel">
+      <div class="drawer-header-mobile">
+        <h3>Calendar & Insights</h3>
+        <button class="drawer-close-btn" id="closeRightPanelBtn">&times;</button>
+      </div>
+
+      <div class="calendar-card">
+        <div class="cal-header">
+          <button class="cal-nav" id="prevMonthBtn" aria-label="Previous Month"><i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i></button>
+          <span id="calMonthYearLabel">Month Year</span>
+          <button class="cal-nav" id="nextMonthBtn" aria-label="Next Month"><i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i></button>
+        </div>
+        <div class="cal-grid" id="calendarDaysGrid"></div>
+      </div>
+
+      <div class="activity-section">
+        <h3 class="activity-title">Recent Activity</h3>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon-box" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+              <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+            </div>
+            <div class="activity-info">
+              <div class="activity-action">Added new prompt</div>
+              <div class="activity-target">AI System Architect Prompt</div>
+            </div>
+            <div class="activity-time">2h ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon-box" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+              <i data-lucide="function-square" style="width: 14px; height: 14px;"></i>
+            </div>
+            <div class="activity-info">
+              <div class="activity-action">Updated formula</div>
+              <div class="activity-target">Excel Financial Model</div>
+            </div>
+            <div class="activity-time">5h ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon-box" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">
+              <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+            </div>
+            <div class="activity-info">
+              <div class="activity-action">Added reference table</div>
+              <div class="activity-target">HTTP Status Codes</div>
+            </div>
+            <div class="activity-time">3 days ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <i data-lucide="quote" class="quote-icon"></i>
+        <p class="quote-text" id="quoteDisplay">The best way to predict the future is to create it.</p>
+        <span class="quote-author" id="authorDisplay">— Peter Drucker</span>
+      </div>
+    </aside>
+
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
