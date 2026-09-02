@@ -1,4 +1,4 @@
- :root {
+  :root {
   --bg-main: #060913;
   --bg-sidebar: #090e1b;
   --bg-card: rgba(18, 24, 43, 0.65);
@@ -43,7 +43,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
+  overflow:scroll;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -578,6 +578,66 @@ main.main-content {
   line-height: 1.4;
   margin-bottom: 12px;
 }
+
+/* links  */
+/* ---------------- CARD LINKS STYLING ---------------- */
+.card-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.72rem;
+  transition: all 0.15s ease;
+}
+
+body.light-theme .link-item {
+  background: #f8fafc;
+}
+
+.link-item:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #60a5fa;
+  transform: translateX(2px);
+}
+
+.link-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+}
+
+.link-name svg {
+  width: 13px;
+  height: 13px;
+  color: #818cf8;
+}
+
+.link-ext-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--text-dim);
+}
+
+.link-item:hover .link-ext-icon {
+  color: #60a5fa;
+}
+
 
 /* Custom Table inside Card */
 .card-table {
