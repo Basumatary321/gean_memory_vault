@@ -161,6 +161,61 @@ body.light-theme .footer-stat-pill {
     margin-top: 32px;
     padding: 16px;
   }
+
+/* =======================================================
+   LIGHT THEME CODE CONTRAST FIXES
+   ======================================================= */
+
+/* 1. Code Snippet Container */
+body.light-theme .code-snippet {
+  background: #f1f5f9;
+  color: #0f172a;               /* Deep slate for unformatted text */
+  border: 1px solid #cbd5e1;     /* Distinct outer boundary */
+  font-weight: 500;
+}
+
+/* 2. Syntax Highlighting Token Colors */
+body.light-theme .code-snippet .kw {
+  color: #b91c1c;               /* Deep Crimson for keywords (SELECT, FROM, role) */
+  font-weight: 600;
+}
+
+body.light-theme .code-snippet .str {
+  color: #15803d;               /* Forest Green for strings/quotes ("system", 'completed') */
+}
+
+body.light-theme .code-snippet .fn {
+  color: #1d4ed8;               /* Cobalt Blue for functions (=SUMIF, JOIN) */
+  font-weight: 600;
+}
+
+/* 3. Inline Code Tags (Used in tables and text) */
+body.light-theme code,
+body.light-theme .card-table td code {
+  background: #e2e8f0;
+  color: #1e3a8a;               /* High-contrast navy blue */
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+}
+
+/* 4. Keyboard Shortcuts & Keys */
+body.light-theme .key-row {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-theme .shortcut-kbd {
+  color: #1e40af;               /* Crisp royal blue */
+  background: #e0e7ff;
+  border: 1px solid #c7d2fe;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+body.light-theme .key-desc {
+  color: #475569;               /* Readable dark charcoal */
+}
+  
   
   .footer-top, .footer-bottom {
     flex-direction: column;
