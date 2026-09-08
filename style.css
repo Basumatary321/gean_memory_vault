@@ -1,9 +1,9 @@
-  :root {
+ :root {
   --bg-main: #060913;
   --bg-sidebar: #090e1b;
   --bg-card: rgba(18, 24, 43, 0.65);
   --bg-card-hover: rgba(26, 35, 60, 0.85);
-  --border-color: rgba(255, 255, 255, 0.07);
+  --border-color: rgba(255, 255, 255, 0.562);
   --border-light: rgba(255, 255, 255, 0.12);
   
   --text-main: #f8fafc;
@@ -19,11 +19,11 @@
 }
 
 body.light-theme {
-  --bg-main: #f8fafc;
+  --bg-main: #f4f9fa;
   --bg-sidebar: #ffffff;
   --bg-card: #ffffff;
   --bg-card-hover: #f1f5f9;
-  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color: rgba(0, 0, 0, 0.315);
   --border-light: rgba(0, 0, 0, 0.15);
   --text-main: #0f172a;
   --text-muted: #64748b;
