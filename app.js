@@ -7,7 +7,7 @@ const STATE = {
   currentTagFilter: null,
   searchQuery: '',
   calendarCurrentDate: new Date(),
-  isDarkMode: true
+  isDarkMode: false
 };
 
 document.addEventListener('DOMContentLoaded', () => {
