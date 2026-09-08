@@ -516,10 +516,15 @@ main.main-content {
 .view-all-link:hover { color: var(--text-main); }
 
 /* Cards Grid */
+/* Cards Grid */
 .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  display: block;
+  /* grid-template-columns: repeat(3, 1fr); */
+  column-count: 3;
+  column-gap: 12px;
+  /* gap: 14px; */
+  width: 100%;
+  /* align-items:normal; */
 }
 
 .no-results-msg {
@@ -538,7 +543,14 @@ main.main-content {
   padding: 14px;
   display: flex;
   flex-direction: column;
-  min-height: 240px;
+  min-height: auto;
+  height: fit-content;
+  max-height: max-content;
+  break-inside: avoid;
+  --webkit-column-break-inside: avoid;
+  --moz-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 12px;
   transition: all 0.2s ease;
   position: relative;
 }
