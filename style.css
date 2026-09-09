@@ -8,7 +8,7 @@
   
   --text-main: #f8fafc;
   --text-muted: #7e8c9f;
-  --text-dim: #4b5568;
+  --text-dim: #8d9094;
 
   --blue-accent: #3b82f6;
   --purple-accent: #8b5cf6;
@@ -27,7 +27,7 @@ body.light-theme {
   --border-light: rgba(0, 0, 0, 0.15);
   --text-main: #0f172a;
   --text-muted: #64748b;
-  --text-dim: #94a3b8;
+    --text-dim: #000000;
 }
 
 * {
