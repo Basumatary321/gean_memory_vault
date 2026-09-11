@@ -74,7 +74,7 @@
         <i data-lucide="bell"></i>
         <span class="badge-dot" id="notifBadge">3</span>
       </button>
-      <div class="user-profile">
+      <div class="user-profile" id="userProfileBtn">
         <!-- <a href="me2.jpg" target="_blank"> -->
           <img src="Me.png" alt="Alex R." class="avatar" />
         <!-- </a> -->
@@ -87,6 +87,91 @@
     </div>
   </header>
 
+
+<!-- USER PROFILE MODAL CARD -->
+<div class="profile-modal-overlay" id="profileModalOverlay">
+  <div class="profile-card">
+    <button class="profile-close-btn" id="closeProfileBtn" aria-label="Close Profile">&times;</button>
+    
+    <!-- Banner & Avatar -->
+    <div class="profile-header-banner">
+      <div class="profile-avatar-wrapper">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" alt="Kabind B." class="profile-avatar" />
+        <span class="online-indicator" title="Active"></span>
+      </div>
+    </div>
+
+    <!-- Main Details -->
+    <div class="profile-body">
+      <div class="profile-titles">
+        <h2 class="profile-name">Kabind B.</h2>
+        <span class="profile-badge">Full Stack Developer</span>
+        <p class="profile-bio">Passionate developer building clean, responsive web apps and personal knowledge systems.</p>
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <!-- Info Fields -->
+      <div class="profile-info-grid">
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="briefcase"></i></div>
+          <div class="info-details">
+            <span class="info-label">Profession</span>
+            <span class="info-value">Software Engineer</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="calendar"></i></div>
+          <div class="info-details">
+            <span class="info-label">Date of Birth</span>
+            <span class="info-value">15 August 2000</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="mail"></i></div>
+          <div class="info-details">
+            <span class="info-label">Email</span>
+            <a href="mailto:gwswsw60@gmail.com" class="info-link">gwswsw60@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="map-pin"></i></div>
+          <div class="info-details">
+            <span class="info-label">Location</span>
+            <span class="info-value">Assam, India</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <!-- Social Links -->
+      <div class="profile-socials">
+        <span class="socials-title">Connect with me</span>
+        <div class="social-links-row">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn github" title="GitHub">
+            <i data-lucide="github"></i> <span>GitHub</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn">
+            <i data-lucide="linkedin"></i> <span>LinkedIn</span>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram">
+            <i data-lucide="instagram"></i> <span>Instagram</span>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn twitter" title="Twitter / X">
+            <i data-lucide="twitter"></i> <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
   <div class="app-layout">
     
     <aside class="sidebar" id="sidebar">
