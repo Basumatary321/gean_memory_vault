@@ -472,3 +472,40 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 300);
   }, 2500);
 }
+
+
+
+
+
+
+// Profile Modal Logic
+  const userProfileBtn = document.getElementById('userProfileBtn');
+  const profileModalOverlay = document.getElementById('profileModalOverlay');
+  const closeProfileBtn = document.getElementById('closeProfileBtn');
+
+  if (userProfileBtn && profileModalOverlay) {
+    // Open on profile click
+    userProfileBtn.addEventListener('click', () => {
+      profileModalOverlay.classList.add('open');
+      refreshIcons();
+    });
+
+    // Close on cross click
+    closeProfileBtn?.addEventListener('click', () => {
+      profileModalOverlay.classList.remove('open');
+    });
+
+    // Close when clicking outside the card
+    profileModalOverlay.addEventListener('click', (e) => {
+      if (e.target === profileModalOverlay) {
+        profileModalOverlay.classList.remove('open');
+      }
+    });
+
+    // Close with Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && profileModalOverlay.classList.contains('open')) {
+        profileModalOverlay.classList.remove('open');
+      }
+    });
+  }
