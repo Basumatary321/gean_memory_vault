@@ -161,7 +161,7 @@ body.light-theme .footer-stat-pill {
     margin-top: 32px;
     padding: 16px;
   }
-
+}
 /* =======================================================
    LIGHT THEME CODE CONTRAST FIXES
    ======================================================= */
@@ -232,7 +232,7 @@ body.light-theme .key-desc {
     flex-wrap: wrap;
     gap: 12px;
   }
-}
+
 
 
 
