@@ -1,4 +1,4 @@
-/* ---------------- MAIN FOOTER ---------------- */
+ /* ---------------- MAIN FOOTER ---------------- */
 .vault-footer {
   margin-top: 48px;
   margin-bottom: 158px;
@@ -369,6 +369,7 @@ body.light-theme .online-indicator {
   font-size: 0.74rem;
   color: var(--text-muted);
   line-height: 1.4;
+  text-align: justify;
 }
 
 .profile-divider {
@@ -531,7 +532,7 @@ body.light-theme .btc-title {
 /* Top Leaders 3-Column Layout */
 .btc-leader-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns:1fr;
   gap: 8px;
 }
 
@@ -547,7 +548,7 @@ body.light-theme .btc-title {
   border-radius: 8px;
   padding: 8px 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 6px;
 }
 
