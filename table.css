@@ -1,4 +1,4 @@
-/* =======================================================
+ /* =======================================================
    ASSAM GK COMPREHENSIVE CARD STYLES
    ======================================================= */
 .gk-revision-card {
@@ -98,6 +98,9 @@ body.light-theme .gk-table th {
   font-weight: 500;
   width: 38%;
 }
+.national-parks-table td:first-child {
+  width: 10%;
+}
 
 body.light-theme .gk-table td:first-child {
   color: #475569;
@@ -108,7 +111,7 @@ body.light-theme .gk-table td:first-child {
 }
 
 .timeline-table td:first-child {
-  width: 32%;
+  width: 50%;
 }
 
 .compact-table td {
@@ -161,7 +164,10 @@ body.light-theme .danger-header {
   line-height: 1.4;
   gap: 8px;
 }
+.gk-list{
+  padding-left: 10px !important;
 
+}
 
 /* new tabl */
 /* =======================================================
