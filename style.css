@@ -1091,3 +1091,14 @@ column-count: 1;
   /* .metrics-grid { grid-template-columns: 1fr; } */
   .header-actions { gap: 6px; }
 }
+
+
+
+/* =======================================================
+   TEMPORARILY HIDE RIGHT PANEL & ITS HEADER TRIGGER
+   ======================================================= */
+aside.right-panel,
+#rightPanel,
+#mobileRightPanelBtn {
+  display: none !important;
+}
