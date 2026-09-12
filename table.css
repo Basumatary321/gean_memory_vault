@@ -1,0 +1,321 @@
+/* =======================================================
+   ASSAM GK COMPREHENSIVE CARD STYLES
+   ======================================================= */
+.gk-revision-card {
+  /* Let this heavy card take up proper space */
+  max-width: 100%;
+}
+
+.card-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.exam-pill {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.gk-title {
+  font-size: 1.1rem !important;
+  color: #60a5fa;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .gk-title {
+  color: #1d4ed8;
+}
+
+.gk-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 12px 0 16px;
+}
+
+.gk-section {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+body.light-theme .gk-section {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.gk-sec-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+body.light-theme .gk-sec-header {
+  color: #0369a1;
+  border-color: #e2e8f0;
+}
+
+.gk-sec-header svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Custom Table Overrides */
+.gk-table {
+  margin: 0 !important;
+  font-size: 0.68rem !important;
+  width: 100%;
+}
+
+.gk-table td, .gk-table th {
+  padding: 4px 6px !important;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+body.light-theme .gk-table td, 
+body.light-theme .gk-table th {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gk-table td:first-child {
+  color: var(--text-muted);
+  font-weight: 500;
+  width: 38%;
+}
+
+body.light-theme .gk-table td:first-child {
+  color: #475569;
+}
+
+.gk-table td:last-child {
+  color: var(--text-main);
+}
+
+.timeline-table td:first-child {
+  width: 32%;
+}
+
+.compact-table td {
+  width: 25% !important;
+}
+
+.gk-list {
+  margin: 0 !important;
+  font-size: 0.68rem !important;
+  gap: 5px !important;
+}
+
+.gk-flagship-box {
+  margin-top: 8px;
+  padding: 6px 8px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 6px;
+  font-size: 0.68rem;
+  color: #6ee7b7;
+  line-height: 1.4;
+}
+
+body.light-theme .gk-flagship-box {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+.highlight-sec {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+body.light-theme .highlight-sec {
+  background: #fff5f5;
+  border-color: #fecaca;
+}
+
+.danger-header {
+  color: #f87171 !important;
+}
+
+body.light-theme .danger-header {
+  color: #b91c1c !important;
+}
+
+.gk-checklist li {
+  font-size: 0.68rem;
+  line-height: 1.4;
+  gap: 8px;
+}
+
+
+/* new tabl */
+/* =======================================================
+   ASSAM CURRENT AFFAIRS CARD STYLES
+   ======================================================= */
+.ca-revision-card {
+  max-width: 100%;
+}
+
+.ca-title {
+  font-size: 1.1rem !important;
+  color: #38bdf8;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .ca-title {
+  color: #0284c7;
+}
+
+.ca-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+
+.ca-section {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  border-left-width: 3px;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+body.light-theme .ca-section {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+/* Section Header Accent Colors */
+.ca-sec-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+.ca-sec-header svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Color variations matching the infographic */
+.border-red { border-left-color: #ef4444; }
+.text-red { color: #f87171; }
+body.light-theme .text-red { color: #dc2626; }
+
+.border-blue { border-left-color: #3b82f6; }
+.text-blue { color: #60a5fa; }
+body.light-theme .text-blue { color: #2563eb; }
+
+.border-green { border-left-color: #10b981; }
+.text-green { color: #34d399; }
+body.light-theme .text-green { color: #059669; }
+
+.border-emerald { border-left-color: #059669; }
+.text-emerald { color: #10b981; }
+body.light-theme .text-emerald { color: #047857; }
+
+.border-orange { border-left-color: #f97316; }
+.text-orange { color: #fb923c; }
+body.light-theme .text-orange { color: #ea580c; }
+
+.border-cyan { border-left-color: #06b6d4; }
+.text-cyan { color: #22d3ee; }
+body.light-theme .text-cyan { color: #0891b2; }
+
+.border-purple { border-left-color: #8b5cf6; }
+.text-purple { color: #a78bfa; }
+body.light-theme .text-purple { color: #7c3aed; }
+
+.border-rose { border-left-color: #f43f5e; }
+.text-rose { color: #fb7185; }
+body.light-theme .text-rose { color: #e11d48; }
+
+.border-teal { border-left-color: #14b8a6; }
+.text-teal { color: #2dd4bf; }
+body.light-theme .text-teal { color: #0f766e; }
+
+.border-pink { border-left-color: #ec4899; }
+.text-pink { color: #f472b6; }
+body.light-theme .text-pink { color: #db2777; }
+
+/* Table styling for appointments and schemes */
+.ca-table {
+  margin: 0 !important;
+  font-size: 0.68rem !important;
+  width: 100%;
+}
+
+.ca-table td {
+  padding: 4px 6px !important;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+body.light-theme .ca-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ca-table td:first-child {
+  color: var(--text-muted);
+  font-weight: 600;
+  width: 35%;
+}
+
+body.light-theme .ca-table td:first-child {
+  color: #334155;
+}
+
+.ca-table td:last-child {
+  color: var(--text-main);
+}
+
+.ca-list {
+  margin: 0 !important;
+  font-size: 0.68rem !important;
+  gap: 5px !important;
+}
+
+.ca-step-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.68rem;
+  margin: 0;
+  padding: 0;
+}
+
+.ca-step-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.35;
+}
+
+.ca-step-list li svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
