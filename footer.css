@@ -502,3 +502,190 @@ body.light-theme .social-btn {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =======================================================
+   BODOLAND TERRITORIAL COUNCIL (BTC) CARD STYLES
+   ======================================================= */
+.btc-card {
+  max-width: 100%;
+}
+
+.btc-title {
+  color: #10b981 !important;
+  font-size: 1.05rem !important;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .btc-title {
+  color: #047857 !important;
+}
+
+.btc-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0 14px;
+}
+
+/* Top Leaders 3-Column Layout */
+.btc-leader-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .btc-leader-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btc-leader-card {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+body.light-theme .btc-leader-card {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.leader-role-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.badge-cem { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+.badge-dep { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-meta { background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.3); }
+
+.leader-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 2px;
+}
+
+.leader-constituency {
+  font-size: 0.66rem;
+  color: var(--text-muted);
+}
+
+.leader-portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.port-tag {
+  font-size: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+
+body.light-theme .port-tag {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.btc-mini-table {
+  font-size: 0.65rem !important;
+  margin: 0 !important;
+}
+
+.btc-mini-table td {
+  padding: 3px 4px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+body.light-theme .btc-mini-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Full Table Wrap */
+.btc-table-wrap {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+body.light-theme .btc-table-wrap {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.btc-sec-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #10b981;
+  margin-bottom: 6px;
+}
+
+body.light-theme .btc-sec-title {
+  color: #047857;
+}
+
+.btc-sec-title svg {
+  width: 14px;
+  height: 14px;
+}
+
+.btc-main-table {
+  font-size: 0.66rem !important;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.btc-main-table th, .btc-main-table td {
+  padding: 4px 6px !important;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+body.light-theme .btc-main-table th, 
+body.light-theme .btc-main-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pill-role {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+}
+
+.pill-cem { background: #ef4444; color: #fff; }
+.pill-dep { background: #10b981; color: #fff; }
+.pill-em { background: #3b82f6; color: #fff; }
+
+.party-bpf {
+  font-size: 0.6rem;
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.party-bjp {
+  font-size: 0.6rem;
+  color: #f97316;
+  font-weight: 600;
+}
