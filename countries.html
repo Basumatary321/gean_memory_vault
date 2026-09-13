@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Countries, Capitals & Currencies — Reference Vault</title>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Reuses your existing dashboard styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+
+/* Dedicated Page Container */
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      width: 100%;
+    }
+
+    .top-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(-2px);
+    }
+
+    body.light-theme .back-btn {
+      background: #ffffff;
+      border-color: #cbd5e1;
+    }
+
+    .countries-header {
+      margin-bottom: 20px;
+    }
+
+    .countries-header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .countries-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Live Search & Continent Filters Bar */
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .table-search-box {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+      max-width: 400px;
+    }
+
+    .table-search-input {
+      width: 100%;
+      height: 40px;
+      padding: 0 16px 0 38px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    body.light-theme .table-search-input {
+      background: #ffffff;
+      border-color: #cbd5e1;
+    }
+
+    .table-search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--text-muted);
+    }
+
+    /* Full-width Responsive Table */
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .countries-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.82rem;
+    }
+
+    .countries-table th, .countries-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    body.light-theme .countries-table td {
+      border-bottom-color: #e2e8f0;
+    }
+
+    .countries-table th {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+    }
+
+    body.light-theme .countries-table th {
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .countries-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    body.light-theme .countries-table tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    .currency-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #93c5fd;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    body.light-theme .currency-pill {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-color: #bfdbfe;
+    }
+    /* =======================================================
+   RESPONSIVE COMPACT TABLE STYLES
+   ======================================================= */
+
+.table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  /* Ensures smooth horizontal touch scrolling if needed */
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.countries-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.82rem;
+  white-space: nowrap; /* Prevents awkward multi-line breakage */
+}
+
+.countries-table th, 
+.countries-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* =======================================================
+   MOBILE-SPECIFIC COMPACT RULES (< 768px & < 480px)
+   ======================================================= */
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 12px 10px 40px !important; /* Strips large outer screen margins */
+  }
+
+  .top-nav-bar {
+    margin-bottom: 12px;
+  }
+
+  .back-btn {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+
+  .countries-header h1 {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+  }
+
+  .countries-header p {
+    font-size: 0.72rem;
+  }
+
+  .controls-bar {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .table-search-box {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .table-search-input {
+    height: 36px;
+    font-size: 0.78rem;
+    padding-left: 34px;
+  }
+
+  .filter-pills {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 4px;
+  }
+
+  .filter-pills .pill {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+
+  /* Compact Table Layout for Mobile */
+  .countries-table {
+    font-size: 0.72rem; /* Smaller, crisp legible font */
+  }
+
+  .countries-table th, 
+  .countries-table td {
+    padding: 6px 8px !important; /* Minimal padding */
+  }
+
+  .countries-table th {
+    font-size: 0.65rem;
+  }
+
+  .currency-pill {
+    font-size: 0.65rem;
+    padding: 1px 5px;
+  }
+}
+
+/* Extra Small Phones (< 480px) */
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 8px 6px 30px !important;
+  }
+
+  .countries-table {
+    font-size: 0.68rem; /* Ultra compact */
+  }
+
+  .countries-table th, 
+  .countries-table td {
+    padding: 5px 6px !important;
+  }
+
+  /* Hide serial number & continent on small screens so Country, Capital, and Currency fit 100% visible without horizontal scrolling */
+  .col-num, 
+  .col-continent {
+    display: none !important;
+  }
+}
+  </style>
+</head>
+<body class="light-theme" style="height: auto; overflow-y: auto;">
+
+  <div class="page-wrapper">
+    <!-- Navigation Bar -->
+    <div class="top-nav-bar">
+      <a href="index.html" class="back-btn">
+        <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i> Back to Dashboard
+      </a>
+      
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme">
+        <i data-lucide="moon" id="themeIcon"></i>
+      </button>
+    </div>
+
+    <!-- Title Header -->
+    <div class="countries-header">
+      <h1>🌍 World Countries, Capitals &amp; Currencies</h1>
+      <p>Quick lookup reference of sovereign states, territories, and capitals.</p>
+    </div>
+
+    <!-- Live Search & Continent Filtering -->
+    <div class="controls-bar">
+      <div class="table-search-box">
+        <i data-lucide="search" class="table-search-icon"></i>
+        <input type="text" id="countrySearch" class="table-search-input" placeholder="Search country, capital, or currency..." />
+      </div>
+      
+      <div class="filter-pills" style="margin-bottom: 0;">
+        <button class="pill active" data-continent="All">All</button>
+        <button class="pill" data-continent="Asia">Asia</button>
+        <button class="pill" data-continent="Europe">Europe</button>
+        <button class="pill" data-continent="Africa">Africa</button>
+        <button class="pill" data-continent="Americas">Americas</button>
+        <button class="pill" data-continent="Oceania">Oceania</button>
+      </div>
+    </div>
+
+    <!-- Full Table Card -->
+    <div class="table-card">
+      <table class="countries-table" id="countriesTable">
+        <thead>
+          <tr>
+            <th class="col-num" style="width: 50px;">#</th>
+            <th>Country</th>
+            <th>Capital</th>
+            <th>Currency</th>
+            <th class="col-continent">Continent</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Rows will render dynamically from the JavaScript array below -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Sample dataset covering major global countries (you can append as many as you wish!)
+    const COUNTRIES_DATA = [
+      { name: "Afghanistan", capital: "Kabul", currency: "Afghan Afghani (AFN)", continent: "Asia" },
+      { name: "Albania", capital: "Tirana", currency: "Albanian Lek (ALL)", continent: "Europe" },
+      { name: "Algeria", capital: "Algiers", currency: "Algerian Dinar (DZD)", continent: "Africa" },
+      { name: "Argentina", capital: "Buenos Aires", currency: "Argentine Peso (ARS)", continent: "Americas" },
+      { name: "Australia", capital: "Canberra", currency: "Australian Dollar (AUD)", continent: "Oceania" },
+      { name: "Austria", capital: "Vienna", currency: "Euro (EUR)", continent: "Europe" },
+      { name: "Bangladesh", capital: "Dhaka", currency: "Bangladeshi Taka (BDT)", continent: "Asia" },
+      { name: "Bhutan", capital: "Thimphu", currency: "Bhutanese Ngultrum (BTN)", continent: "Asia" },
+      { name: "Brazil", capital: "Brasília", currency: "Brazilian Real (BRL)", continent: "Americas" },
+      { name: "Canada", capital: "Ottawa", currency: "Canadian Dollar (CAD)", continent: "Americas" },
+      { name: "China", capital: "Beijing", currency: "Chinese Yuan (CNY)", continent: "Asia" },
+      { name: "Egypt", capital: "Cairo", currency: "Egyptian Pound (EGP)", continent: "Africa" },
+      { name: "France", capital: "Paris", currency: "Euro (EUR)", continent: "Europe" },
+      { name: "Germany", capital: "Berlin", currency: "Euro (EUR)", continent: "Europe" },
+      { name: "India", capital: "New Delhi", currency: "Indian Rupee (INR)", continent: "Asia" },
+      { name: "Indonesia", capital: "Jakarta", currency: "Indonesian Rupiah (IDR)", continent: "Asia" },
+      { name: "Italy", capital: "Rome", currency: "Euro (EUR)", continent: "Europe" },
+      { name: "Japan", capital: "Tokyo", currency: "Japanese Yen (JPY)", continent: "Asia" },
+      { name: "Kenya", capital: "Nairobi", currency: "Kenyan Shilling (KES)", continent: "Africa" },
+      { name: "Mexico", capital: "Mexico City", currency: "Mexican Peso (MXN)", continent: "Americas" },
+      { name: "Nepal", capital: "Kathmandu", currency: "Nepalese Rupee (NPR)", continent: "Asia" },
+      { name: "New Zealand", capital: "Wellington", currency: "New Zealand Dollar (NZD)", continent: "Oceania" },
+      { name: "Nigeria", capital: "Abuja", currency: "Nigerian Naira (NGN)", continent: "Africa" },
+      { name: "Russia", capital: "Moscow", currency: "Russian Ruble (RUB)", continent: "Europe" },
+      { name: "Saudi Arabia", capital: "Riyadh", currency: "Saudi Riyal (SAR)", continent: "Asia" },
+      { name: "South Africa", capital: "Pretoria / Cape Town", currency: "South African Rand (ZAR)", continent: "Africa" },
+      { name: "South Korea", capital: "Seoul", currency: "South Korean Won (KRW)", continent: "Asia" },
+      { name: "Spain", capital: "Madrid", currency: "Euro (EUR)", continent: "Europe" },
+      { name: "Sri Lanka", capital: "Sri Jayawardenepura Kotte", currency: "Sri Lankan Rupee (LKR)", continent: "Asia" },
+      { name: "Switzerland", capital: "Bern", currency: "Swiss Franc (CHF)", continent: "Europe" },
+      { name: "United Kingdom", capital: "London", currency: "Pound Sterling (GBP)", continent: "Europe" },
+      { name: "United States", capital: "Washington, D.C.", currency: "US Dollar (USD)", continent: "Americas" },
+      { name: "Vietnam", capital: "Hanoi", currency: "Vietnamese Dong (VND)", continent: "Asia" }
+    ];
+
+    let currentContinent = 'All';
+    let searchQuery = '';
+
+    function renderTable() {
+
+
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+
+      const filtered = COUNTRIES_DATA.filter(item => {
+        const matchesContinent = (currentContinent === 'All' || item.continent === currentContinent);
+        const query = searchQuery.toLowerCase();
+        const matchesQuery = item.name.toLowerCase().includes(query) ||
+                             item.capital.toLowerCase().includes(query) ||
+                             item.currency.toLowerCase().includes(query);
+        return matchesContinent && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 24px;">No matching countries found.</td></tr>`;
+        return;
+      }
+
+     filtered.forEach((c, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="col-num" style="color: var(--text-dim);">${idx + 1}</td>
+          <td><strong>${c.name}</strong></td>
+          <td>${c.capital}</td>
+          <td><span class="currency-pill">${c.currency}</span></td>
+          <td class="col-continent" style="color: var(--text-muted);">${c.continent}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Initial render
+    renderTable();
+    lucide.createIcons();
+
+    // Live search listener
+    document.getElementById('countrySearch').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderTable();
+    });
+
+    // Filter pills listener
+    document.querySelectorAll('.filter-pills .pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pills .pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentContinent = btn.getAttribute('data-continent');
+        renderTable();
+      });
+    });
+
+    // Theme Sync & Toggle
+    const savedTheme = localStorage.getItem('app_theme') || 'light';
+    document.body.classList.toggle('light-theme', savedTheme === 'light');
+    document.getElementById('themeIcon').setAttribute('data-lucide', savedTheme === 'light' ? 'moon' : 'sun');
+    lucide.createIcons();
+
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-theme');
+      localStorage.setItem('app_theme', isLight ? 'light' : 'dark');
+      document.getElementById('themeIcon').setAttribute('data-lucide', isLight ? 'moon' : 'sun');
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

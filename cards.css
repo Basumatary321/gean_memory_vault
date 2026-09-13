@@ -1,0 +1,332 @@
+/* =======================================================
+   PC OPTIMIZATION & PERFORMANCE CARD STYLES
+   ======================================================= */
+.pc-speed-card {
+  max-width: 100%;
+}
+
+.pc-speed-title {
+  color: #38bdf8 !important;
+  font-size: 1.15rem !important;
+  margin-bottom: 3px !important;
+}
+
+body.light-theme .pc-speed-title {
+  color: #0284c7 !important;
+}
+
+.pc-speed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+
+/* Why PC Gets Slow Section */
+.pc-why-slow-box {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+body.light-theme .pc-why-slow-box {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.pc-box-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f87171;
+  margin-bottom: 8px;
+}
+
+body.light-theme .pc-box-title {
+  color: #dc2626;
+}
+
+.pc-box-title svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pc-slow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 8px;
+}
+
+.pc-slow-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.pc-slow-item strong {
+  color: var(--text-main);
+}
+
+.slow-icon {
+  width: 13px;
+  height: 13px;
+  color: #f87171;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Section Divider Banners */
+.pc-section-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+body.light-theme .pc-section-banner {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.pc-section-banner svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Upgrades 5-Card Grid */
+.pc-upgrades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.pc-upgrade-card {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  border-top-width: 3px;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+body.light-theme .pc-upgrade-card {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.green-border { border-top-color: #10b981; }
+.blue-border { border-top-color: #3b82f6; }
+.purple-border { border-top-color: #a855f7; }
+.orange-border { border-top-color: #f97316; }
+.cyan-border { border-top-color: #06b6d4; }
+
+.green-text { color: #34d399; }
+.blue-text { color: #60a5fa; }
+.purple-text { color: #c084fc; }
+.orange-text { color: #fb923c; }
+.cyan-text { color: #22d3ee; }
+
+body.light-theme .green-text { color: #059669; }
+body.light-theme .blue-text { color: #2563eb; }
+body.light-theme .purple-text { color: #7e22ce; }
+body.light-theme .orange-text { color: #ea580c; }
+body.light-theme .cyan-text { color: #0891b2; }
+
+.pc-up-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pc-up-header h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.pc-up-header svg {
+  width: 14px;
+  height: 14px;
+}
+
+.pc-subtag {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  line-height: 1.25;
+}
+
+.pc-check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 4px 0;
+  padding: 0;
+}
+
+.pc-check-list li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.66rem;
+  color: var(--text-main);
+}
+
+.pc-check-list li svg {
+  width: 11px;
+  height: 11px;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.pc-card-badge-footer {
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.pc-card-badge-footer svg {
+  width: 11px;
+  height: 11px;
+}
+
+.green-badge { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.blue-badge { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.purple-badge { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+.orange-badge { background: rgba(249, 115, 22, 0.15); color: #fb923c; }
+.cyan-badge { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+
+body.light-theme .green-badge { background: #d1fae5; color: #065f46; }
+body.light-theme .blue-badge { background: #dbeafe; color: #1e40af; }
+body.light-theme .purple-badge { background: #f3e8ff; color: #6b21a8; }
+body.light-theme .orange-badge { background: #ffedd5; color: #9a3412; }
+body.light-theme .cyan-badge { background: #cffafe; color: #155e75; }
+
+/* Smart Habits Section */
+.pc-habits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.pc-habit-item {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+body.light-theme .pc-habit-item {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.habit-icon {
+  width: 14px;
+  height: 14px;
+  color: #38bdf8;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pc-habit-item strong {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.pc-habit-item p {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Bottom Summary & Pro Tips */
+.pc-bottom-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+body.light-theme .pc-bottom-summary {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.pc-extra-tips {
+  font-size: 0.66rem;
+}
+
+.extra-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 4px;
+}
+
+.extra-title svg {
+  width: 12px;
+  height: 12px;
+}
+
+.pc-extra-tips ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 4px 12px;
+  list-style: square;
+  padding-left: 16px;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.pc-upgrade-order-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.66rem;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.pc-upgrade-order-bar strong {
+  color: #10b981;
+}
+
+body.light-theme .pc-upgrade-order-bar strong {
+  color: #059669;
+}

@@ -1,4 +1,4 @@
-  :root {
+ :root {
   --bg-main: #060913;
   --bg-sidebar: #090e1b;
   --bg-card: rgba(18, 24, 43, 0.65);
@@ -1069,7 +1069,9 @@ body.light-theme .toast {
   .sidebar-top-bar { display: flex; }
 
   main.main-content { padding: 16px; }
-  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; 
+  display: none;
+  }
   .cards-grid {
      /* grid-template-columns: 1fr; gap: 12px; */
 column-count: 1;
