@@ -23,8 +23,8 @@
     .page-wrapper {
       max-width: 1050px;
       margin: 0 auto;
-      padding: 24px 20px 60px;
-      width: 90%;
+      padding: 20px;
+      width: 100%;
     }
     .top-nav-bar {
       display: flex;
@@ -56,12 +56,16 @@
       border-color: #cbd5e1;
     }
     .math-grid {
-      display: grid;
-      grid-template-columns: repeat(1fr, 1fr);
-      gap: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
       align-items: center;
     }
     .math-section {
+    width: 100%;
+    max-width: 750px;
       background: var(--bg-card);
       border: 1px solid var(--card-border-color);
       border-radius: 12px;
@@ -129,7 +133,7 @@
     }
     @media (max-width: 600px) {
       .page-wrapper {
-        padding: 12px 10px 40px;
+        padding: 12px 10px 20px;
       }
       .math-grid {
         grid-template-columns: 1fr;
@@ -152,7 +156,7 @@
 
     <div style="margin-bottom: 20px;">
       <h1 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin: 0 0 4px; text-align: center;">📐 Quantitative Aptitude &amp; Math Sheet</h1>
-      <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Comprehensive formula collection for competitive examinations.</p>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0; text-align: center;">Comprehensive formula collection for competitive examinations.</p>
     </div>
 
     <div class="math-grid">
