@@ -1,0 +1,97 @@
+<svg class="card-image" viewBox="0 0 800 450" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#070c18" />
+          <stop offset="50%" stop-color="#0c162d" />
+          <stop offset="100%" stop-color="#050811" />
+        </linearGradient>
+
+        <!-- Ambient Glow Filter -->
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="35" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+
+        <!-- Geometry Stroke Gradients -->
+        <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38bdf8" />
+          <stop offset="100%" stop-color="#818cf8" />
+        </linearGradient>
+      </defs>
+
+      <!-- 1. Background Fill -->
+      <rect width="800" height="450" fill="url(#bgGrad)" />
+
+      <!-- 2. Ambient Color Glows -->
+      <circle cx="120" cy="90" r="140" fill="#4f46e5" opacity="0.35" filter="url(#glow)" />
+      <circle cx="680" cy="360" r="160" fill="#06b6d4" opacity="0.3" filter="url(#glow)" />
+      <circle cx="420" cy="220" r="100" fill="#8b5cf6" opacity="0.2" filter="url(#glow)" />
+
+      <!-- 3. Math Background Grid Pattern -->
+      <g stroke="rgba(255,255,255,0.035)" stroke-width="1">
+        <line x1="80" y1="0" x2="80" y2="450" />
+        <line x1="160" y1="0" x2="160" y2="450" />
+        <line x1="240" y1="0" x2="240" y2="450" />
+        <line x1="320" y1="0" x2="320" y2="450" />
+        <line x1="400" y1="0" x2="400" y2="450" />
+        <line x1="480" y1="0" x2="480" y2="450" />
+        <line x1="560" y1="0" x2="560" y2="450" />
+        <line x1="640" y1="0" x2="640" y2="450" />
+        <line x1="720" y1="0" x2="720" y2="450" />
+        <line x1="0" y1="60" x2="800" y2="60" />
+        <line x1="0" y1="120" x2="800" y2="120" />
+        <line x1="0" y1="180" x2="800" y2="180" />
+        <line x1="0" y1="240" x2="800" y2="240" />
+        <line x1="0" y1="300" x2="800" y2="300" />
+        <line x1="0" y1="360" x2="800" y2="360" />
+        <line x1="0" y1="420" x2="800" y2="420" />
+      </g>
+
+      <!-- 4. Watermark Background Formulas -->
+      <g fill="rgba(255,255,255,0.07)" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="600">
+        <text x="50" y="65">a² + b² = c²</text>
+        <text x="580" y="70">SI = (P·R·T) / 100</text>
+        <text x="60" y="420">V = (4/3)πr³</text>
+        <text x="520" y="420">∑ (n-2) × 180°</text>
+      </g>
+
+      <!-- 5. Geometric Wireframes (Right Side) -->
+      <g stroke="url(#cyanGrad)" stroke-width="2.5" fill="none" opacity="0.65">
+        <!-- Coordinate Circle -->
+        <circle cx="630" cy="225" r="85" stroke-dasharray="4 4" />
+        <!-- Inscribed Equilateral Triangle -->
+        <polygon points="630,140 703,267 557,267" stroke="rgba(129, 140, 248, 0.9)" />
+        <!-- Height Altitude Line -->
+        <line x1="630" y1="140" x2="630" y2="267" stroke="#38bdf8" stroke-dasharray="2 3" />
+        <!-- Axis Crosshair -->
+        <line x1="510" y1="225" x2="750" y2="225" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+        <line x1="630" y1="105" x2="630" y2="345" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+      </g>
+
+      <!-- 6. Mathematics Category Badge -->
+      <g transform="translate(60, 130)">
+        <rect width="140" height="28" rx="14" fill="#4f46e5" fill-opacity="0.35" stroke="#6366f1" stroke-width="1" />
+        <text x="70" y="18" fill="#a5b4fc" font-family="'Inter', sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1">MATHEMATICS</text>
+      </g>
+
+      <!-- 7. Main Typography -->
+      <text x="60" y="205" fill="#ffffff" font-family="'Inter', sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">Arithmetic &amp; Geometry</text>
+      <text x="60" y="245" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="22" font-weight="700">Formulas &amp; Revision Vault</text>
+      <text x="60" y="275" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="14" font-weight="500">10 Core Quantitative Aptitude Topics</text>
+
+      <!-- 8. Feature Tags / Pills -->
+      <g transform="translate(60, 310)" font-family="'Inter', sans-serif" font-size="11" font-weight="600">
+        <!-- Tag 1 -->
+        <rect x="0" y="0" width="105" height="26" rx="13" fill="#0f172a" stroke="rgba(255,255,255,0.15)" />
+        <text x="52" y="17" fill="#cbd5e1" text-anchor="middle">PERCENTAGE</text>
+        
+        <!-- Tag 2 -->
+        <rect x="115" y="0" width="115" height="26" rx="13" fill="#0f172a" stroke="rgba(255,255,255,0.15)" />
+        <text x="172" y="17" fill="#cbd5e1" text-anchor="middle">PROFIT &amp; LOSS</text>
+
+        <!-- Tag 3 -->
+        <rect x="240" y="0" width="110" height="26" rx="13" fill="#0f172a" stroke="rgba(255,255,255,0.15)" />
+        <text x="295" y="17" fill="#cbd5e1" text-anchor="middle">MENSURATION</text>
+      </g>
+    </svg>

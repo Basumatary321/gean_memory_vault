@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arithmetic & Geometry Formula Vault</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for formula formatting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .page-wrapper {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      width: 100%;
+    }
+    .top-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+    .back-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(-2px);
+    }
+    body.light-theme .back-btn {
+      background: #ffffff;
+      border-color: #cbd5e1;
+    }
+    .math-grid {
+      display: grid;
+      /* grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); */
+      gap: 16px;
+      align-items: start;
+    }
+    .math-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+    body.light-theme .math-section {
+      background: #ffffff;
+      border-color: #e2e8f0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #38bdf8;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    body.light-theme .sec-head {
+      color: #0284c7;
+      border-bottom-color: #e2e8f0;
+    }
+    .formula-row {
+      margin-bottom: 12px;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+    .formula-row:last-child {
+      margin-bottom: 0;
+    }
+    .formula-row strong {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .legend-box {
+      font-size: 0.72rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed var(--border-color);
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin-top: 8px;
+      color: var(--text-muted);
+    }
+    body.light-theme .legend-box {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      color: #475569;
+    }
+    .katex {
+      font-size: 0.95em;
+    }
+    @media (max-width: 600px) {
+      .page-wrapper {
+        padding: 12px 10px 40px;
+      }
+      .math-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="light-theme">
+
+  <div class="page-wrapper">
+    <div class="top-nav-bar">
+      <a href="index.html" class="back-btn">
+        <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i> Back to Dashboard
+      </a>
+      
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme">
+        <i data-lucide="moon" id="themeIcon"></i>
+      </button>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+      <h1 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin: 0 0 4px;">📐 Quantitative Aptitude &amp; Math Sheet</h1>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Comprehensive formula collection for competitive examinations.</p>
+    </div>
+
+    <div class="math-grid">
+
+      <!-- 1. PERCENTAGE -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="percent"></i> 1. Percentage</div>
+        <div class="formula-row">
+          <strong>Basic Percentage:</strong>
+          $$\text{Percentage} = \frac{\text{Value}}{\text{Total Value}} \times 100$$
+        </div>
+        <div class="formula-row">
+          <strong>Increase / Decrease %:</strong>
+          $$\text{\% Change} = \frac{\text{Difference}}{\text{Original Value}} \times 100$$
+        </div>
+        <div class="formula-row">
+          <strong>$P$ percent of $x$:</strong>
+          $$P\% \text{ of } x = \frac{P}{100} \times x$$
+        </div>
+      </div>
+
+      <!-- 2. PROFIT & LOSS -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="trending-up"></i> 2. Profit &amp; Loss</div>
+        <div class="formula-row">$$\text{Profit} = SP - CP \quad | \quad \text{Loss} = CP - SP$$</div>
+        <div class="formula-row">$$\text{Profit \%} = \frac{\text{Profit}}{CP} \times 100 \quad | \quad \text{Loss \%} = \frac{\text{Loss}}{CP} \times 100$$</div>
+        <div class="formula-row">$$SP = \frac{100 + \text{Profit \%}}{100} \times CP \quad | \quad CP = \frac{100}{100 + \text{Profit \%}} \times SP$$</div>
+        <div class="formula-row">$$\text{Discount \%} = \frac{\text{Discount}}{MP} \times 100$$</div>
+        <div class="formula-row">
+          <strong>Successive Discounts ($x\%$ and $y\%$):</strong>
+          $$SP = MP \times \left(\frac{100 - x}{100}\right) \times \left(\frac{100 - y}{100}\right)$$
+          $$\text{Equivalent Discount} = \left(x + y - \frac{xy}{100}\right)\%$$
+        </div>
+        <div class="legend-box"><strong>Legend:</strong> $SP$ = Selling Price, $CP$ = Cost Price, $MP$ = Marked Price</div>
+      </div>
+
+      <!-- 3. SI & CI -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="coins"></i> 3. Simple &amp; Compound Interest</div>
+        <div class="formula-row">
+          <strong>Simple Interest (SI):</strong>
+          $$SI = \frac{P \times R \times T}{100}, \quad \text{Amount} = P + SI$$
+        </div>
+        <div class="formula-row">
+          <strong>Compound Interest (CI):</strong>
+          $$CI = P \left(1 + \frac{R}{100}\right)^T - P$$
+        </div>
+        <div class="formula-row">
+          <strong>Varying Annual Rates ($R_1\%, R_2\%, R_3\%$):</strong>
+          $$\text{Amount} = P \left(1 + \frac{R_1}{100}\right)\left(1 + \frac{R_2}{100}\right)\left(1 + \frac{R_3}{100}\right)$$
+        </div>
+        <div class="legend-box"><strong>Legend:</strong> $P$ = Principal, $R$ = Rate per annum, $T$ = Time in years</div>
+      </div>
+
+      <!-- 4. AVERAGE -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="bar-chart-2"></i> 4. Average</div>
+        <div class="formula-row">Consecutive natural numbers up to $n$: $$\text{Avg} = \frac{n + 1}{2}$$</div>
+        <div class="formula-row">Consecutive even numbers up to $n$: $$\text{Avg} = \frac{n}{2} + 1$$</div>
+        <div class="formula-row">Consecutive odd numbers up to $n$: $$\text{Avg} = \frac{n + 1}{2}$$</div>
+        <div class="formula-row">First $n$ consecutive even numbers: $$\text{Avg} = n + 1$$</div>
+        <div class="formula-row">First $n$ consecutive odd numbers: $$\text{Avg} = n$$</div>
+      </div>
+
+      <!-- 5. SPEED, TIME & DISTANCE -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="gauge"></i> 5. Speed, Time &amp; Distance</div>
+        <div class="formula-row">$$\text{Speed} = \frac{\text{Distance}}{\text{Time}}, \quad \text{Time} = \frac{\text{Distance}}{\text{Speed}}$$</div>
+        <div class="formula-row">
+          <strong>Average Speed (Equal Distances at speeds $A$ &amp; $B$):</strong>
+          $$\text{Avg Speed} = \frac{2AB}{A + B}$$
+        </div>
+        <div class="formula-row">
+          <strong>Train crossing a pole:</strong>
+          $$\text{Time} = \frac{\text{Length of Train}}{\text{Speed}}$$
+        </div>
+        <div class="formula-row">
+          <strong>Train crossing a platform:</strong>
+          $$\text{Time} = \frac{\text{Length of Train} + \text{Length of Platform}}{\text{Speed}}$$
+        </div>
+      </div>
+
+      <!-- 6. TIME & WORK -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="clock"></i> 6. Time &amp; Work</div>
+        <div class="formula-row">$$\text{Work} = \text{Rate} \times \text{Time}$$</div>
+        <div class="formula-row">If $A$ does work in $X$ days, 1-day work is $\frac{1}{X}$.</div>
+        <div class="formula-row">$A$ (in $n$ days) and $B$ (in $m$ days) together take: $$\text{Days} = \frac{n \cdot m}{n + m}$$</div>
+        <div class="formula-row">Inlet pipe $A$ fills in $x$ hrs, outlet pipe $B$ empties in $y$ hrs ($y > x$): $$\text{Net Part Filled in 1 hr} = \frac{1}{x} - \frac{1}{y}$$</div>
+        <div class="formula-row">
+          <strong>Work Equivalence Formula:</strong>
+          $$\frac{M_1 D_1 H_1}{W_1} = \frac{M_2 D_2 H_2}{W_2}$$
+        </div>
+      </div>
+
+      <!-- 7. DIMENSIONS & CONVERSIONS -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="ruler"></i> 7. Conversions &amp; Units</div>
+        <div class="formula-row">$$1 \text{ km} = 1000 \text{ m} \quad | \quad 1 \text{ m} = 100 \text{ cm}$$</div>
+        <div class="formula-row">$$1 \text{ mile} \approx 1.609 \text{ km}$$</div>
+        <div class="formula-row">$$\text{Miles to KM} = \text{miles} \times 1.609$$</div>
+        <div class="formula-row">$$\text{KM to Miles} = \frac{\text{KM}}{1.609}$$</div>
+        <div class="formula-row">$$1 \text{ inch} = 2.54 \text{ cm} \quad | \quad 1 \text{ foot} = 0.3048 \text{ m}$$</div>
+      </div>
+
+      <!-- 8. RATIO & PROPORTION -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="divide"></i> 8. Ratio &amp; Proportion</div>
+        <div class="formula-row">$$a : b = c : d \implies a \times d = b \times c$$</div>
+        <div class="formula-row">
+          If $\frac{a}{b} = \frac{c}{d} = \frac{e}{f} = k$, then:
+          $$\frac{a + c + e + \dots}{b + d + f + \dots} = k$$
+        </div>
+        <div class="formula-row">
+          Given $A : B$ and $B : C$:
+          $$A : B : C = (A \times B) : (B \times B) : (B \times C)$$
+        </div>
+        <div class="formula-row">
+          Compound Ratios: $\frac{a}{b} = \frac{N_1}{D_1}, \frac{b}{c} = \frac{N_2}{D_2}, \frac{c}{d} = \frac{N_3}{D_3}$
+          $$a:b:c:d = N_1N_2N_3 : D_1N_2N_3 : D_1D_2N_3 : D_1D_2D_3$$
+        </div>
+      </div>
+
+      <!-- 9. AREA & PERIMETER (2D & 3D) -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="box"></i> 9. Mensuration (2D &amp; 3D)</div>
+        <div class="formula-row"><strong>Square:</strong> Area = $a^2$, Perimeter = $4a$</div>
+        <div class="formula-row"><strong>Rectangle:</strong> Area = $l \times b$, Perimeter = $2(l + b)$</div>
+        <div class="formula-row"><strong>Circle:</strong> Area = $\pi r^2$, Circumference = $2\pi r$</div>
+        <div class="formula-row"><strong>Triangle:</strong> Area = $\frac{1}{2} b h$, Perimeter = $a + b + c$</div>
+        <div class="formula-row"><strong>Cube:</strong> Volume = $a^3$, Surface Area = $6a^2$</div>
+        <div class="formula-row"><strong>Cuboid:</strong> Volume = $l \times b \times h$, Surface Area = $2(lb + bh + hl)$</div>
+        <div class="formula-row"><strong>Cylinder:</strong> Volume = $\pi r^2 h$, Curved Surface Area = $2\pi r h$</div>
+        <div class="formula-row"><strong>Sphere:</strong> Volume = $\frac{4}{3}\pi r^3$, Surface Area = $4\pi r^2$</div>
+        <div class="formula-row"><strong>Cone:</strong> Volume = $\frac{1}{3}\pi r^2 h$, CSA = $\pi r l$ ($l = \sqrt{r^2 + h^2}$)</div>
+        <div class="formula-row"><strong>Polygons:</strong> Sum of interior angles = $(n - 2) \times 180^\circ$</div>
+        <div class="formula-row">Each interior angle (regular $n$-gon) = $\frac{(n - 2) \times 180^\circ}{n}$</div>
+      </div>
+
+      <!-- 10. TYPES OF NUMBERS -->
+      <div class="math-section">
+        <div class="sec-head"><i data-lucide="hash"></i> 10. Number Systems</div>
+        <div class="formula-row"><strong>Natural Numbers:</strong> $1, 2, 3, 4, \dots, \infty$</div>
+        <div class="formula-row"><strong>Whole Numbers:</strong> $0, 1, 2, 3, \dots, \infty$</div>
+        <div class="formula-row"><strong>Integers:</strong> $\dots, -3, -2, -1, 0, 1, 2, 3, \dots$</div>
+        <div class="formula-row"><strong>Rational Numbers:</strong> Representable in form $\frac{p}{q}$ where $q \neq 0$ (e.g., $\frac{5}{1}, \frac{2}{7}, -\frac{1}{5}$).</div>
+        <div class="formula-row"><strong>Irrational Numbers:</strong> Cannot be expressed as $\frac{p}{q}$ (non-terminating, non-repeating decimals like $\sqrt{2}, \pi$).</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Theme sync & toggle
+    const savedTheme = localStorage.getItem('app_theme') || 'light';
+    document.body.classList.toggle('light-theme', savedTheme === 'light');
+    document.getElementById('themeIcon').setAttribute('data-lucide', savedTheme === 'light' ? 'moon' : 'sun');
+
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light-theme');
+      localStorage.setItem('app_theme', isLight ? 'light' : 'dark');
+      document.getElementById('themeIcon').setAttribute('data-lucide', isLight ? 'moon' : 'sun');
+      lucide.createIcons();
+    });
+
+    // Render KaTeX and Icons on load
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ]
+        });
+      }
+    });
+  </script>
+</body>
+</html>
