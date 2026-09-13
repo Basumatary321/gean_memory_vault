@@ -335,3 +335,211 @@ body.light-theme .pc-upgrade-order-bar strong {
   font-weight: 700;
   font-size: 1rem;
 }
+/* =======================================================
+   BTR NATIONAL PARKS CARD STYLES
+   ======================================================= */
+.btr-parks-card {
+  max-width: 100%;
+}
+
+.btr-park-title {
+  color: #34d399 !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .btr-park-title {
+  color: #059669 !important;
+}
+
+.btr-parks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0 14px;
+}
+
+.park-detail-box {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border-color);
+  border-left-width: 3.5px;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+body.light-theme .park-detail-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.border-manas { border-left-color: #10b981; }
+.border-raimona { border-left-color: #06b6d4; }
+
+.park-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.icon-manas { width: 18px; height: 18px; color: #10b981; flex-shrink: 0; margin-top: 2px; }
+.icon-raimona { width: 18px; height: 18px; color: #06b6d4; flex-shrink: 0; margin-top: 2px; }
+
+.park-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.park-status-pill {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.pill-cyan {
+  color: #22d3ee;
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.25);
+}
+
+body.light-theme .park-status-pill {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+body.light-theme .pill-cyan {
+  background: #eff6ff;
+  color: #0284c7;
+  border-color: #bfdbfe;
+}
+
+.park-spec-table {
+  margin: 0 !important;
+  font-size: 0.68rem !important;
+  width: 100%;
+}
+
+.park-spec-table td {
+  padding: 4px 6px !important;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+body.light-theme .park-spec-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.park-spec-table td:first-child {
+  width: 28%;
+  color: var(--text-muted);
+}
+
+.dim-note {
+  font-size: 0.62rem;
+  color: var(--text-dim);
+}
+
+.species-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: #a5b4fc;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: 4px;
+  margin-bottom: 3px;
+}
+
+body.light-theme .species-tag {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #3730a3;
+}
+
+.park-facts-strip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+body.light-theme .park-facts-strip {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.strip-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 4px;
+}
+
+.strip-label svg {
+  width: 12px;
+  height: 12px;
+}
+
+body.light-theme .strip-label {
+  color: #b45309;
+}
+
+.strip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.strip-list li {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.strip-list li strong {
+  color: var(--text-main);
+}
+
+/* Color accents for Sikhna Jwhwlao National Park */
+.border-sikhna {
+  border-left-color: #f59e0b !important;
+}
+
+.icon-sikhna {
+  width: 18px;
+  height: 18px;
+  color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pill-amber {
+  color: #fbbf24 !important;
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+body.light-theme .pill-amber {
+  background: #fef3c7 !important;
+  color: #b45309 !important;
+  border-color: #fde68a !important;
+}
