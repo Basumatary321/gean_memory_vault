@@ -227,42 +227,53 @@ body.light-theme .ca-section {
 
 /* Color variations matching the infographic */
 .border-red { border-left-color: #ef4444; }
+body.light-theme .border-red {  border-left-color: #ef4444; }
 .text-red { color: #f87171; }
 body.light-theme .text-red { color: #dc2626; }
 
+
 .border-blue { border-left-color: #3b82f6; }
+body.light-theme .border-blue { border-left-color: #3b82f6; }
 .text-blue { color: #60a5fa; }
 body.light-theme .text-blue { color: #2563eb; }
 
 .border-green { border-left-color: #10b981; }
+body.light-theme .border-green { border-left-color: #10b981; }
 .text-green { color: #34d399; }
 body.light-theme .text-green { color: #059669; }
 
 .border-emerald { border-left-color: #059669; }
+body.light-theme .border-emerald { border-left-color: #059669; }
 .text-emerald { color: #10b981; }
 body.light-theme .text-emerald { color: #047857; }
 
 .border-orange { border-left-color: #f97316; }
+body.light-theme .border-orange { border-left-color: #f97316; }
 .text-orange { color: #fb923c; }
 body.light-theme .text-orange { color: #ea580c; }
 
 .border-cyan { border-left-color: #06b6d4; }
+body.light-theme .border-cyan { border-left-color: #06b6d4; }
 .text-cyan { color: #22d3ee; }
 body.light-theme .text-cyan { color: #0891b2; }
 
 .border-purple { border-left-color: #8b5cf6; }
+body.light-theme .border-purple { border-left-color: #8b5cf6; }
 .text-purple { color: #a78bfa; }
 body.light-theme .text-purple { color: #7c3aed; }
 
 .border-rose { border-left-color: #f43f5e; }
+body.light-theme .border-rose { border-left-color: #f43f5e; }
 .text-rose { color: #fb7185; }
 body.light-theme .text-rose { color: #e11d48; }
 
 .border-teal { border-left-color: #14b8a6; }
+body.light-theme .border-teal { border-left-color: #14b8a6; }
 .text-teal { color: #2dd4bf; }
 body.light-theme .text-teal { color: #0f766e; }
 
 .border-pink { border-left-color: #ec4899; }
+body.light-theme .border-pink { border-left-color: #ec4899; }
 .text-pink { color: #f472b6; }
 body.light-theme .text-pink { color: #db2777; }
 
