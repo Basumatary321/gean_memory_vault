@@ -24,7 +24,7 @@
       max-width: 1050px;
       margin: 0 auto;
       padding: 24px 20px 60px;
-      width: 100%;
+      width: 90%;
     }
     .top-nav-bar {
       display: flex;
@@ -57,20 +57,20 @@
     }
     .math-grid {
       display: grid;
-      /* grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); */
+      grid-template-columns: repeat(1fr, 1fr);
       gap: 16px;
-      align-items: start;
+      align-items: center;
     }
     .math-section {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--card-border-color);
       border-radius: 12px;
       padding: 16px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
     body.light-theme .math-section {
       background: #ffffff;
-      border-color: #e2e8f0;
+      /* border-color: var(--border-color); */
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     }
     .sec-head {

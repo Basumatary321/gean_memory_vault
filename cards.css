@@ -330,3 +330,8 @@ body.light-theme .pc-bottom-summary {
 body.light-theme .pc-upgrade-order-bar strong {
   color: #059669;
 }
+.ar-title{
+  color: #fbbf24;
+  font-weight: 700;
+  font-size: 1rem;
+}
