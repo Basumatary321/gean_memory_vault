@@ -90,7 +90,7 @@
     }
     .formula-row {
       margin-bottom: 12px;
-      font-size: 0.78rem;
+      font-size: 0.88rem;
       line-height: 1.6;
       color: var(--text-main);
     }
@@ -121,6 +121,12 @@
     .katex {
       font-size: 0.95em;
     }
+    .blue strong{
+        color: orange;
+    }
+    .purple strong{
+        color: #a855f7;
+    }
     @media (max-width: 600px) {
       .page-wrapper {
         padding: 12px 10px 40px;
@@ -145,7 +151,7 @@
     </div>
 
     <div style="margin-bottom: 20px;">
-      <h1 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin: 0 0 4px;">📐 Quantitative Aptitude &amp; Math Sheet</h1>
+      <h1 style="font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin: 0 0 4px; text-align: center;">📐 Quantitative Aptitude &amp; Math Sheet</h1>
       <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0;">Comprehensive formula collection for competitive examinations.</p>
     </div>
 
@@ -250,7 +256,55 @@
         <div class="formula-row">$$\text{Miles to KM} = \text{miles} \times 1.609$$</div>
         <div class="formula-row">$$\text{KM to Miles} = \frac{\text{KM}}{1.609}$$</div>
         <div class="formula-row">$$1 \text{ inch} = 2.54 \text{ cm} \quad | \quad 1 \text{ foot} = 0.3048 \text{ m}$$</div>
-      </div>
+      
+    
+    <!-- SPEED UNIT CONVERSION FORMULAS -->
+
+  <div class="sec-head"><i data-lucide="gauge"></i> Speed Unit Conversion Formulas</div>
+  
+  <table class="card-table" style="margin-top: 6px; font-size: 0.86rem;">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Operation / Multiplier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$\text{m/s}$</td>
+        <td>$\text{km/h}$</td>
+        <td>$\times 3.6 \quad \left(\text{or } \times \frac{18}{5}\right)$</td>
+      </tr>
+      <tr>
+        <td>$\text{km/h}$</td>
+        <td>$\text{m/s}$</td>
+        <td>$\times \frac{5}{18}$</td>
+      </tr>
+      <tr>
+        <td>$\text{mph}$</td>
+        <td>$\text{km/h}$</td>
+        <td>$\times 1.609$</td>
+      </tr>
+      <tr>
+        <td>$\text{km/h}$</td>
+        <td>$\text{mph}$</td>
+        <td>$\div 1.609$</td>
+      </tr>
+      <tr>
+        <td>$\text{ft/s}$</td>
+        <td>$\text{m/s}$</td>
+        <td>$\times 0.3048$</td>
+      </tr>
+      <tr>
+        <td>$\text{m/s}$</td>
+        <td>$\text{ft/s}$</td>
+        <td>$\div 0.3048$</td>
+      </tr>
+    </tbody>
+  </table>
+
+    </div>
 
       <!-- 8. RATIO & PROPORTION -->
       <div class="math-section">
@@ -273,28 +327,59 @@
       <!-- 9. AREA & PERIMETER (2D & 3D) -->
       <div class="math-section">
         <div class="sec-head"><i data-lucide="box"></i> 9. Mensuration (2D &amp; 3D)</div>
-        <div class="formula-row"><strong>Square:</strong> Area = $a^2$, Perimeter = $4a$</div>
-        <div class="formula-row"><strong>Rectangle:</strong> Area = $l \times b$, Perimeter = $2(l + b)$</div>
-        <div class="formula-row"><strong>Circle:</strong> Area = $\pi r^2$, Circumference = $2\pi r$</div>
-        <div class="formula-row"><strong>Triangle:</strong> Area = $\frac{1}{2} b h$, Perimeter = $a + b + c$</div>
-        <div class="formula-row"><strong>Cube:</strong> Volume = $a^3$, Surface Area = $6a^2$</div>
-        <div class="formula-row"><strong>Cuboid:</strong> Volume = $l \times b \times h$, Surface Area = $2(lb + bh + hl)$</div>
-        <div class="formula-row"><strong>Cylinder:</strong> Volume = $\pi r^2 h$, Curved Surface Area = $2\pi r h$</div>
-        <div class="formula-row"><strong>Sphere:</strong> Volume = $\frac{4}{3}\pi r^3$, Surface Area = $4\pi r^2$</div>
-        <div class="formula-row"><strong>Cone:</strong> Volume = $\frac{1}{3}\pi r^2 h$, CSA = $\pi r l$ ($l = \sqrt{r^2 + h^2}$)</div>
-        <div class="formula-row"><strong>Polygons:</strong> Sum of interior angles = $(n - 2) \times 180^\circ$</div>
-        <div class="formula-row">Each interior angle (regular $n$-gon) = $\frac{(n - 2) \times 180^\circ}{n}$</div>
+        <div class="formula-row purple"><strong>Square:</strong> Area = $a^2$, Perimeter = $4a$</div>
+        <div class="formula-row purple"><strong>Rectangle:</strong> Area = $l \times b$, Perimeter = $2(l + b)$</div>
+        <div class="formula-row purple"><strong>Circle:</strong> Area = $\pi r^2$, Circumference = $2\pi r$</div>
+        <div class="formula-row purple"><strong>Triangle:</strong> Area = $\frac{1}{2} b h$, Perimeter = $a + b + c$</div>
+        <div class="formula-row purple"><strong>Cube:</strong> Volume = $a^3$, Surface Area = $6a^2$</div>
+        <div class="formula-row purple"><strong>Cuboid:</strong> Volume = $l \times b \times h$, Surface Area = $2(lb + bh + hl)$</div>
+        <div class="formula-row purple"><strong>Cylinder:</strong> Volume = $\pi r^2 h$, Curved Surface Area = $2\pi r h$</div>
+        <div class="formula-row purple"><strong>Sphere:</strong> Volume = $\frac{4}{3}\pi r^3$, Surface Area = $4\pi r^2$</div>
+        <div class="formula-row purple"><strong>Cone:</strong> Volume = $\frac{1}{3}\pi r^2 h$, CSA = $\pi r l$ ($l = \sqrt{r^2 + h^2}$)</div>
+        <div class="formula-row purple"><strong>Polygons:</strong> Sum of interior angles = $(n - 2) \times 180^\circ$</div>
+        <div class="formula-row purple">Each interior angle (regular $n$-gon) = $\frac{(n - 2) \times 180^\circ}{n}$</div>
       </div>
 
       <!-- 10. TYPES OF NUMBERS -->
       <div class="math-section">
         <div class="sec-head"><i data-lucide="hash"></i> 10. Number Systems</div>
-        <div class="formula-row"><strong>Natural Numbers:</strong> $1, 2, 3, 4, \dots, \infty$</div>
-        <div class="formula-row"><strong>Whole Numbers:</strong> $0, 1, 2, 3, \dots, \infty$</div>
-        <div class="formula-row"><strong>Integers:</strong> $\dots, -3, -2, -1, 0, 1, 2, 3, \dots$</div>
-        <div class="formula-row"><strong>Rational Numbers:</strong> Representable in form $\frac{p}{q}$ where $q \neq 0$ (e.g., $\frac{5}{1}, \frac{2}{7}, -\frac{1}{5}$).</div>
-        <div class="formula-row"><strong>Irrational Numbers:</strong> Cannot be expressed as $\frac{p}{q}$ (non-terminating, non-repeating decimals like $\sqrt{2}, \pi$).</div>
+        <div class="formula-row blue"><strong>Natural Numbers:</strong> $1, 2, 3, 4, \dots, \infty$</div>
+        <div class="formula-row blue"><strong>Whole Numbers:</strong> $0, 1, 2, 3, \dots, \infty$</div>
+        <div class="formula-row blue"><strong>Integers:</strong> $\dots, -3, -2, -1, 0, 1, 2, 3, \dots$</div>
+        <div class="formula-row blue"><strong>Rational Numbers:</strong> Representable in form $\frac{p}{q}$ where $q \neq 0$ (e.g., $\frac{5}{1}, \frac{2}{7}, -\frac{1}{5}$).</div>
+        <div class="formula-row blue"><strong>Irrational Numbers:</strong> Cannot be expressed as $\frac{p}{q}$ (non-terminating, non-repeating decimals like $\sqrt{2}, \pi$).</div>
+        <div class="formula-row blue"><strong>Real Numbers:</strong> The set of all integer, rational and irrational numbers.</div>
+        <div class="formula-row blue"><strong>Prime Numbers:</strong>2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97 <br>Natural numbers greater than 1 that have no positive divisors other than 1 and themselves.</div>
+        <div class="formula-row blue"><strong>Composite Numbers:</strong>The number which has more than two factors. <br> For example, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30 etc. are composite numbers.</div>
+    
+        <div class="formula-row blue"><strong>Consecutive Numbers:</strong> 
+            This are series of numbers differing by 1 in ascending or descending order.<br> For example, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 are consecutive numbers. <br> Similarly, -3, -2, -1, 0, 1, 2 are also consecutive numbers.
+        </div>
       </div>
+      <!-- SUM OF SERIES & NATURAL NUMBERS -->
+<div class="math-section">
+  <div class="sec-head"><i data-lucide="sigma"></i> 11. Sum of Series &amp; Natural Numbers</div>
+  
+  <div class="formula-row">
+    <strong>Sum of first $n$ natural numbers:</strong>
+    $$\sum_{k=1}^{n} k = \frac{n(n + 1)}{2}$$
+  </div>
+
+  <div class="formula-row">
+    <strong>Sum of first $n$ even natural numbers:</strong>
+    $$\sum_{k=1}^{n} 2k = n(n + 1)$$
+  </div>
+
+  <div class="formula-row">
+    <strong>Sum of first $n$ odd natural numbers:</strong>
+    $$\sum_{k=1}^{n} (2k - 1) = n^2$$
+  </div>
+
+  <div class="formula-row">
+    <strong>Sum of squares of first $n$ natural numbers:</strong>
+    $$\sum_{k=1}^{n} k^2 = \frac{n(n + 1)(2n + 1)}{6}$$
+  </div>
+</div>
 
     </div>
   </div>
