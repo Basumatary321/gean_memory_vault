@@ -468,6 +468,9 @@ body.light-theme .park-spec-table td {
   margin-right: 4px;
   margin-bottom: 3px;
 }
+.species-tag a{color:#a5b4fc;}
+
+body.light-theme .species-tag a{color:#a5b4fc;}
 
 body.light-theme .species-tag {
   background: #f1f5f9;
