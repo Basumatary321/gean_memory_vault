@@ -375,8 +375,14 @@ body.light-theme .park-detail-box {
   border-color: #e2e8f0;
 }
 
-.border-manas { border-left-color: #10b981; }
-.border-raimona { border-left-color: #06b6d4; }
+.border-manas { border-left-color: #10b981 !important; }
+body.light-theme .border-manas { border-left-color: #059669 !important; }
+
+.border-raimona { border-left-color: #06b6d4 !important; }
+body.light-theme .border-raimona { border-left-color: #0284c7 !important; }
+
+.border-sikhna { border-left-color: #f59e0b !important; }
+body.light-theme .border-sikhna { border-left-color: #d97706 !important; }
 
 .park-title-row {
   display: flex;
@@ -403,7 +409,7 @@ body.light-theme .park-detail-box {
   border: 1px solid rgba(16, 185, 129, 0.25);
   padding: 1px 6px;
   border-radius: 4px;
-  margin-top: 2px;
+  margin-top: 6px;
 }
 
 .pill-cyan {
