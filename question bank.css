@@ -1,0 +1,63 @@
+/* Question Bank PDF Table Styles */
+.qb-table {
+  margin: 10px 0 !important;
+  font-size: 0.72rem !important;
+}
+
+.qb-table td {
+  padding: 8px 6px !important;
+  vertical-align: middle;
+}
+
+.qb-title {
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.qb-meta {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+/* Direct Open PDF Button */
+.pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  text-decoration: none;
+  font-size: 0.65rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.pdf-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+.pdf-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+body.light-theme .pdf-btn {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+body.light-theme .pdf-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #dc2626;
+}
