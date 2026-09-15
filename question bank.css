@@ -8,16 +8,21 @@
   padding: 8px 6px !important;
   vertical-align: middle;
 }
-
+.q-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--blue-accent);
+  line-height: 1.25;
+}
 .qb-title {
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--blue-accent);
   line-height: 1.25;
 }
 
 .qb-meta {
   font-size: 0.62rem;
-  color: var(--text-muted);
+  color: var(--pink-accent);
   display: block;
   margin-top: 2px;
 }
