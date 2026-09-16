@@ -8,6 +8,13 @@
   padding: 8px 6px !important;
   vertical-align: middle;
 }
+th{border-top: 2px solid var(--border-color);
+color: var(--pink-accent) !important;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  padding: 8px 6px !important;
+}
 .topic{
   border: 1px solid var(--border-color);
 
