@@ -22,7 +22,7 @@
 
 .qb-meta {
   font-size: 0.62rem;
-  color: var(--pink-accent);
+  color: var(--text-muted);
   display: block;
   margin-top: 2px;
 }
