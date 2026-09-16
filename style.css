@@ -10,6 +10,7 @@
   --text-main: #f8fafc;
   --text-muted: #7e8c9f;
   --text-dim: #8d9094;
+  --primary-text: #eef0f5;
 
   --blue-accent: #3b82f6;
   --purple-accent: #8b5cf6;
@@ -31,6 +32,7 @@ body.light-theme {
   --text-main: #0f172a;
   --text-muted: #64748b;
   --text-dim: #000000;
+  --primary-text: #1664ca;
 }
 
 * {
