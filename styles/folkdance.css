@@ -98,3 +98,176 @@ body.light-theme .dance-table tbody tr:hover td {
     min-width: 80px;
   }
 }
+
+/* =======================================================
+   INDIAN LEGISLATIVE STRUCTURE CARD STYLES
+   ======================================================= */
+.legislative-card {
+  max-width: 100%;
+}
+
+.legislative-title {
+  color: #f87171 !important;
+  font-size: 1.15rem !important;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .legislative-title {
+  color: #dc2626 !important;
+}
+
+.leg-flow-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0 14px;
+}
+
+/* Sections for Union vs State */
+.leg-sec-box {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border-color);
+  border-left-width: 3.5px;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+body.light-theme .leg-sec-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.leg-sec-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.leg-sec-header svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Flexbox layout for the two houses */
+.leg-houses-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Individual House Cards */
+.leg-house-item {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+body.light-theme .leg-house-item {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+/* Color background hints for light mode specifically */
+body.light-theme .leg-house-item.bg-ls { background-color: #fef2f2; } /* Lok Sabha */
+body.light-theme .leg-house-item.bg-rs { background-color: #f0f9ff; } /* Rajya Sabha */
+body.light-theme .leg-house-item.bg-vs { background-color: #ecfdf5; } /* Vidhan Sabha */
+body.light-theme .leg-house-item.bg-vp { background-color: #fffbeb; } /* Vidhan Parishad */
+
+/* House Labels (Upper/Lower) */
+.house-label {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #a3a3a3;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.house-label.label-upper {
+  color: #a78bfa;
+}
+
+body.light-theme .house-label {
+  background: #f1f5f9;
+  color: #737373;
+}
+
+body.light-theme .house-label.label-upper {
+  color: #6d28d9;
+}
+
+/* House Names */
+.house-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.house-other-name {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 3px;
+}
+
+/* Representative Pills (MP, MLA) */
+.rep-pill {
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: #1e293b;
+  background-color: #38bdf8; /* MP / Parliament default */
+  padding: 2px 8px;
+  border-radius: 99px;
+  margin-top: auto; /* Push to bottom of flex item */
+}
+
+/* Contextual colors for MLAs and MLCs */
+.legislative-card .border-blue .rep-pill { background-color: #10b981; } /* MLA default */
+.rep-pill.pill-vp { background-color: #fbbf24; color: #1e293b; } /* MLC */
+
+.rep-pill strong {
+  font-weight: 700;
+}
+
+/* Warning note for MLCs */
+.unilateral-note {
+  font-size: 0.5rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Exam Facts Strip */
+.leg-facts-strip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+body.light-theme .leg-facts-strip {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+@media (max-width: 500px) {
+  .leg-houses-flex {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+
