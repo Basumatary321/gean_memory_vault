@@ -1,0 +1,100 @@
+ /* =======================================================
+   INDIAN CLASSICAL & FOLK DANCES CARD STYLES
+   ======================================================= */
+.dance-gk-card {
+  max-width: 100%;
+}
+
+.dance-title {
+  color: #c084fc !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .dance-title {
+  color: #7e22ce !important;
+}
+
+.dance-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0 14px;
+}
+
+.dance-sec-box {
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--border-color);
+  border-left-width: 3.5px;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+body.light-theme .dance-sec-box {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.dance-sec-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dance-sec-header svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Classical/Folk Table Styling */
+.dance-table {
+  width: 100%;
+  font-size: 0.68rem !important;
+  margin: 0 !important;
+}
+
+.dance-table th, 
+.dance-table td {
+  padding: 6px 8px !important;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  line-height: 1.35;
+}
+
+body.light-theme .dance-table th, 
+body.light-theme .dance-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Specific Row Coloring */
+.dance-table td strong {
+  color: var(--text-main);
+}
+
+.dance-table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+body.light-theme .dance-table tbody tr:hover td {
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+/* Mobile Responsiveness for Tables */
+@media (max-width: 500px) {
+  .dance-table {
+    font-size: 0.64rem !important;
+  }
+  .dance-table th, 
+  .dance-table td {
+    padding: 5px 6px !important;
+  }
+  /* BTR/Community descriptions usually require more width */
+  .dance-table td:nth-child(2) {
+    min-width: 80px;
+  }
+}
