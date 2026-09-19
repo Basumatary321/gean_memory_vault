@@ -265,7 +265,7 @@ body.light-theme .leg-facts-strip {
 
 @media (max-width: 500px) {
   .leg-houses-flex {
-    flex-direction: column;
+    
     gap: 8px;
   }
 }
