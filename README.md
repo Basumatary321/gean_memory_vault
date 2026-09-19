@@ -1,7 +1,7 @@
 # gean_memory_vault
 A modern, dark-neon glassmorphic personal knowledge vault and developer memory dashboard built with pure HTML, CSS, JavaScript. Features live search, tag filtering, daynamic relative dates, and a fully mobile-responsive drawer interface. 
 
-# ⚡ Gean Memory Vault <a href="https://basumatary321.github.io/gean_memory_vault/" target="_blank"> Live</a>
+# Gean Memory Vault <a href="https://basumatary321.github.io/gean_memory_vault/" target="_blank">view</a>
 
 <p align="center">
   <strong>Your thoughts, code snippets, formulas, and keys — organized beautifully.</strong>
