@@ -196,7 +196,7 @@ body.light-theme .faq-answer {
 /* Mobile Responsiveness for Houses */
 @media (max-width: 500px) {
   .leg-houses-flex {
-    flex-direction: column;
-    gap: 8px;
+    
+    gap: 5px;
   }
 }
