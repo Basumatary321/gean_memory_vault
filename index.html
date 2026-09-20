@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -42,6 +42,7 @@
   <link rel="stylesheet" href="question bank.css">
   <link rel="stylesheet" href="styles/gitag.css">
   <link rel="stylesheet" href="styles/folkdance.css">
+  <link rel="stylesheet" href="styles/faq.css">
 </head>
 <body class="light-theme">
 
@@ -287,16 +288,15 @@
       <div class="cards-grid" id="cardsGrid">
        
         <!-- addd memory card here -->
-
-<!-- INDIAN LEGISLATIVE STRUCTURE GK CARD -->
-<div class="memory-card legislative-card" data-category="NOTE" data-starred="true" data-date="2026-09-18T23:30:00Z">
+<!-- INDIAN LEGISLATIVE STRUCTURE GK CARD WITH FAQ -->
+<div class="memory-card legislative-card" data-category="NOTE" data-starred="true" data-date="2026-09-19T10:00:00Z">
   <div class="card-header-top">
-    <span class="card-badge badge-green">POLITY &amp; GOVERNANCE</span>
-    <span class="exam-pill">Bicameral Structure</span>
+    <span class="card-badge badge-red">POLITY &amp; GOVERNANCE</span>
+    <span class="exam-pill">Bicameral Structure • FAQ</span>
   </div>
 
   <h3 class="card-title legislative-title">Indian Legislative Structure Breakdown</h3>
-  <p class="card-description">Hierarchical flowchart comparing the Union Parliament (Lok Sabha, Rajya Sabha) and State Legislatures (Vidhan Sabha, Vidhan Parishad).</p>
+  <p class="card-description">Hierarchical comparison of the Union Parliament and State Legislatures, followed by essential exam FAQs.</p>
 
   <div class="leg-flow-container">
 
@@ -351,26 +351,81 @@
       </div>
     </div>
 
-    <!-- 3. Key High-Yield Exam Facts -->
-    <div class="leg-facts-strip">
-      <span class="strip-label"><i data-lucide="zap"></i> Rapid Revision Notes:</span>
-      <ul class="strip-list">
-        <li><strong>Parliament composition:</strong> President, Lok Sabha, and Rajya Sabha.</li>
-        <li><strong>Bicameral states (6):</strong> Uttar Pradesh, Bihar, Maharashtra, Karnataka, Andhra Pradesh, Telangana have Vidhan Parishads.</li>
-        <li><strong>Terms:</strong> Lok Sabha (5 yrs), Rajya Sabha (Permanent; 1/3 members retire every 2 yrs), Vidhan Sabha (5 yrs), Vidhan Parishad (Permanent).</li>
-        <li><strong>Age:</strong> Minimum 25 yrs (LS, VS), 30 yrs (RS, VP).</li>
-      </ul>
+    <!-- 3. EXAM FAQ SECTION (using details tag) -->
+    <div class="leg-faq-section">
+      <div class="leg-sec-header text-amber">
+        <i data-lucide="help-circle"></i> <span>Frequently Asked Questions (Exam Focus)</span>
+      </div>
+
+      <div class="faq-accordion-group">
+        <!-- FAQ 1 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span> The Upper House of the Parliament of India is called?</span>
+           <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+            <!-- <i data-lucide="chevron-down" class="faq-icon"></i> -->
+          </summary>
+          <div class="faq-answer">
+          The <strong>Rajya Sabha</strong>, also known as Council of States, 
+          is the <strong>upper house</strong> of the Parliament of India, of which the Lok Sabha is the lower house.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Name the six Indian states that have a bicameral legislature.</span>
+            <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+          </summary>
+          <div class="faq-answer">
+            As of 2026, six states possess a Vidhan Parishad (Legislative Council):
+            <ul class="bullet-list" style="margin-top: 5px; font-size: 0.68rem;">
+              <li>Andhra Pradesh</li>
+              <li>Bihar</li>
+              <li>Karnataka</li>
+              <li>Maharashtra</li>
+              <li>Telangana</li>
+              <li>Uttar Pradesh</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What is the minimum age required to become a member of the Lok Sabha and Rajya Sabha?</span>
+            <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+          </summary>
+          <div class="faq-answer">
+            <ul class="bullet-list" style="font-size: 0.68rem;">
+              <li><strong>Lok Sabha (MP):</strong> Minimum <strong>25 years</strong>.</li>
+              <li><strong>Rajya Sabha (MP):</strong> Minimum <strong>30 years</strong>.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Who is the Chairman of the Rajya Sabha?</span>
+            <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+          </summary>
+          <div class="faq-answer">
+            The Chairman of the Rajya Sabha is the <strong>Vice President of India</strong>.
+          </div>
+        </details>
+      </div>
     </div>
 
-  </div>
+  </div> <!-- /leg-flow-container -->
 
   <div class="card-tags">
     <span class="tag-chip">Polity</span>
-    <span class="tag-chip">Constitution</span>
-    <span class="tag-chip">Parliament</span>
+    <span class="tag-chip">Legislative Structure</span>
+    <span class="tag-chip">Parliament FAQ</span>
     <span class="tag-chip">Bicameral</span>
-    <span class="tag-chip">MP MLA</span>
-    <span class="tag-chip">SSC APSC GK</span>
+    <span class="tag-chip">MP MLA MLC</span>
+    <span class="tag-chip">ADRE APSC GK</span>
   </div>
 
   <div class="card-footer">
@@ -382,7 +437,8 @@
     </div>
   </div>
 </div>
-       
+
+
 <!-- INDIAN CLASSICAL & FOLK DANCES REVISION CARD -->
 <div class="memory-card dance-gk-card" data-category="NOTE" data-starred="true" data-date="2026-09-18T22:30:00Z">
   <div class="card-header-top">
@@ -551,7 +607,6 @@
   </div>
 </div>
 
-       
 <!-- STUDY MATERIAL & E-BOOKS REPOSITORY CARD -->
 <div class="memory-card" data-category="LINK" data-starred="true" data-date="2026-09-16T10:00:00Z">
   <div class="card-header-top">
@@ -579,7 +634,7 @@
         </td>
         <td><code>PDF</code></td>
         <td style="text-align: right;">
-          <a href="https://drive.google.com/file/d/1uoXjp4vibsPXU5ZSETlWasLeOvzMSA8J/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+          <a href="https://drive.google.com/file/d/1a7X5M_UXIijiU880szSw6OoA_gTOlsHQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
             <i data-lucide="book-open"></i> View
           </a>
         </td>
@@ -592,7 +647,7 @@
         </td>
         <td><code>PDF</code></td>
         <td style="text-align: right;">
-          <a href="https://drive.google.com/file/d/1GdlBUGRWprMXLfPuZNVizb-allgbnQkE/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+          <a href="https://drive.google.com/file/d/1sx38UdH449Y5Uw4nHUuYw2o3oOzoV0qB/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
             <i data-lucide="book-open"></i> View
           </a>
         </td>
@@ -605,7 +660,7 @@
         </td>
         <td><code>PDF</code></td>
         <td style="text-align: right;">
-          <a href="https://drive.google.com/file/d/1LIBS7WxH1rmYSAGecC2CQZpbwu4pd_fz/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+          <a href="https://drive.google.com/file/d/1kM6oqAtdZhrJtR0xZ2n2Azo5hPhZJaGW/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
             <i data-lucide="book-open"></i> View
           </a>
         </td>
@@ -668,7 +723,7 @@
         </td>
         <td><code>PDF</code></td>
         <td style="text-align: right;">
-          <a href="https://drive.google.com/file/d/1LAIrt7PNukAH95QhT9l502gdgFA7JNYS/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+          <a href="https://drive.google.com/file/d/1M1ChyiC4vfEp_yMfaXNSuLnyMoUKfZqD/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
             <i data-lucide="book-open"></i> View
           </a>
         </td>
@@ -704,7 +759,7 @@
         </td>
         <td><code>PDF</code></td>
         <td style="text-align: right;">
-          <a href="https://drive.google.com/file/d/1siwimZCzF-GBr7aV9NISVRi3HL5-oOIl/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+          <a href="https://drive.google.com/file/d/1IQ4913l183UojKHlBKhY4kRTFjnwBTzC/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
             <i data-lucide="book-open"></i> View
           </a>
         </td>
@@ -728,7 +783,7 @@
         </td>
         <td><code>PDF</code></td>
         <td style="text-align: right;">
-          <a href="https://drive.google.com/file/d/1agOjnRSnzM0QipLkPBwQtQxAZD1ViWmI/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+          <a href="https://drive.google.com/file/d/1gDxli2ohBqyLPHIqB_ZbjvNY6d-LiUTL/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
             <i data-lucide="book-open"></i> View
           </a>
         </td>
