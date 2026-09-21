@@ -204,3 +204,110 @@ body.light-theme .gi-box-title {
   width: 14px;
   height: 14px;
 }
+
+/* =======================================================
+   COLLECTIVE NOUNS CARD STYLES
+   ======================================================= */
+.collective-nouns-card {
+  max-width: 100%;
+}
+
+.nouns-title {
+  color: #38bdf8 !important;
+  font-size: 1.15rem !important;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .nouns-title {
+  color: #0284c7 !important;
+}
+
+.nouns-table {
+  width: 100%;
+  font-size: 0.68rem !important;
+  margin: 10px 0 12px !important;
+}
+
+.nouns-table th, 
+.nouns-table td {
+  padding: 5px 8px !important;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+/* first column */
+.nouns-table th:first-child {
+  width: 30%;
+}
+.nouns-table td:first-child{
+  width: 30%;
+}
+body.light-theme .nouns-table th, 
+body.light-theme .nouns-table td {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nouns-table td strong {
+  color: #a5b4fc;
+}
+
+body.light-theme .nouns-table td strong {
+  color: #4338ca;
+}
+
+/* Browse Full Directory Action Button */
+.card-link-box {
+  margin-bottom: 12px;
+}
+
+.browse-all-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-radius: 6px !important;
+  color: #38bdf8 !important;
+  text-decoration: none !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.browse-all-btn:hover {
+  background: rgba(56, 189, 248, 0.16) !important;
+  border-color: #38bdf8 !important;
+  transform: translateY(-1px);
+}
+
+body.light-theme .browse-all-btn {
+  background: #f0f9ff !important;
+  border-color: #bae6fd !important;
+  color: #0369a1 !important;
+}
+
+body.light-theme .browse-all-btn:hover {
+  background: #e0f2fe !important;
+  border-color: #38bdf8 !important;
+}
+
+.link-btn-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link-btn-content svg {
+  width: 14px;
+  height: 14px;
+}
+
+.browse-all-btn .arrow-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.browse-all-btn:hover .arrow-icon {
+  transform: translateX(3px);
+}
