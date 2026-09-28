@@ -509,3 +509,24 @@ function showToast(message) {
       }
     });
   }
+
+
+// Current Affairs Iframe Reload Logic
+function reloadCurrentAffairsIframe(button) {
+  const iframe = document.getElementById('caDocIframe');
+  if (iframe) {
+    const currentSrc = iframe.src;
+    iframe.src = '';
+    iframe.src = currentSrc;
+    
+    // Quick rotation feedback on the icon
+    const icon = button.querySelector('svg');
+    if (icon) {
+      icon.style.transition = 'transform 0.4s ease';
+      icon.style.transform = 'rotate(360deg)';
+      setTimeout(() => {
+        icon.style.transform = 'none';
+      }, 400);
+    }
+  }
+}
