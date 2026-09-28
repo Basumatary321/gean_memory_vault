@@ -289,7 +289,63 @@
        
         <!-- addd memory card here -->
 
+<!-- DYNAMIC LIVE CURRENT AFFAIRS CARD (IFRAME EMBED) -->
+<div class="memory-card current-affairs-card" data-category="LINK" data-starred="true" data-date="2026-09-28T20:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-green">LIVE REVISION</span>
+    <span class="exam-pill">Auto-Updating Doc</span>
+  </div>
 
+  <div class="ca-header-flex">
+    <div>
+      <h3 class="card-title ca-title">Daily Current Affairs &amp; GK Notes</h3>
+      <p class="card-description">Live embedded revision sheet. Edit your Google Doc to automatically update the content here.</p>
+    </div>
+    <a href="https://docs.google.com/document/d/1vuemuy64zeU7Sapgpkfl73xe3dcyXmvcGg7rh6LrtJ0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="ca-external-btn" title="Open & Edit in Google Docs">
+      <i data-lucide="external-link"></i> Full View
+    </a>
+  </div>
+
+  <!-- Responsive Iframe Container -->
+  <div class="iframe-container">
+    <div class="iframe-topbar">
+      <div class="topbar-status">
+        <span class="pulse-indicator"></span>
+        <span class="status-text">Cloud Synced Document</span>
+      </div>
+      <button class="iframe-reload-btn" onclick="reloadCurrentAffairsIframe(this)" title="Refresh Viewer">
+        <i data-lucide="rotate-cw"></i>
+      </button>
+    </div>
+
+    <!-- Replace src with your published Google Doc or Drive Preview link -->
+    <iframe 
+      id="caDocIframe"
+      src="https://docs.google.com/document/d/1vuemuy64zeU7Sapgpkfl73xe3dcyXmvcGg7rh6LrtJ0/edit?usp=sharing" 
+      class="doc-embed-frame"
+      loading="lazy" 
+      title="Current Affairs Live Sheet"
+      allow="fullscreen">
+    </iframe>
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">Current Affairs</span>
+    <span class="tag-chip">Live Sheet</span>
+    <span class="tag-chip">Google Docs</span>
+    <span class="tag-chip">Assam GK 2026</span>
+    <span class="tag-chip">Daily Digest</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
 <!-- FULL MOCK TEST PDF VAULT CARD (8 TESTS) -->
 <div class="memory-card" data-category="LINK" data-starred="true" data-date="2026-09-26T22:00:00Z">
   <div class="card-header-top">
