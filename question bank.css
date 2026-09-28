@@ -226,7 +226,7 @@ body.light-theme .ca-external-btn {
 .iframe-container {
   width: 100%;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: hidden !important;
   border: 1px solid var(--border-color);
   background: #090d16;
   margin: 8px 0 12px;
@@ -251,7 +251,18 @@ body.light-theme .iframe-container {
   border-bottom: 1px solid var(--border-color);
 
   flex-shrink: 0;
-  min-width: 100%; /* Keeps topbar aligned with frame */
+  min-width: 100%;
+  position:relative;
+  z-index: 5;
+   /* Keeps topbar aligned with frame */
+}
+
+.iframe-scroll-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  overflow-x: auto !important; /* ONLY this wrapper scrolls horizontally */
+  overflow-y: hidden !important; /* Prevent double vertical scrolls */
+  -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
 }
 
 body.light-theme .iframe-topbar {
