@@ -164,3 +164,147 @@ body.light-theme .mock-vault-table .view-btn:hover {
   color: #0c4a6e;
   border-color: #38bdf8;
 }
+
+/* =======================================================
+   CURRENT AFFAIRS IFRAME CARD STYLES
+   ======================================================= */
+.current-affairs-card {
+  max-width: 100%;
+}
+
+.ca-title {
+  color: #34d399 !important;
+  font-size: 1.15rem !important;
+  margin-bottom: 2px !important;
+}
+
+body.light-theme .ca-title {
+  color: #059669 !important;
+}
+
+.ca-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ca-external-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ca-external-btn:hover {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: #10b981;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+body.light-theme .ca-external-btn {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+/* Embedded Frame Box */
+.iframe-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #090d16;
+  margin: 8px 0 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+body.light-theme .iframe-container {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.iframe-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid var(--border-color);
+}
+
+body.light-theme .iframe-topbar {
+  background: #e2e8f0;
+}
+
+.topbar-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pulse-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.status-text {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.iframe-reload-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+
+.iframe-reload-btn:hover {
+  color: var(--text-main);
+}
+
+.iframe-reload-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Iframe dimensions & responsive behavior */
+.doc-embed-frame {
+  width: 100%;
+  height: 480px;
+  border: none;
+  background: #ffffff; /* Google docs are white pages by default */
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .doc-embed-frame {
+    height: 380px; /* Compact viewing height on mobile screens */
+  }
+}
+
+
+
+
+
