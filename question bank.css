@@ -229,6 +229,9 @@ body.light-theme .ca-external-btn {
   margin: 8px 0 12px;
   display: flex;
   flex-direction: column;
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  overflow-y: hidden !important; /* Prevent double vertical scrolls */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 body.light-theme .iframe-container {
@@ -243,6 +246,9 @@ body.light-theme .iframe-container {
   padding: 6px 10px;
   background: rgba(0, 0, 0, 0.35);
   border-bottom: 1px solid var(--border-color);
+
+  flex-shrink: 0;
+  min-width: 100%; /* Keeps topbar aligned with frame */
 }
 
 body.light-theme .iframe-topbar {
@@ -300,9 +306,16 @@ body.light-theme .iframe-topbar {
 
 @media (max-width: 600px) {
   .doc-embed-frame {
-    height: 380px; /* Compact viewing height on mobile screens */
+    width: 600px !important; /* Force fixed width (Adjust as needed) */
+    min-width: 600px !important;
+    height: 380px !important;
+    border: none;
+    display: block;
   }
 }
+
+
+
 
 
 
