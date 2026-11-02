@@ -1,4 +1,4 @@
-
+ 
         :root {
             --primary: #4f46e5;
             --primary-light: #6366f1;
@@ -379,13 +379,13 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(248, 234, 234, 0.95);
             padding: 0.2rem 0.6rem;
             border-radius: 0.3rem;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
             z-index: 2;
         }
 
