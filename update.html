@@ -1,0 +1,3888 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gean Memory Vault</title>
+<meta name="title" content="गियान Memory Vault — Personal Knowledge Hub & Revision Dashboard" />
+<meta name="description" content="A fast, responsive personal dashboard to organize competitive exam notes, quant formulas, Assam GK, code snippets, and PDF resources with instant search." />
+<meta name="keywords" content="memory vault, study dashboard, assam gk, apsc pyq, math formula sheet, bodo gi tags, btr national parks, developer cheatsheet, dark mode ui, gean memory vault, basumatary321, btc forester" />
+<meta name="author" content="Kabindra Basumatary" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#060913" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://basumatary321.github.io/gean_memory_vault/" />
+<meta property="og:title" content="गियान Memory Vault — Knowledge & Cheatsheet Vault" />
+<meta property="og:description" content="Personal knowledge vault and quick-revision engine. Explore exam study notes, quant &amp; geometry formulas, code snippets, tech guides, and PYQ PDFs in one fast dashboard." />
+<meta property="og:image" content="https://basumatary321.github.io/gean_memory_vault/preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Gean Memory Vault" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://basumatary321.github.io/gean_memory_vault/" />
+<meta name="twitter:title" content="गियान Memory Vault — Knowledge & Cheatsheet Vault" />
+<meta name="twitter:description" content="Personal knowledge vault and quick-revision engine. Explore exam study notes, quant &amp; geometry formulas, code snippets, tech guides, and PYQ PDFs in one fast dashboard." />
+<meta name="twitter:image" content="https://basumatary321.github.io/gean_memory_vault/preview.png" />
+
+
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="table.css">
+  <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="question bank.css">
+  <link rel="stylesheet" href="styles/gitag.css">
+  <link rel="stylesheet" href="styles/folkdance.css">
+  <link rel="stylesheet" href="styles/faq.css">
+</head>
+<body class="light-theme">
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <header>
+    <div class="header-left">
+      <button class="mobile-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="brand" id="brand">
+        <div class="logo-badge">ग</div>
+        <div class="brand-text">
+          <div class="brand-title">गियान Memory Vault</div>
+          <div class="brand-sub">Your thoughts, organized beautifully</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <i data-lucide="search" class="search-icon"></i>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search memories, formulas, notes, tags..." />
+      <span class="search-kbd" id="searchKbd">⌘K</span>
+    </div>
+
+    <div class="header-actions">
+      <!-- <button class="icon-btn mobile-panel-btn" id="mobileRightPanelBtn" title="Calendar & Activity">
+        <i data-lucide="calendar-days"></i>
+      </button> -->
+      
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle Theme">
+        <i data-lucide="moon" id="themeIcon"></i>
+      </button>
+      <button class="icon-btn" id="notifBtn" title="Notifications">
+        <i data-lucide="bell"></i>
+        <span class="badge-dot" id="notifBadge">3</span>
+      </button>
+      <div class="user-profile" id="userProfileBtn">
+        <!-- <a href="me2.jpg" target="_blank"> -->
+          <img src="Me.png" alt="Alex R." class="avatar" />
+        <!-- </a> -->
+        
+        <div class="user-info">
+          <div class="user-name">Kabind B.</div>
+          <div class="user-email">gwswsw88@gmail.com</div>
+        </div> 
+      </div>
+    </div>
+  </header>
+
+
+<!-- USER PROFILE MODAL CARD -->
+<div class="profile-modal-overlay" id="profileModalOverlay">
+  <div class="profile-card">
+    <button class="profile-close-btn" id="closeProfileBtn" aria-label="Close Profile">&times;</button>
+    
+    <!-- Banner & Avatar -->
+    <div class="profile-header-banner">
+      <div class="profile-avatar-wrapper">
+        <img src="Me.png" alt="Kabind B." class="profile-avatar" />
+        <span class="online-indicator" title="Active"></span>
+      </div>
+    </div>
+
+    <!-- Main Details -->
+    <div class="profile-body">
+      <div class="profile-titles">
+        <h2 class="profile-name">Kabind B.</h2>
+        <span class="profile-badge">Computer Teacher</span>
+        <p class="profile-bio">
+         I am a passionate Computer Teacher with a strong background in web development, graphic design, 
+         and IT support. With over a year of experience in teaching and a solid foundation in various 
+         technical skills, I am dedicated to empowering students with the knowledge and tools they need to
+          succeed in the digital world. My expertise includes frontend and backend development, multimedia design, 
+          and office solutions, making me a versatile educator committed to fostering creativity and technical proficiency in my students.</p>
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <!-- Info Fields -->
+      <div class="profile-info-grid">
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="briefcase"></i></div>
+          <div class="info-details">
+            <span class="info-label">Profession</span>
+            <span class="info-value">Teacher</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="calendar"></i></div>
+          <div class="info-details">
+            <span class="info-label">Date of Birth</span>
+            <span class="info-value">15 August 2002</span>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="mail"></i></div>
+          <div class="info-details">
+            <span class="info-label">Email</span>
+            <a href="mailto:gwswsw60@gmail.com" class="info-link">gwswsw88@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i data-lucide="map-pin"></i></div>
+          <div class="info-details">
+            <span class="info-label">Location</span>
+            <span class="info-value">Assam, India</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-divider"></div>
+
+      <!-- Social Links -->
+      <div class="profile-socials">
+        <span class="socials-title">Connect with me</span>
+        <div class="social-links-row">
+          <a href="https://github.com/Basumatary321" target="_blank" rel="noopener noreferrer" class="social-btn github" title="GitHub">
+            <i data-lucide="github"></i> <span>GitHub</span>
+          </a>
+          <a href="https://basumatary321.github.io/kabindra.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="social-btn linkedin" title="LinkedIn">
+            <i data-lucide="user-shield"></i> <span>Portfolio</span>
+          </a>
+          <a href="https://www.instagram.com/_silent_s0rr0w_?stkn=NWZoMHM4YnAzdDBI" target="_blank" rel="noopener noreferrer" class="social-btn instagram" title="Instagram">
+            <i data-lucide="instagram"></i> <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/basumataryYkabind" target="_blank" rel="noopener noreferrer" class="social-btn twitter" title="Twitter / X">
+            <i data-lucide="facebook"></i> <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+  <div class="app-layout">
+    
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top-bar">
+        <span>गियान Memory Vault</span>
+        <button class="drawer-close-btn" id="closeSidebarBtn">&times;</button>
+      </div>
+      <div class="sidebar-content">
+        <ul class="nav-list" id="sidebarNav">
+          <li class="nav-item active" data-filter="All"><i data-lucide="layout-dashboard"></i> <span>Dashboard</span></li>
+          <li class="nav-item" data-filter="All"><i data-lucide="layers"></i> <span>All Memories</span></li>
+          <li class="nav-item" data-filter="PROMPT"><i data-lucide="message-square"></i> <span>Prompts</span></li>
+          <li class="nav-item" data-filter="FORMULA"><i data-lucide="function-square"></i> <span>Formulas</span></li>
+          <li class="nav-item" data-filter="STEP"><i data-lucide="list-ordered"></i> <span>Steps</span></li>
+          <li class="nav-item" data-filter="KEY"><i data-lucide="key"></i> <span>Keys</span></li>
+          <li class="nav-item" data-filter="NOTE"><i data-lucide="file-text"></i> <span>Notes</span></li>
+        </ul>
+
+        <div class="tag-section-title">
+          <span>TAGS</span>
+        </div>
+
+        <div id="tagListContainer"></div>
+      </div>
+
+      <div class="backup-card">
+        <i data-lucide="cloud" style="width: 20px; height: 20px; color: #60a5fa; margin-bottom: 6px;"></i>
+        <h4>Public Knowledge Vault</h4>
+        <p>Curated developer notes, commands, and formulas.</p>
+        <button class="btn-sync" id="syncBtn">Share Vault</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="welcome-header">
+        <div class="welcome-text">
+          <h1 class="welcome-title" id="welcomeTitle">Good morning</h1>
+          <p class="welcome-sub" id="welcomeSub">Loading statistics...</p>
+        </div>
+      </div>
+
+      <div class="filter-pills" id="filterPillsContainer">
+        <button class="pill active" data-filter="All"><i data-lucide="grid"></i> All</button>
+        <button class="pill" data-filter="PROMPT"><i data-lucide="message-square"></i> Prompts</button>
+        <button class="pill" data-filter="FORMULA"><i data-lucide="function-square"></i> Formulas</button>
+        <button class="pill" data-filter="STEP"><i data-lucide="list-ordered"></i> Steps</button>
+        <button class="pill" data-filter="KEY"><i data-lucide="key"></i> Keys</button>
+        <button class="pill" data-filter="NOTE"><i data-lucide="file-text"></i> Notes</button>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card purple">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="layers" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Total Memories</span>
+          </div>
+          <div class="metric-value" id="statTotalMemories">0</div>
+          <div class="metric-foot">Vault collection</div>
+        </div>
+
+        <div class="metric-card blue">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="calendar" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">This Week</span>
+          </div>
+          <div class="metric-value" id="statWeekMemories">0</div>
+          <div class="metric-foot">Recent additions</div>
+        </div>
+
+        <div class="metric-card teal">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="star" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Favorites</span>
+          </div>
+          <div class="metric-value" id="statFavorites">0</div>
+          <div class="metric-foot">Marked as important</div>
+        </div>
+
+        <div class="metric-card amber">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="zap" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Streak</span>
+          </div>
+          <div class="metric-value">7</div>
+          <div class="metric-foot">Days active</div>
+        </div>
+
+        <div class="metric-card pink">
+          <div class="metric-header">
+            <div class="metric-icon-box"><i data-lucide="folder" style="width: 14px; height: 14px;"></i></div>
+            <span class="metric-title">Categories</span>
+          </div>
+          <div class="metric-value" id="statCategories">0</div>
+          <div class="metric-foot">Organized sections</div>
+        </div>
+      </div>
+
+      <div class="section-bar" id="sectionBar">
+        <h2 class="section-title"><i data-lucide="clock" style="width: 18px; height: 18px;"></i> <span id="sectionTitleText">Recent Memories</span></h2>
+        <a href="#" class="view-all-link" id="resetFilterLink">View all <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></a>
+      </div>
+
+      <div class="cards-grid" id="cardsGrid">
+       
+        <!-- addd memory card here -->
+ 
+
+<!-- STUDY MATERIAL & E-BOOKS REPOSITORY CARD -->
+<!-- pyq grid -->
+ <!-- PREVIOUS YEAR QUESTION PAPERS (PYQ) GRID CARD -->
+<div class="memory-card" data-category="LINK" data-starred="true" data-date="2026-11-02T10:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-purple">QUESTION BANK</span>
+    <span class="exam-pill">PYQ Solved Papers</span>
+  </div>
+
+  <h3 class="card-title">Previous Year Question Bank</h3>
+  <p class="card-description">Official question papers with answer keys for Assam and national competitive exams.</p>
+
+  <!-- Responsive PYQ Grid (Reuses the 2-column study-notes-grid layout) -->
+  <div class="study-notes-grid">
+
+    <!-- Item 1: ADRE Question Paper 2004 -->
+    <div class="study-grid-item">
+      <div class="study-thumb-wrap">
+        <span class="study-type-pill">PDF</span>
+        <img src="./thumbnail/adre_2024_paper_1_set_1.jpeg" alt="ADRE Question Paper 2004" class="study-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&auto=format&fit=crop&q=80'" />
+      </div>
+      <div class="study-item-body">
+        <h4 class="study-item-title">ADRE Question Paper 2004</h4>
+        <p class="study-item-desc">Paper-I, Set-A, 2024</p>
+        <a href="assets/pdf/assam_forest_guard_2023.pdf" target="_blank" rel="noopener noreferrer" class="study-open-btn">
+          <i data-lucide="file-text"></i> Open Paper
+        </a>
+      </div>
+    </div>
+
+    <!-- Item 2: ADRE Question Paper 2024 -->
+    <div class="study-grid-item">
+      <div class="study-thumb-wrap">
+        <span class="study-type-pill">PDF</span>
+        <img src="./thumbnail/adre_2024_paper_2_set_1.jpeg" alt="ADRE Question Paper 2024" class="study-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&auto=format&fit=crop&q=80'" />
+      </div>
+      <div class="study-item-body">
+        <h4 class="study-item-title">ADRE Question Paper 2024</h4>
+        <p class="study-item-desc">Paper-II, Set-A,  2024</p>
+        <a href="assets/pdf/adre_grade3_math_reasoning.pdf" target="_blank" rel="noopener noreferrer" class="study-open-btn">
+          <i data-lucide="file-text"></i> Open Paper
+        </a>
+      </div>
+    </div>
+
+    <!-- Item 3: APSC CCE Prelims GS-I -->
+    <div class="study-grid-item">
+      <div class="study-thumb-wrap">
+        <span class="study-type-pill">PDF</span>
+        <img src="./images/pyq-thumb.png" alt="APSC CCE Prelims GS-1" class="study-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=400&auto=format&fit=crop&q=80'" />
+      </div>
+      <div class="study-item-body">
+        <h4 class="study-item-title">APSC CCE Prelims GS-I (2024)</h4>
+        <p class="study-item-desc">Complete General Studies Paper I including Assam History, Geography, Polity, and Current Affairs.</p>
+        <a href="assets/pdf/apsc_cce_prelims_gs1.pdf" target="_blank" rel="noopener noreferrer" class="study-open-btn">
+          <i data-lucide="file-text"></i> Open Paper
+        </a>
+      </div>
+    </div>
+
+    <!-- Item 4: Assam Police Constable (UB/AB) -->
+    <div class="study-grid-item">
+      <div class="study-thumb-wrap">
+        <span class="study-type-pill">PDF</span>
+        <img src="./images/pyq-thumb.png" alt="Assam Police Constable PYQ" class="study-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&auto=format&fit=crop&q=80'" />
+      </div>
+      <div class="study-item-body">
+        <h4 class="study-item-title">Assam Police Constable (2022)</h4>
+        <p class="study-item-desc">SLPRB written examination paper with answer explanations for Assam GK, Reasoning, and Basic Arithmetic.</p>
+        <a href="assets/pdf/assam_police_constable_2022.pdf" target="_blank" rel="noopener noreferrer" class="study-open-btn">
+          <i data-lucide="file-text"></i> Open Paper
+        </a>
+      </div>
+    </div>
+
+  </div> <!-- /study-notes-grid -->
+
+  <div class="card-tags">
+    <span class="tag-chip">PYQ Bank</span>
+    <span class="tag-chip">Forest Guard</span>
+    <span class="tag-chip">ADRE</span>
+    <span class="tag-chip">APSC CCE</span>
+    <span class="tag-chip">Police Constable</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- ebook grid -->
+<div class="memory-card" data-category="NOTE" data-starred="true" data-date="2026-09-16T10:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">STUDY VAULT</span>
+    <span class="exam-pill">E-Books &amp; Notes</span>
+  </div>
+
+  <h3 class="card-title">Study Material &amp; Reference Notes</h3>
+  <p class="card-description">Quick access to important study notes, question banks, and exam summaries.</p>
+
+  <!-- Responsive Study Grid -->
+  <div class="study-notes-grid">
+
+    <!-- Card Item 1: Indian Geography -->
+    <div class="study-grid-item">
+      <div class="study-thumb-wrap">
+        <span class="study-type-pill">Docs</span>
+        <img src="./images/Asian Elephant.png" alt="Indian Geography Thumbnail" class="study-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&auto=format&fit=crop&q=80'" />
+      </div>
+      <div class="study-item-body">
+        <h4 class="study-item-title">Indian Geography</h4>
+        <p class="study-item-desc">Important MCQ collection and core geographic facts for competitive exams.</p>
+        <a href="https://docs.google.com/document/d/1WCYWeGiM-s_GTgKR1RhzJjfqgQxpLXwIhwGRyDbUtek/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="study-open-btn">
+          <i data-lucide="book-open"></i> View Document
+        </a>
+      </div>
+    </div>
+
+    <!-- Card Item 2: World War - Imp Fact -->
+    <div class="study-grid-item">
+      <div class="study-thumb-wrap">
+        <span class="study-type-pill">Docs</span>
+        <img src="./images/Great Indian Hornbill.png" alt="World War Notes Thumbnail" class="study-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=400&auto=format&fit=crop&q=80'" />
+      </div>
+      <div class="study-item-body">
+        <h4 class="study-item-title">World War – Imp Fact</h4>
+        <p class="study-item-desc">Crucial historical timeline, treaties, alliances, and high-yield exam takeaways.</p>
+        <a href="https://docs.google.com/document/d/1f_GotX_Y-0GQ4MUUpka1oyTgmBPK-R0W_EAcAJL7npk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="study-open-btn">
+          <i data-lucide="book-open"></i> View Document
+        </a>
+      </div>
+    </div>
+    <!-- Card Item 3: World War - Imp Fact -->
+    <div class="study-grid-item">
+      <div class="study-thumb-wrap">
+        <span class="study-type-pill">Docs</span>
+        <img src="./images/aronai.jpg" alt="World War Notes Thumbnail" class="study-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1461360370896-922624d12aa1?w=400&auto=format&fit=crop&q=80'" />
+      </div>
+      <div class="study-item-body">
+        <h4 class="study-item-title">World War – Imp Fact</h4>
+        <p class="study-item-desc">Crucial historical timeline, treaties, alliances, and high-yield exam takeaways.</p>
+        <a href="https://docs.google.com/document/d/1f_GotX_Y-0GQ4MUUpka1oyTgmBPK-R0W_EAcAJL7npk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="study-open-btn">
+          <i data-lucide="book-open"></i> View Document
+        </a>
+      </div>
+    </div>
+
+  </div> <!-- /study-notes-grid -->
+
+  <div class="card-tags">
+    <span class="tag-chip">Geography</span>
+    <span class="tag-chip">World War</span>
+    <span class="tag-chip">Docs Bank</span>
+    <span class="tag-chip">Competitive Exams</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- ebook list -->
+<div class="memory-card" data-category="NOTE" data-starred="true" data-date="2026-09-16T10:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">STUDY VAULT</span>
+    <span class="exam-pill">E-Books &amp; Notes</span>
+  </div>
+
+<img src="./images/notes.png" alt="" style="width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px;" />
+
+  <!-- Direct PDF Open Table -->
+  <table class="card-table qb-table">
+    <thead>
+      <tr>
+        <th>Topic / Title</th>
+        <th style="width: 60px;">Format</th>
+        <th style="text-align: right; width: 70px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Indian Geography</div>
+          <span class="qb-meta">Important MCQ.</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/1WCYWeGiM-s_GTgKR1RhzJjfqgQxpLXwIhwGRyDbUtek/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">World War- Imp Fact</div>
+          <span class="qb-meta">For Competitive Exams</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/1f_GotX_Y-0GQ4MUUpka1oyTgmBPK-R0W_EAcAJL7npk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">General Knowledge</div>
+          <span class="qb-meta">For Competitive Exams</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/1vuemuy64zeU7Sapgpkfl73xe3dcyXmvcGg7rh6LrtJ0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="topic">
+          <div class="qb-title">International Border Line.</div>
+          <span class="qb-meta">State, National, And International Boundary.</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/1LPmaf950-9WdOchgbk4p4SdKIOWYULxARf3gp7OyWrA/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Important Appointments</div>
+          <span class="qb-meta">Major appointment in india 2026.</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/1jLUAFusmvsIOCE3YbQjwChvmSdeMh9EYtJee1uOISpc/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+ <tr>
+        <td class="topic">
+          <div class="qb-title">Assam History</div>
+          <span class="qb-meta">Ahom Dynasty & Burmese Invasion.</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/1CslFkIx5wFCHk-QoZAvgeLTkU6Uh_ZqGToHy9Kw5ZmM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      
+    
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Award and Honours 2026</div>
+          <span class="qb-meta">Most Important Awards and Honours.</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/1RboBC5RHfOxa15i_2Z8CiKjxSdH7ia8wbgT8A-34vqk/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Word Analogy - English</div>
+          <span class="qb-meta">working place, phobia, class, synonym & antonym</span>
+        </td>
+        <td><code>Docs</code></td>
+        <td style="text-align: right;">
+          <a href="https://docs.google.com/document/d/11icbaKw993_3OUkbe2ced5LYH2GPHD0LzH8PHVtG_u0/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="topic">
+          <div class="qb-title">The Vedas-Ancient Wisdom</div>
+          <span class="qb-meta">Vedas-Foundation of Indian culture.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1bAEaFeEgrBq7vzim9KPmsKL3QWBcPw5h/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+  <tr>
+        <td class="topic">
+          <div class="qb-title">Static GK Part-I</div>
+          <span class="qb-meta">Important MCQ.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1cTkuNGfRl0ec0is4zpeLXcdulM3OenEA/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Static GK Part-II</div>
+          <span class="qb-meta">Important MCQ.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1tHQAX1-uUdqx7zfwJl1Ssf-_Tr-3okMG/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Capital and Currency.</div>
+          <span class="qb-meta">Important Capitals and Currencies of Countries.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1q1W9a5prbU1kKcZ62ZT3EftKg0-qUsnv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">G20 Summit 2023.</div>
+          <span class="qb-meta">Important MCQ.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1Z-DNXbKTEM6N8jjMrYdzhKVSV7F6FPv-/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Government Schemes in India</div>
+          <span class="qb-meta">Latest Government Schemes Of India.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1ojCjoj6IMVEnnoLBqT98jBajcw3pwHXv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Important Personalities</div>
+          <span class="qb-meta">Notable Figures in News 2023.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1M1ChyiC4vfEp_yMfaXNSuLnyMoUKfZqD/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Important Places Of Assam</div>
+          <span class="qb-meta">Important Places and Historical Places of Assam.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1V4bCzUl7r19SggMtNEfQneP23kN1K3tG/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Important Appointment 2023</div>
+          <span class="qb-meta">Key Appointments in 2023.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1KW2oa-GBE0jOUo4oh6niKKd8OFNW-a6R/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Indian Polity</div>
+          <span class="qb-meta">Indian Polity MCQ.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1IQ4913l183UojKHlBKhY4kRTFjnwBTzC/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Modern Indian History</div>
+          <span class="qb-meta">A Handwritten Notes.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1blhBwtRrTG_h-jKuf5QZwjj6iJ41X4AL/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Paris Olympic 2024</div>
+          <span class="qb-meta">Important MCQ.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1gDxli2ohBqyLPHIqB_ZbjvNY6d-LiUTL/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Indian History (anglo-mysore)</div>
+          <span class="qb-meta">Indian History till anglo-mysore.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1fmdUTpgjbrPoRB05Stu0cas-v2XWa1Wg/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Personalities Of Assam</div>
+          <span class="qb-meta">Notable personalities Of assam</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1aNQgmH5RIUc1zTxBeQqU5QLSzpH65lN7/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Mountain Range of India</div>
+          <span class="qb-meta">Major mountain ranges in India.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1PKe_9NW3YUMoWwTdAnm_dCH3FtOhZKNT/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+       <tr>
+        <td class="topic">
+          <div class="qb-title">All About CAA</div>
+          <span class="qb-meta">CAA Citizenship (Ammendment) Act.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1kM6oqAtdZhrJtR0xZ2n2Azo5hPhZJaGW/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="topic">
+          <div class="qb-title">Award and Honours 2023</div>
+          <span class="qb-meta">Most Important Awards and Honours.</span>
+        </td>
+        <td><code>PDF</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/18Hy624bgTbo5RxbTuJWzXpQja_2T7deJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="card-tags">
+    <span class="tag-chip">E-Books</span>
+    <span class="tag-chip">Study Notes</span>
+    <span class="tag-chip">General Studies</span>
+    <span class="tag-chip">PDF Library</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- QUESTION BANK & PREVIOUS YEAR PAPERS CARD -->
+<div class="memory-card" data-category="NOTE" data-starred="true" data-date="2026-09-14T09:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-purple">RESOURCES</span>
+    <span class="exam-pill">PDF Repository</span>
+  </div>
+<img src="./images/questionbank.png" alt="" style="width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px;" />
+
+  <!-- Direct PDF Open Table -->
+  <table class="card-table qb-table">
+    <thead>
+      <tr>
+        <th>Subject / Exam</th>
+        <th style="width: 55px;">Year</th>
+        <th style="text-align: right; width: 70px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2024</div>
+          <span class="qb-meta">Paper-I Set-A 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="assets/Paper-I-Set-A 2024.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2024</div>
+          <span class="qb-meta">Paper-II Set-A 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="assets/Paper-II-Set-A 2024.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+           <div class="qb-title">ADRE Question Paper 2024</div>
+          <span class="qb-meta">Paper-III Set-A 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="assets/Paper-III-Set-A 2024.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+           <div class="qb-title">ADRE Question Paper 2024</div>
+          <span class="qb-meta">Paper-IV Set-A 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="assets/Paper-IV-Set-A-2024.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2024</div>
+          <span class="qb-meta">Paper-V Set-A 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="assets/Paper-V-Set-A 2024.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">BTC Forest Question Paper</div>
+          <span class="qb-meta">Forest Guard 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1_2m1pmcMZ9iB8Y6s9Pon0Y0Mfu7xWeQa/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">BTC Forest Question Paper</div>
+          <span class="qb-meta">Forester 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="assets/BTC Forester 2024.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2022</div>
+          <span class="qb-meta">Paper-I Set-A 2022</span>
+        </td>
+        <td><code>2022</code></td>
+        <td style="text-align: right;">
+          <a href="assets/ADRE Paper_I_SET_A 2022.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2022</div>
+          <span class="qb-meta">Paper-II Set-A 2022</span>
+        </td>
+        <td><code>2022</code></td>
+        <td style="text-align: right;">
+          <a href="assets/ADRE Paper_II_SET_A 2022.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2022</div>
+          <span class="qb-meta">Paper-III Set-A 2022</span>
+        </td>
+        <td><code>2022</code></td>
+        <td style="text-align: right;">
+          <a href="assets/ADRE_Paper_III_SET_A 2022.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2022</div>
+          <span class="qb-meta">Paper-IV Set-A 2022</span>
+        </td>
+        <td><code>2022</code></td>
+        <td style="text-align: right;">
+          <a href="assets/ADRE_Paper_IV_SET_A 2022.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">ADRE Question Paper 2022</div>
+          <span class="qb-meta">Paper-V Set-A 2022</span>
+        </td>
+        <td><code>2022</code></td>
+        <td style="text-align: right;">
+          <a href="assets/ADRE_Paper_V_SET_A 2022.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">Assam Police Constable</div>
+          <span class="qb-meta">Paper-I Set-A 2022</span>
+        </td>
+        <td><code>2022</code></td>
+        <td style="text-align: right;">
+          <a href="assets/Assam Police Constable 2020 Paper.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">Assam Police Constable</div>
+          <span class="qb-meta">Paper-II Set-A 2022</span>
+        </td>
+        <td><code>2022</code></td>
+        <td style="text-align: right;">
+          <a href="assets/Assam-Police-Constable-Question-Paper-Booklet-Set-A-CWT-2025-Paper-II.pdf" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">BTR Technical Question Paper 2022</div>
+          <span class="qb-meta">Paper-II Set-A 2024</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1lxDs9_v8ZuK5zIi4NgPXXw7pAqbyfq2Q/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">DHS-JA-2018</div>
+          <span class="qb-meta">Accountant Assistant/ Junior Assistant</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1CYYUkJ6S_rDQaDQmHhoKillErT4WFCYM/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="qb-title">DME Grade-III</div>
+          <span class="qb-meta">Non Technical</span>
+        </td>
+        <td><code>2024</code></td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1669WoAVpZA_r3EDQh0aLorSw2DNHuV-n/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pdf-btn" title="Open PDF">
+            <i data-lucide="book-open"></i> View
+          </a>
+        </td>
+      </tr>
+
+
+
+    </tbody>
+  </table>
+
+  <div class="card-tags">
+    <span class="tag-chip">PDF Bank</span>
+    <span class="tag-chip">PYQ</span>
+    <span class="tag-chip">APSC</span>
+    <span class="tag-chip">Forest Guard</span>
+    <span class="tag-chip">ADRE</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FULL MOCK TEST PDF VAULT CARD (8 TESTS) -->
+<div class="memory-card" data-category="NOTE" data-starred="true" data-date="2026-09-26T22:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">MOCK TESTS</span>
+    <span class="exam-pill">8 Full Length PDFs</span>
+  </div>
+<img src="./images/mocktest.png" alt="" style="width: 100%; height: auto; border-radius: 6px; margin-bottom: 12px;" />
+
+  <!-- Nested Table: 8 slots -->
+  <table class="card-table compact-table mock-vault-table">
+    <thead>
+      <tr>
+       
+        <th>Test Details</th>
+        <th style="text-align: right;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- TEST 1 -->
+      <tr>
+      
+        <td>
+          <div class="mock-series-info">ADRE Mock Test-Paper I</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/16Pw12OToeQmPIyE1jQU0-fafWJfxPmLv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+
+      <!-- TEST 2 -->
+      <tr>
+       
+        <td>
+         <div class="mock-series-info">ADRE Mock Test-Paper II</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1kmsPSO7uAllNN4vRPNXmr3cQFHdZQGxf/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+
+      <!-- TEST 3 -->
+      <tr>
+       
+        <td>
+          <div class="mock-series-info">ADRE Mock Test-Paper III</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1Gjlmo6OG4DKLvY_89QQ-wFUkhAVkYsD-/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+
+      <!-- TEST 4 -->
+      <tr>
+        
+        <td>
+         <div class="mock-series-info">ADRE Mock Test-Paper IV</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1RncRoesCFxrtSP-gbytpzxlD_UUTE62v/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+
+      <!-- TEST 5 -->
+      <tr>
+        
+        <td>
+          <div class="mock-series-info">ADRE Mock Test-Paper V</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/16fbxer4mAxuQS6aORAt5MAmMQM9I5ziR/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+
+      <!-- TEST 6 -->
+      <tr>
+          
+          <td>
+            <div class="mock-series-info">ADRE Mock Test-Paper VI</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1jg_wIYsB4-uugglGEwK2spTEVpYKvCHI/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+
+      <!-- TEST 7 -->
+      <tr>
+      
+        <td>
+         <div class="mock-series-info">ADRE Mock Test-Paper VII</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1iVKUSA0wAwP8uNexf7cCL8vCHlpS69JR/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+
+      <!-- TEST 8 -->
+      <tr>
+        
+        <td>
+         <div class="mock-series-info">ADRE Mock Test-Paper VIII</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1y0jt1OJ8wCQNLDGdm5o8ZHVXlFxRab6X/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+      <!-- TEST 9 -->
+      <tr>
+        
+        <td>
+         <div class="mock-series-info">ADRE Mock Test-Paper IX</div>
+          <span class="mock-meta">Dificulty Level: Hard</span>
+        </td>
+        <td style="text-align: right;">
+          <a href="https://drive.google.com/file/d/1Y2EOZCAwlWGBZIRu13blkdyO46DP0CwD/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-btn" title="Open PDF">
+            <i data-lucide="file-text"></i> PDF
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card-tags">
+    <span class="tag-chip">Mocks</span>
+    <span class="tag-chip">Full Length</span>
+    <span class="tag-chip">PDF</span>
+    <span class="tag-chip">ADRE</span>
+    <span class="tag-chip">APSC</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- QUANTITATIVE APTITUDE & MATH FORMULAS CARD -->
+<div class="memory-card" data-category="NOTE" data-starred="true" data-date="2026-09-13T18:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">MATHEMATICS</span>
+    <span class="exam-pill">Quant Revision</span>
+  </div>
+
+  <h3 class="card-title ar-title">Arithmetic &amp; Geometry Formula Sheet</h3>
+  <p class="card-description">Quick revision notes covering all 10 core topics: Percentages, Profit & Loss, SI/CI, Time & Work, Mensuration, and Number Systems.</p>
+
+<div class="card-image-wrap">
+            <a href="math-formulas.html" target="_blank" rel="noopener noreferrer" class="link-item">
+            <img src="images/math-notes.jpeg" alt="Grid preview" class="card-image" />
+            </a>
+          
+          </div>
+
+  
+  <div class="card-link-list" style="margin: 10px 0 12px;">
+    <a href="math-formulas.html" class="link-item" style="padding: 10px 12px; font-weight: 600;">
+      <span class="link-name"><i data-lucide="calculator"></i> Open Complete Formula Vault</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+    </a>
+<a href="https://docs.google.com/document/d/1sEmysJCyCqfLr8b0Hnx6l2yeHWZkujN843vuQOoZBSQ/edit?usp=sharing" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="biceps-flexed"></i>Time and Work</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+    </a>
+<a href="https://docs.google.com/document/d/1Jn399fqDX1500Ms0qUqWtFD-AYPhCsrKAKQFUCFk_bc/edit?usp=sharing" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="scale"></i>Ratio & Proportion</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+    </a>
+<a href="https://docs.google.com/document/d/1SWOwhKKqteoaal9rTSkcuBLcA0BDNLm94bDuCOEplAI/edit?usp=drivesdk" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="hash"></i>Number Analogy</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+</a>
+<a href="https://docs.google.com/document/d/1hHiUfMBsX0F1XUiNjPvcrcs7cIBP5e_9mFy0uuEpq6Y/edit?usp=sharing" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="hand-coins"></i>Profit & Loss</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+</a>
+<a href="https://drive.google.com/file/d/1_Hw2DQ25z9oS1mbXfQ4YBcdAnyqowkXf/view?usp=drive_link" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="lightbulb"></i>Reasoning Handwritten Notes</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+</a>
+<a href="https://docs.google.com/document/d/11icbaKw993_3OUkbe2ced5LYH2GPHD0LzH8PHVtG_u0/edit?usp=sharing" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="whole-word"></i>Word Analogy</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+</a>
+<a href="https://docs.google.com/document/d/1s5ahgR5zedk6ooyOoekoF3UumaEhWwOLQepAebYx6zs/edit?usp=sharing" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="user-group"></i>Blood Relation</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+</a>
+<a href="https://docs.google.com/document/d/1x5UUiZ5Pq3gGWNbIlAB6Gfswa4FE2pr0p3tmwdO19tU/edit?usp=sharing" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="calendar-days"></i>Calendar</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+</a>
+<a href="https://docs.google.com/document/d/1nYIQ1CUyOktnmWBRESNSUrFQPVzzpLusvHg1ptzR_WI/edit?usp=sharing" class="link-item" style="padding: 10px 12px; font-weight: 600;" target="_blank">
+      <span class="link-name"><i data-lucide="circle-gauge"></i>Speed, Distance & Time</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+</a>
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">Arithmetic</span>
+    <span class="tag-chip">Mensuration</span>
+    <span class="tag-chip">Formulas</span>
+    <span class="tag-chip">Competitive</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+        
+<!-- COLLECTIVE NOUNS VAULT CARD -->
+<div class="memory-card collective-nouns-card" data-category="NOTE" data-starred="true" data-date="2026-09-21T09:45:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">ENGLISH GRAMMAR</span>
+    <span class="exam-pill">SSC • ADRE • Banking</span>
+  </div>
+
+  <h3 class="card-title nouns-title">Collective Nouns — High-Yield List</h3>
+  <p class="card-description">Most frequent collective terms tested in error-spotting, sentence improvement, and vocabulary sections.</p>
+
+  <!-- Top 16 Most Important Table -->
+  <table class="card-table compact-table nouns-table">
+    <thead>
+      <tr>
+        <th>Group / Entity</th>
+        <th>Collective Noun</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Fish</td><td>A <strong>school</strong> / <strong>shoal</strong> of fish</td></tr>
+      <tr><td>Lions</td><td>A <strong>pride</strong> of lions</td></tr>
+      <tr><td>Birds / Sheep</td><td>A <strong>flock</strong> of birds / sheep</td></tr>
+      <tr><td>Wolves / Hounds</td><td>A <strong>pack</strong> of wolves / hounds</td></tr>
+      <tr><td>Whales / Dolphins</td><td>A <strong>pod</strong> of whales / dolphins</td></tr>
+      <tr><td>Crows</td><td>A <strong>murder</strong> of crows</td></tr>
+      <tr><td>Owls</td><td>A <strong>parliament</strong> of owls</td></tr>
+      <tr><td>Bees / Ants</td><td>A <strong>swarm</strong> / <strong>colony</strong> of bees / ants</td></tr>
+      <tr><td>Ships / Vehicles</td><td>A <strong>fleet</strong> of ships / cars</td></tr>
+      <tr><td>Musicians / Singers</td><td>A <strong>band</strong> of musicians / <strong>choir</strong> of singers</td></tr>
+      <tr><td>Directors / Examiners</td><td>A <strong>board</strong> of directors / examiners</td></tr>
+      <tr><td>Judges / Jurors</td><td>A <strong>bench</strong> of judges / <strong>jury</strong> of jurors</td></tr>
+      <tr><td>Keys / Grapes</td><td>A <strong>bunch</strong> of keys / grapes</td></tr>
+      <tr><td>Trees</td><td>A <strong>clump</strong> / <strong>grove</strong> of trees</td></tr>
+      <tr><td>Arrows / Bullets</td><td>A <strong>quiver</strong> of arrows / <strong>volley</strong> of bullets</td></tr>
+      <tr><td>Puppies / Kittens</td><td>A <strong>litter</strong> of puppies / kittens</td></tr>
+    </tbody>
+  </table>
+
+  <!-- External Link Action to Browse Complete Directory -->
+  <div class="card-link-box">
+    <a href="https://en.wiktionary.org/wiki/Appendix:English_collective_nouns" target="_blank" rel="noopener noreferrer" class="link-item browse-all-btn">
+      <div class="link-btn-content">
+        <i data-lucide="external-link"></i>
+        <span>Browse Complete Collective Nouns Directory</span>
+      </div>
+      <i data-lucide="chevron-right" class="arrow-icon"></i>
+    </a>
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">Grammar</span>
+    <span class="tag-chip">Collective Nouns</span>
+    <span class="tag-chip">Vocabulary</span>
+    <span class="tag-chip">SSC CGL</span>
+    <span class="tag-chip">ADRE</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- css of this is inside gitag -->
+
+
+
+<!-- INDIAN LEGISLATIVE STRUCTURE GK CARD WITH FAQ -->
+<div class="memory-card legislative-card" data-category="NOTE" data-starred="true" data-date="2026-09-19T10:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">POLITY &amp; GOVERNANCE</span>
+    <span class="exam-pill">Bicameral Structure • FAQ</span>
+  </div>
+
+  <h3 class="card-title legislative-title">Indian Legislative Structure Breakdown</h3>
+  <p class="card-description">Hierarchical comparison of the Union Parliament and State Legislatures, followed by essential exam FAQs.</p>
+
+  <div class="leg-flow-container">
+
+    <!-- 1. UNION LEVEL: PARLIAMENT -->
+    <div class="leg-sec-box border-red">
+      <div class="leg-sec-header text-red">
+        <i data-lucide="building"></i> <span>Union Level (Parliament)</span>
+      </div>
+
+      <div class="leg-houses-flex">
+        <!-- Lok Sabha -->
+        <div class="leg-house-item bg-ls">
+          <span class="house-label">Lower House</span>
+          <h4 class="house-name">Lok Sabha</h4>
+          <span class="house-other-name">(House of the People)</span>
+          <div class="rep-pill">Representative: <strong>MP</strong></div>
+        </div>
+
+        <!-- Rajya Sabha -->
+        <div class="leg-house-item bg-rs">
+          <span class="house-label label-upper">Upper House</span>
+          <h4 class="house-name">Rajya Sabha</h4>
+          <span class="house-other-name">(Council of States)</span>
+          <div class="rep-pill">Representative: <strong>MP</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. STATE LEVEL: LEGISLATURE -->
+    <div class="leg-sec-box border-blue">
+      <div class="leg-sec-header text-blue">
+        <i data-lucide="map-pin"></i> <span>State Level (State Legislature)</span>
+      </div>
+
+      <div class="leg-houses-flex">
+        <!-- Vidhan Sabha -->
+        <div class="leg-house-item bg-vs">
+          <span class="house-label">Lower House</span>
+          <h4 class="house-name">Vidhan Sabha</h4>
+          <span class="house-other-name">(Legislative Assembly)</span>
+          <div class="rep-pill">Representative: <strong>MLA</strong></div>
+        </div>
+
+        <!-- Vidhan Parishad -->
+        <div class="leg-house-item bg-vp">
+          <span class="house-label label-upper">Upper House</span>
+          <h4 class="house-name">Vidhan Parishad</h4>
+          <span class="house-other-name">(Legislative Council)</span>
+          <div class="rep-pill pill-vp">Representative: <strong>MLC</strong></div>
+          <span class="unilateral-note">*Exists only in 6 States*</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. EXAM FAQ SECTION (using details tag) -->
+    <div class="leg-faq-section">
+      <div class="leg-sec-header text-amber">
+        <i data-lucide="help-circle"></i> <span>Frequently Asked Questions (Exam Focus)</span>
+      </div>
+
+      <div class="faq-accordion-group">
+        <!-- FAQ 1 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span> The Upper House of the Parliament of India is called?</span>
+           <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+            <!-- <i data-lucide="chevron-down" class="faq-icon"></i> -->
+          </summary>
+          <div class="faq-answer">
+          The <strong>Rajya Sabha</strong>, also known as Council of States, 
+          is the <strong>upper house</strong> of the Parliament of India, of which the Lok Sabha is the lower house.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Name the six Indian states that have a bicameral legislature.</span>
+            <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+          </summary>
+          <div class="faq-answer">
+            As of 2026, six states possess a Vidhan Parishad (Legislative Council):
+            <ul class="bullet-list" style="margin-top: 5px; font-size: 0.68rem;">
+              <li>Andhra Pradesh</li>
+              <li>Bihar</li>
+              <li>Karnataka</li>
+              <li>Maharashtra</li>
+              <li>Telangana</li>
+              <li>Uttar Pradesh</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What is the minimum age required to become a member of the Lok Sabha and Rajya Sabha?</span>
+            <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+          </summary>
+          <div class="faq-answer">
+            <ul class="bullet-list" style="font-size: 0.68rem;">
+              <li><strong>Lok Sabha (MP):</strong> Minimum <strong>25 years</strong>.</li>
+              <li><strong>Rajya Sabha (MP):</strong> Minimum <strong>30 years</strong>.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Who is the Chairman of the Rajya Sabha?</span>
+            <span class="faq-icon-wrapper"><i data-lucide="chevron-down" class="faq-icon"></i></span>
+          </summary>
+          <div class="faq-answer">
+            The Chairman of the Rajya Sabha is the <strong>Vice President of India</strong>.
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </div> <!-- /leg-flow-container -->
+
+  <div class="card-tags">
+    <span class="tag-chip">Polity</span>
+    <span class="tag-chip">Legislative Structure</span>
+    <span class="tag-chip">Parliament FAQ</span>
+    <span class="tag-chip">Bicameral</span>
+    <span class="tag-chip">MP MLA MLC</span>
+    <span class="tag-chip">ADRE APSC GK</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- INDIAN CLASSICAL & FOLK DANCES REVISION CARD -->
+<div class="memory-card dance-gk-card" data-category="NOTE" data-starred="true" data-date="2026-09-18T22:30:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-purple">ART &amp; CULTURE</span>
+    <span class="exam-pill">8 Classical • Community Folk</span>
+  </div>
+
+  <h3 class="card-title dance-title">Classical &amp; Folk Dances of India</h3>
+  <p class="card-description">Official 8 Classical dance forms with states and key community-specific folk traditions across India.</p>
+
+  <div class="dance-card-container">
+
+    <!-- 1. Classical Dances (SNA Recognized) -->
+    <div class="dance-sec-box border-purple">
+      <div class="dance-sec-header text-purple">
+        <i data-lucide="sparkles"></i> <span>8 Classical Dances (Sangeet Natak Akademi)</span>
+      </div>
+
+      <table class="card-table compact-table dance-table">
+        <thead>
+          <tr>
+            <th style="width: 45px;">No.</th>
+            <th>Classical Dance</th>
+            <th>State of Origin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>1</code></td><td><strong>Sattriya</strong></td><td>Assam</td></tr>
+          <tr><td><code>2</code></td><td><strong>Bharatanatyam</strong></td><td>Tamil Nadu</td></tr>
+          <tr><td><code>3</code></td><td><strong>Kathakali</strong></td><td>Kerala</td></tr>
+          <tr><td><code>4</code></td><td><strong>Kathak</strong></td><td>Uttar Pradesh (Northern India)</td></tr>
+          <tr><td><code>5</code></td><td><strong>Kuchipudi</strong></td><td>Andhra Pradesh</td></tr>
+          <tr><td><code>6</code></td><td><strong>Odissi</strong></td><td>Odisha</td></tr>
+          <tr><td><code>7</code></td><td><strong>Manipuri</strong></td><td>Manipur</td></tr>
+          <tr><td><code>8</code></td><td><strong>Mohiniyattam</strong></td><td>Kerala</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. Major Folk Dances with Specific Communities / Tribes -->
+    <div class="dance-sec-box border-blue">
+      <div class="dance-sec-header text-blue">
+        <i data-lucide="users"></i> <span>Major Folk &amp; Tribal Dances by Community</span>
+      </div>
+
+      <table class="card-table compact-table dance-table">
+        <thead>
+          <tr>
+            <th>Folk Dance</th>
+            <th>Community / Tribe</th>
+            <th>State / Region</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Assam & North East priority -->
+          <tr>
+            <td><strong>Bagurumba</strong></td>
+            <td>Bodo community</td>
+            <td>Assam (BTR)</td>
+          </tr>
+          <tr>
+            <td><strong>Kherai</strong></td>
+            <td>Bodo community</td>
+            <td>Assam (BTR)</td>
+          </tr>
+          <tr>
+            <td><strong>Ali-Ai-Ligang (Gumrag)</strong></td>
+            <td>Mishing community</td>
+            <td>Assam</td>
+          </tr>
+          <tr>
+            <td><strong>Bhortal</strong></td>
+            <td>Sattriya Vaisnav culture (Barpeta)</td>
+            <td>Assam</td>
+          </tr>
+          <tr>
+            <td><strong>Cheraw (Bamboo Dance)</strong></td>
+            <td>Mizo community</td>
+            <td>Mizoram</td>
+          </tr>
+          <tr>
+            <td><strong>Hojagiri</strong></td>
+            <td>Reang (Bru) community</td>
+            <td>Tripura</td>
+          </tr>
+          <tr>
+            <td><strong>Wangala Dance</strong></td>
+            <td>Garo tribe</td>
+            <td>Meghalaya</td>
+          </tr>
+
+          <!-- Eastern, Northern & Western India -->
+          <tr>
+            <td><strong>Chhau</strong></td>
+            <td>Santhal, Munda, Ho tribes</td>
+            <td>Jharkhand, WB, Odisha</td>
+          </tr>
+          <tr>
+            <td><strong>Kalbelia</strong></td>
+            <td>Kalbelia (Snake charmer) community</td>
+            <td>Rajasthan, Thar desert region</td>
+          </tr>
+          <tr>
+            <td><strong>Ghoomar</strong></td>
+            <td>Bhil tribe (later Rajput)</td>
+            <td>Rajasthan</td>
+          </tr>
+          <tr>
+            <td><strong>Garba &amp; Dandiya Raas</strong></td>
+            <td>Gujarati community</td>
+            <td>Gujarat</td>
+          </tr>
+
+          <!-- Southern India -->
+          <tr>
+            <td><strong>Dollu Kunitha</strong></td>
+            <td>Kuruba community</td>
+            <td>Karnataka</td>
+          </tr>
+          <tr>
+            <td><strong>Lavani</strong></td>
+            <td>Dhangar / pastoral communities</td>
+            <td>Maharashtra</td>
+          </tr>
+          <tr>
+            <td><strong>Dandiya Raas</strong></td>
+            <td>Gujarati communities</td>
+            <td>Gujarat</td>
+          </tr>
+          <tr>
+            <td><strong>Pongal</strong></td>
+            <td>Tamil communities</td>
+            <td>Tamil Nadu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Exam Quick Notes -->
+    <div class="dance-facts-strip">
+      <span class="strip-label"><i data-lucide="zap"></i> Quick Exam Takeaways:</span>
+      <ul class="strip-list">
+        <li><strong>Bagurumba (Bodo):</strong> A joyful folk dance mimicking the fluttering of butterflies, performed by Bodo women.</li>
+        <li><strong>SNA Classical Count:</strong> Sangeet Natak Akademi recognizes <strong>8</strong> classical dances; Ministry of Culture includes <strong>Chhau</strong>, counting 9.</li>
+        <li><strong>Theyyam (Kerala):</strong> An ancient folk-theatre ritual dance performed primarily by marginalized communities in North Malabar.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">Classical Dances</span>
+    <span class="tag-chip">Community Folk</span>
+    <span class="tag-chip">Bodo Bagurumba</span>
+    <span class="tag-chip">Sattriya</span>
+    <span class="tag-chip">ADRE / SSC GK</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+           
+  <!-- Bodo Gi Tag-->
+           
+<div class="memory-card bodo-gi-card" data-category="NOTE" data-starred="true" data-date="2026-09-14T20:30:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-purple">GEOGRAPHICAL INDICATION</span>
+    <span class="exam-pill">21 GI Products • 2024</span>
+  </div>
+
+  <h3 class="card-title gi-main-title">Bodo GI Tags — 21 Products</h3>
+  <p class="card-description">Our Heritage • Our Identity • Traditional knowledge &amp; cultural products protected for the world.</p>
+
+  <!-- Quick Facts Header Bar -->
+  <div class="gi-summary-bar">
+    <div class="gi-summary-col">
+      <span class="gi-sum-label">Total Products:</span>
+      <span class="gi-sum-val">21 Items</span>
+    </div>
+    <div class="gi-summary-col">
+      <span class="gi-sum-label">Registration:</span>
+      <span class="gi-sum-val">2024 (Filed 2022)</span>
+    </div>
+    <div class="gi-summary-col">
+      <span class="gi-sum-label">Applicant:</span>
+      <span class="gi-sum-val">Bodo GI Board, Kokrajhar</span>
+    </div>
+  </div>
+
+  <!-- 21 Products Responsive Grid -->
+  <div class="gi-items-grid">
+
+    <!-- 1. Bodo Aronai -->
+    <div class="gi-item-card cat-textile">
+      <div class="gi-item-name"><span>1</span>Bodo Aronai</div>
+      <div class="gi-img-slot">
+        <img src="images/aronaipwr.jpg" alt="Bodo Aronai" onerror="this.src='https://images.unsplash.com/photo-1607344645866-009c320c5ab8?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handcraft / Textile</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Aronai = 'Respect' — small scarf worn with honor in Bodo culture.</p>
+    </div>
+
+    <!-- 2. Bodo Dokhona -->
+    <div class="gi-item-card cat-textile">
+      <div class="gi-item-name"><span>2</span>Bodo Dokhona</div>
+      <div class="gi-img-slot">
+        <img src="images/dokona.jpg" alt="Bodo Dokhona" onerror="this.src='https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft / Textile</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Dokhona = Traditional woven dress of Bodo women.</p>
+    </div>
+
+    <!-- 3. Bodo Eri Silk -->
+    <div class="gi-item-card cat-textile">
+      <div class="gi-item-name"><span>3</span>Bodo Eri Silk</div>
+      <div class="gi-img-slot">
+        <img src="images/eri silk.jpeg" alt="Bodo Eri Silk" onerror="this.src='https://images.unsplash.com/photo-1590736969955-71cc94801759?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft / Textile</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Eri = 'Ahimsa Silk' (peaceful, eco-friendly silk cocoons).</p>
+    </div>
+
+    <!-- 4. Bodo Jwmgra -->
+    <div class="gi-item-card cat-textile">
+      <div class="gi-item-name"><span>4</span>Bodo Jwmgra</div>
+      <div class="gi-img-slot">
+        <img src="images/jwmgra.jpg" alt="Bodo Jwmgra" onerror="this.src='https://images.unsplash.com/photo-1528458876861-544fd1761a91?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft / Textile</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Jwmgra = Traditional woven cloth/scarf used for clothing &amp; wrap.</p>
+    </div>
+
+    <!-- 5. Bodo Gamsa -->
+    <div class="gi-item-card cat-textile">
+      <div class="gi-item-name"><span>5</span>Bodo Gamsa</div>
+      <div class="gi-img-slot">
+        <img src="images/gamsa.jpg" alt="Bodo Gamsa" onerror="this.src='https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft / Textile</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Gamsa = Traditional woven towel/lower cloth for Bodo men.</p>
+    </div>
+
+    <!-- 6. Bodo Keradapini -->
+    <div class="gi-item-card cat-agri">
+      <div class="gi-item-name"><span>6</span>Bodo Keradapini</div>
+      <div class="gi-img-slot">
+        <img src="images/keradapini.png" alt="Bodo Keradapini" onerror="this.src='https://images.unsplash.com/photo-1586201375761-83865001e31c?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Agricultural</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Keradapini = Indigenous traditional rice variety.</p>
+    </div>
+
+    <!-- 7. Bodo Napham -->
+    <div class="gi-item-card cat-food">
+      <div class="gi-item-name"><span>7</span>Bodo Napham</div>
+      <div class="gi-img-slot">
+        <img src="images/napham.png" alt="Bodo Napham" onerror="this.src='https://images.unsplash.com/photo-1534483509719-3feaee7c30da?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Food Stuff</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Napham = Fermented fish, unique authentic Bodo delicacy.</p>
+    </div>
+
+    <!-- 8. Bodo Thorkha -->
+    <div class="gi-item-card cat-handicraft">
+      <div class="gi-item-name"><span>8</span>Bodo Thorkha</div>
+      <div class="gi-img-slot">
+        <img src="images/thorkha.png" alt="Bodo Thorkha" onerror="this.src='https://images.unsplash.com/photo-1595079672139-54708050d53c?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Thorkha = Bamboo craft / woven storage basket.</p>
+    </div>
+
+    <!-- 9. Bodo Ondla -->
+    <div class="gi-item-card cat-food">
+      <div class="gi-item-name"><span>9</span>Bodo Ondla</div>
+      <div class="gi-img-slot">
+        <img src="images/ondla.png" alt="Bodo Ondla" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Food Stuff</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Ondla = Traditional rice flour paste snack / curry dish.</p>
+    </div>
+
+    <!-- 10. Bodo Gwkha – Gwkwhi -->
+    <div class="gi-item-card cat-food">
+      <div class="gi-item-name"><span>10</span>Gwkha – Gwkwhi</div>
+      <div class="gi-img-slot">
+        <img src="images/gwka gwkwi.jpg" alt="Bodo Gwkha" onerror="this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Food Stuff</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Gwkha/Gwkwhi = Traditional food (herbal bitter/alkaline greens preparation).</p>
+    </div>
+
+    <!-- 11. Bodo Jou Gwran -->
+    <div class="gi-item-card cat-manuf">
+      <div class="gi-item-name"><span>11</span>Bodo Jou Gwran</div>
+      <div class="gi-img-slot">
+        <img src="images/gwran.png" alt="Bodo Jou Gwran" onerror="this.src='https://images.unsplash.com/photo-1516594798947-e65505dbb29d?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Manufactured</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Jou Gwran = Bamboo/wooden craft &amp; distilled utility utensils.</p>
+    </div>
+
+    <!-- 12. Bodo Jou Gishi -->
+    <div class="gi-item-card cat-manuf">
+      <div class="gi-item-name"><span>12</span>Bodo Jou Gishi</div>
+      <div class="gi-img-slot">
+        <img src="images/gisi.jpg" alt="Bodo Jou Gishi" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Manufactured</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Jou Gishi = Natural cane/bamboo handicraft mat &amp; floor covering.</p>
+    </div>
+
+    <!-- 13. Bodo Maibra Jou Bidwi -->
+    <div class="gi-item-card cat-manuf">
+      <div class="gi-item-name"><span>13</span>Bodo Maibra Jou Bidwi</div>
+      <div class="gi-img-slot">
+        <img src="images/maibra.jpg" alt="Bodo Maibra Jou Bidwi" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Manufactured</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Maibra Jou Bidwi = Handicraft textile utility &amp; decorative item.</p>
+    </div>
+
+    <!-- 14. Bodo Gongar Dunjia -->
+    <div class="gi-item-card cat-agri">
+      <div class="gi-item-name"><span>14</span>Bodo Gongar Dunjia</div>
+      <div class="gi-img-slot">
+        <img src="images/gongar dunjia.jpg" alt="Bodo Gongar Dunjia" onerror="this.src='https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Agricultural</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Gongar Dunjia = Traditional wild tuber / indigenous root vegetable.</p>
+    </div>
+
+    <!-- 15. Bodo Kham -->
+    <div class="gi-item-card cat-handicraft">
+      <div class="gi-item-name"><span>15</span>Bodo Kham</div>
+      <div class="gi-img-slot">
+        <img src="images/kham.jpeg" alt="Bodo Kham" onerror="this.src='https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Kham = Long wooden percussion drum / bamboo craft container.</p>
+    </div>
+
+    <!-- 16. Bodo Serja -->
+    <div class="gi-item-card cat-handicraft">
+      <div class="gi-item-name"><span>16</span>Bodo Serja</div>
+      <div class="gi-img-slot">
+        <img src="images/serja.jpg" alt="Bodo Serja" onerror="this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Serja = Traditional 4-string violin musical instrument / woven cloth wrap.</p>
+    </div>
+
+    <!-- 17. Bodo Sifung -->
+    <div class="gi-item-card cat-handicraft">
+      <div class="gi-item-name"><span>17</span>Bodo Sifung</div>
+      <div class="gi-img-slot">
+        <img src="images/sifung.jpg" alt="Bodo Sifung" onerror="this.src='https://images.unsplash.com/photo-1520523839898-507125cd53c1?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Sifung = 5-hole long bamboo flute / bamboo winnowing tray.</p>
+    </div>
+
+    <!-- 18. Bodo Khardwi -->
+    <div class="gi-item-card cat-agri">
+      <div class="gi-item-name"><span>18</span>Bodo Khardwi</div>
+      <div class="gi-img-slot">
+        <img src="images/kardwi.jpg" alt="Bodo Khardwi" onerror="this.src='https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Agricultural</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Khardwi = Traditional indigenous rice variety &amp; natural alkaline broth.</p>
+    </div>
+
+    <!-- 19. Bodo Narzi -->
+    <div class="gi-item-card cat-agri">
+      <div class="gi-item-name"><span>19</span>Bodo Narzi</div>
+      <div class="gi-img-slot">
+        <img src="images/narzi.jpg" alt="Bodo Narzi" onerror="this.src='https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Agricultural</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Narzi = Dried jute leaves used as traditional wild cooking greens.</p>
+    </div>
+
+    <!-- 20. Bodo Gongona -->
+    <div class="gi-item-card cat-handicraft">
+      <div class="gi-item-name"><span>20</span>Bodo Gongona</div>
+      <div class="gi-img-slot">
+        <img src="images/gongona.jpg" alt="Bodo Gongona" onerror="this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Gongona = Bamboo jaw harp musical instrument / woven decorative cover.</p>
+    </div>
+
+    <!-- 21. Bodo Jotha -->
+    <div class="gi-item-card cat-handicraft">
+      <div class="gi-item-name"><span>21</span>Bodo Jotha</div>
+      <div class="gi-img-slot">
+        <img src="images/jotha.jpg" alt="Bodo Jotha" onerror="this.src='https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&auto=format&fit=crop&q=80'" />
+      </div>
+      <h4 class="gi-item-badge">Handicraft</h4>
+      <p class="gi-item-desc"><strong>Remember:</strong> Jotha = Small brass cymbals / crafted bamboo container basket.</p>
+    </div>
+
+  </div> <!-- /gi-items-grid -->
+
+  <!-- Exam Revision Cheat-Sheet -->
+  <div class="gi-exam-footer">
+    <div class="gi-exam-box">
+      <span class="gi-box-title"><i data-lucide="check-circle"></i> Key Points to Remember</span>
+      <table class="card-table compact-table">
+        <tbody>
+          <tr><td>Total Bodo GI Products</td><td><strong>21</strong></td></tr>
+          <tr><td>Year of Filing</td><td><strong>2022</strong></td></tr>
+          <tr><td>Year of Registration</td><td><strong>2024</strong></td></tr>
+          <tr><td>Applicant Body</td><td>Bodo Geographical Indication (G.I.) Board</td></tr>
+          <tr><td>Registered HQ</td><td>Kokrajhar, BTR, Assam</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gi-exam-box">
+      <span class="gi-box-title"><i data-lucide="zap"></i> Easy Category Grouping</span>
+      <ul class="bullet-list" style="font-size: 0.68rem; gap: 4px;">
+        <li><strong>Textiles (1–5):</strong> Aronai, Dokhona, Eri Silk, Jwmgra, Gamsa.</li>
+        <li><strong>Food &amp; Agri (6–10):</strong> Keradapini, Napham, Ondla, Gwkha-Gwkwi.</li>
+        <li><strong>Manufactured &amp; Agri (11–15):</strong> Jou Gwran, Jou Gishi, Maibra Jou Bidwi, Gongar Dunjia, Kham.</li>
+        <li><strong>Textiles, Crafts &amp; Agri (16–21):</strong> Serja, Sifung, Khardwi, Narzi, Gongona, Jotha, Thorkha.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">Bodo GI Tags</span>
+    <span class="tag-chip">Aronai</span>
+    <span class="tag-chip">Dokhona</span>
+    <span class="tag-chip">BTR</span>
+    <span class="tag-chip">Kokrajhar</span>
+    <span class="tag-chip">Assam Culture</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- NATIONAL PARKS OF BTR / BTC CARD (3 NATIONAL PARKS) -->
+<div class="memory-card btr-parks-card" data-category="NOTE" data-starred="true" data-date="2026-09-13T22:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-green">WILDLIFE & BTR</span>
+    <span class="exam-pill">3 National Parks in BTR</span>
+  </div>
+
+  <h3 class="card-title btr-park-title">National Parks of BTC / BTR</h3>
+  <p class="card-description">Biodiversity hotspots across Bodoland: UNESCO sites, vital corridors, and protected fauna.</p>
+
+  <div class="btr-parks-container">
+
+    <!-- PARK 1: MANAS NATIONAL PARK -->
+    <div class="park-detail-box border-manas">
+      <div class="park-header">
+        <div class="park-title-row">
+          <i data-lucide="trees" class="icon-manas"></i>
+          <div>
+            <h4 class="park-name">1. Manas National Park</h4>
+            
+          </div>
+        </div>
+        <span class="park-status-pill">UNESCO World Heritage Site (1985) • Tiger &amp; Biosphere Reserve</span>
+      </div>
+
+      <table class="card-table park-spec-table">
+        <tbody>
+          <tr>
+            <td><strong>Districts</strong></td>
+            <td>Baksa &amp; Chirang (BTR) <span class="dim-note">(Extends to Bhutan as Royal Manas)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Famous For</strong></td>
+            <td>Contiguous transboundary landscape along Manas River, tall wet alluvial grasslands, Project Tiger, and Project Elephant.</td>
+          </tr>
+          <tr>
+            <td><strong>Flagship Species</strong></td>
+            <td>
+              <span class="species-tag">
+                <a href="images/Pygmy Hog.png" target="_blank" style="text-decoration: none;">Pygmy Hog</a>
+              </span>
+              <span class="species-tag">
+                <a href="images/Golden Langur.png" target="_blank" style="text-decoration: none;">Golden Langur</a>
+              </span>
+              <span class="species-tag">
+                <a href="images/Hispid Hare.png" target="_blank" style="text-decoration: none;">Hispid Hare</a>
+              </span>
+              <span class="species-tag">
+                <a href="images/Bangal Florican.png" target="_blank" style="text-decoration: none;">Bangal Florican</a>
+              </span>
+              
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Other Wildlife</strong></td>
+            <td>One-horned Rhinoceros, Royal Bengal Tiger, Wild Water Buffalo, Asian Elephant, Clouded Leopard.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PARK 2: RAIMONA NATIONAL PARK -->
+    <div class="park-detail-box border-raimona">
+      <div class="park-header">
+        <div class="park-title-row">
+          <i data-lucide="mountain-snow" class="icon-raimona"></i>
+          <div>
+            <h4 class="park-name">2. Raimona National Park</h4>
+           
+          </div>
+        </div>
+         <span class="park-status-pill pill-cyan">Assam's 6th National Park (Declared June 2021)</span>
+      </div>
+
+      <table class="card-table park-spec-table">
+        <tbody>
+          <tr>
+            <td><strong>District</strong></td>
+            <td>Kokrajhar (Gossaigaon sub-division, BTR)</td>
+          </tr>
+          <tr>
+            <td><strong>Famous For</strong></td>
+            <td>Dense riparian semi-evergreen Sal forest, Ripu Reserve Forest belt, bounded by Sankosh &amp; Saralbhanga rivers, contiguous with Bhutan's Phibsoo Wildlife Sanctuary.</td>
+          </tr>
+          <tr>
+            <td><strong>Flagship Species</strong></td>
+            <td>
+
+               <span class="species-tag">
+                <a href="images/Golden Langur.png" target="_blank" style="text-decoration: none;">Gee's Golden Langur</a>
+              </span>
+               <span class="species-tag">
+                <a href="images/Asian Elephant.png" target="_blank" style="text-decoration: none;">Asian Elephant</a>
+              </span>
+               <span class="species-tag">
+                <a href="images/Clouded Leopard.png" target="_blank" style="text-decoration: none;">Clouded Leopard</a>
+              </span>
+            
+              
+             
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Other Wildlife</strong></td>
+            <td>Bengal Tiger, Gaur (Indian Bison), Dhole (Wild Dog), Spotted Deer (Chital), 4 Hornbill species.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PARK 3: SIKHNA JWHWLAO NATIONAL PARK -->
+    <div class="park-detail-box border-sikhna">
+      <div class="park-header">
+        <div class="park-title-row">
+          <i data-lucide="shield" class="icon-sikhna"></i>
+          <div>
+            <h4 class="park-name">3. Sikhna Jwhwlao National Park</h4>
+           
+          </div>
+        </div>
+         <span class="park-status-pill pill-amber">Assam's 8th &amp; BTR's 3rd National Park (Notified 2025)</span>
+      </div>
+
+      <table class="card-table park-spec-table">
+        <tbody>
+          <tr>
+            <td><strong>Districts</strong></td>
+            <td>Kokrajhar &amp; Chirang (BTR) <span class="dim-note">(~316.29 sq. km area)</span></td>
+          </tr>
+          <tr>
+            <td><strong>Famous For</strong></td>
+            <td>
+              Named after legendary Bodo warrior <strong>Sikhna Jwhwlao (Joulia Dewan)</strong>. Covers the historic Ultapani Reserve Forest and Saralpara belt along Saralbhanga River. Connects Raimona and Manas into a unified corridor.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Flagship Species</strong></td>
+            <td>
+               <span class="species-tag">
+                <a href="images/butterfly.png" target="_blank" style="text-decoration: none;">460+ Butterfly Species</a>
+              </span>
+               <span class="species-tag">
+                <a href="images/Golden Langur.png" target="_blank" style="text-decoration: none;">Golden Langur</a>
+              </span>
+               <span class="species-tag">
+                <a href="images/Great Indian Hornbill.png" target="_blank" style="text-decoration: none;">Great Indian Hornbill</a>
+              </span>
+          
+             
+             
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Other Wildlife</strong></td>
+            <td>Asian Elephant (vital elephant corridor), Royal Bengal Tiger, Clouded Leopard, Gaur, rare orchids &amp; medicinal flora.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- QUICK EXAM TAKEAWAYS -->
+    <div class="park-facts-strip">
+      <span class="strip-label"><i data-lucide="zap"></i> Quick Exam Takeaways:</span>
+      <ul class="strip-list">
+        <li><strong>Total NPs in BTR:</strong> 3 (Manas, Raimona, Sikhna Jwhwlao).</li>
+        <li><strong>Total NPs in Assam:</strong> 8 (Kaziranga, Manas, Dibru-Saikhowa, Nameri, Orang, Raimona, Dihing Patkai, Sikhna Jwhwlao).</li>
+        <li><strong>Butterfly Capital:</strong> Ultapani inside Sikhna Jwhwlao NP is known as a haven for 460+ butterfly species.</li>
+        <li><strong>Cultural Heritage:</strong> Sikhnajhar in Ultapani is regarded as a sacred spiritual site where traditional annual Bathou and Kherai Puja take place.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">BTR</span>
+    <span class="tag-chip">Sikhna Jwhwlao</span>
+    <span class="tag-chip">Manas NP</span>
+    <span class="tag-chip">Raimona NP</span>
+    <span class="tag-chip">Ultapani</span>
+    <span class="tag-chip">Assam GK</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+    </div>
+  </div>
+</div>
+
+        
+
+
+
+
+
+<!-- 7 CONTINENTS, COUNTRIES & CURRENCIES VAULT CARD -->
+<div class="memory-card" data-category="NOTE" data-starred="true" data-date="2026-09-13T12:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">WORLD GEOGRAPHY</span>
+    <span class="exam-pill">7 Continents • 195 Nations</span>
+  </div>
+
+  <h3 class="card-title">7 Continents, Capitals &amp; Currencies</h3>
+  <p class="card-description">Global breakdown across all 7 continents with sovereign counts and key currencies.</p>
+
+  <table class="card-table compact-table">
+    <thead>
+      <tr>
+        <th>Continent</th>
+        <th>Countries</th>
+        <th>Notable Example</th>
+        <th>Currency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Asia</strong></td>
+        <td><code>48</code></td>
+        <td>India (New Delhi)</td>
+        <td><code>INR (₹)</code></td>
+      </tr>
+      <tr>
+        <td><strong>Africa</strong></td>
+        <td><code>54</code></td>
+        <td>Egypt (Cairo)</td>
+        <td><code>EGP (E£)</code></td>
+      </tr>
+      <tr>
+        <td><strong>Europe</strong></td>
+        <td><code>44</code></td>
+        <td>Germany (Berlin)</td>
+        <td><code>EUR (€)</code></td>
+      </tr>
+      <tr>
+        <td><strong>North America</strong></td>
+        <td><code>23</code></td>
+        <td>USA (Washington, D.C.)</td>
+        <td><code>USD ($)</code></td>
+      </tr>
+      <tr>
+        <td><strong>South America</strong></td>
+        <td><code>12</code></td>
+        <td>Brazil (Brasília)</td>
+        <td><code>BRL (R$)</code></td>
+      </tr>
+      <tr>
+        <td><strong>Oceania</strong></td>
+        <td><code>14</code></td>
+        <td>Australia (Canberra)</td>
+        <td><code>AUD (A$)</code></td>
+      </tr>
+      <tr>
+        <td><strong>Antarctica</strong></td>
+        <td><code>0</code></td>
+        <td><em>No native cities/gov</em></td>
+        <td><em>Antarctic Treaty</em></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Direct Link to the Full Table -->
+  <div style="margin-top: 10px; margin-bottom: 12px;">
+    <a href="countries.html" class="link-item" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; font-weight: 600;">
+      <span class="link-name"><i data-lucide="globe"></i> Browse Full 195+ Countries Table</span>
+      <i data-lucide="arrow-right" class="link-ext-icon"></i>
+    </a>
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">7 Continents</span>
+    <span class="tag-chip">World GK</span>
+    <span class="tag-chip">Currencies</span>
+    <span class="tag-chip">Capitals</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- BODOLAND TERRITORIAL COUNCIL (BTC) 5th EXECUTIVE COUNCIL CARD -->
+<div class="memory-card btc-card" data-category="NOTE" data-starred="true" data-date="2026-09-05T12:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-green">GOVERNANCE</span>
+    <span class="exam-pill">5th BTC • 2025–2026</span>
+  </div>
+
+  <h3 class="card-title btc-title">Bodoland Territorial Council (BTC)</h3>
+  <p class="card-description">Current Executive Council & Key Portfolios • 5th BTC Council (Kokrajhar, Assam)</p>
+
+  <div class="btc-container">
+    
+    <!-- Top Leadership Grid (CEM, Deputy CEM, Posts) -->
+    <div class="btc-leader-grid">
+      
+      <!-- CEM Box -->
+      <div class="btc-leader-card cem-box">
+        <img src="images/hagrama.jpeg" alt="" width="100" height="130" class="leader-avatar">
+        <div>
+        <div class="leader-role-badge badge-cem">Chief Executive Member (CEM)</div>
+            <div class="leader-info">
+              <h4 class="leader-name">Hagrama Mohilary</h4>
+              <span class="leader-constituency">Debargaon (BPF)</span>
+            </div>
+            <div class="leader-portfolio-list">
+              <span class="port-tag">PWD</span>
+              <span class="port-tag">Panchayat & Rural Dev</span>
+              <span class="port-tag">Finance</span>
+              <span class="port-tag">TA (WPT & BC)</span>
+              <span class="port-tag">IBA</span>
+              <span class="port-tag">GAD</span>
+              <span class="port-tag">MCLAD</span>
+              <span class="port-tag">Soil Conservation</span>
+              <span class="port-tag">Other unallocated</span>
+            </div>
+            </div>
+      </div>
+
+      <!-- Deputy CEM Box -->
+      <div class="btc-leader-card dep-box">
+        <img src="images/rihon.jpeg" alt="" width="100" height="100" class="leader-avatar">
+        <div>
+              <div class="leader-role-badge badge-dep">Deputy CEM</div>
+                    <div class="leader-info">
+                      <h4 class="leader-name">Rihon Daimary</h4>
+                      <span class="leader-constituency">Bhairabkunda (BPF)</span>
+                    </div>
+                    <div class="leader-portfolio-list">
+                      <span class="port-tag">Agriculture</span>
+                    </div>
+            </div>
+            </div>
+
+      <!-- Council Key Overview -->
+      <div class="btc-leader-card meta-box">
+        <div>
+        <div class="leader-role-badge badge-meta">Council Overview</div>
+        <table class="card-table btc-mini-table">
+          <tbody>
+            <tr><td>Speaker, BTCLA</td><td><strong>Tridip Daimary</strong></td></tr>
+            <tr><td>Deputy Speaker</td><td><em>Vacant-(Late Bijit Gwra Narzary)</em></td></tr>
+            <tr><td>Executive Members (EMs)</td><td><strong>12</strong></td></tr>
+            <tr><td>Total Council Strength</td><td><strong>14</strong> (CEM + Dep CEM + 12 EMs)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+    </div>
+
+    <!-- Council Members 14-Seat Table -->
+    <div class="btc-table-wrap">
+      <div class="btc-sec-title">
+        <i data-lucide="users"></i> <span>BTC Executive Council – All 14 Members</span>
+      </div>
+
+      <table class="card-table btc-main-table">
+        <thead>
+          <tr>
+            <th style="width: 38px;">No.</th>
+            <th>Name</th>
+            <th style="width: 75px;">Post</th>
+            <th>Constituency</th>
+            <th>Department / Portfolio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 1 -->
+          <tr>
+            <td><code>1</code></td>
+            <td><strong>Hagrama Mohilary</strong></td>
+            <td><span class="pill-role pill-cem">CEM</span></td>
+            <td>Debargaon <span class="party-bpf">(BPF)</span></td>
+            <td>PWD, P&amp;RD, Finance, TA (WPT &amp; BC), IBA, GAD, MCLAD, Soil Conservation</td>
+          </tr>
+          <!-- 2 -->
+          <tr>
+            <td><code>2</code></td>
+            <td><strong>Rihon Daimary</strong></td>
+            <td><span class="pill-role pill-dep">Dep CEM</span></td>
+            <td>Bhairabkunda <span class="party-bpf">(BPF)</span></td>
+            <td>Agriculture</td>
+          </tr>
+          <!-- 3 -->
+          <tr>
+            <td><code>3</code></td>
+            <td><strong>Mritunjoy Narzary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Soraibil <span class="party-bpf">(BPF)</span></td>
+            <td>Transport</td>
+          </tr>
+          <!-- 4 -->
+          <tr>
+            <td><code>4</code></td>
+            <td><strong>Moon Moon Brahma</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Parbatjhora <span class="party-bpf">(BPF)</span></td>
+            <td>Urban Development, Industries &amp; Commerce</td>
+          </tr>
+          <!-- 5 -->
+          <tr>
+            <td><code>5</code></td>
+            <td><strong>Rabiram Narzary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Kachugaon <span class="party-bpf">(BPF)</span></td>
+            <td>Education</td>
+          </tr>
+          <!-- 6 -->
+          <tr>
+            <td><code>6</code></td>
+            <td><strong>Derhasat Basumatary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Salakati <span class="party-bpf">(BPF)</span></td>
+            <td>Health &amp; Family Welfare</td>
+          </tr>
+          <!-- 7 -->
+          <tr>
+            <td><code>7</code></td>
+            <td><strong>Prakash Basumatary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Dotma <span class="party-bpf">(BPF)</span></td>
+            <td>Social Welfare</td>
+          </tr>
+          <!-- 8 -->
+          <tr>
+            <td><code>8</code></td>
+            <td><strong>Paniram Brahma</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Kajalgaon <span class="party-bpf">(BPF)</span></td>
+            <td>Forest &amp; Wildlife</td>
+          </tr>
+          <!-- 9 -->
+          <tr>
+            <td><code>9</code></td>
+            <td><strong>Dhiraj Borgoyary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Sobhaijhar <span class="party-bpf">(BPF)</span></td>
+            <td>Excise, Tourism</td>
+          </tr>
+          <!-- 10 -->
+          <tr>
+            <td><code>10</code></td>
+            <td><strong>Begum Akhtara Ahmed</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Mathanguri <span class="party-bpf">(BPF)</span></td>
+            <td>Public Health Engineering (PHE), Handloom &amp; Textiles</td>
+          </tr>
+          <!-- 11 -->
+          <tr>
+            <td><code>11</code></td>
+            <td><strong>Augustus Tigga</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Dihira <span class="party-bjp">(BJP)</span></td>
+            <td>Animal Husbandry &amp; Veterinary, Dairy Development</td>
+          </tr>
+          <!-- 12 -->
+          <tr>
+            <td><code>12</code></td>
+            <td><strong>Ganesh Kachary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Suklai Serfang <span class="party-bpf">(BPF)</span></td>
+            <td>Irrigation, Library Services</td>
+          </tr>
+          <!-- 13 -->
+          <tr>
+            <td><code>13</code></td>
+            <td><strong>Lwmsrao Daimary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Khwirwbari <span class="party-bpf">(BPF)</span></td>
+            <td>Land Revenue &amp; Disaster Management, Sports &amp; Youth Welfare</td>
+          </tr>
+          <!-- 14 -->
+          <tr>
+            <td><code>14</code></td>
+            <td><strong>Fresh Mushahary</strong></td>
+            <td><span class="pill-role pill-em">EM</span></td>
+            <td>Dwhwnsri <span class="party-bpf">(BPF)</span></td>
+            <td>Water Resources, Market &amp; Fair, Cultural Affairs, Cinema &amp; Theatre</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">BTC</span>
+    <span class="tag-chip">BTR</span>
+    <span class="tag-chip">Bodoland</span>
+    <span class="tag-chip">Assam Polity</span>
+    <span class="tag-chip">APSC</span>
+    <span class="tag-chip">Kokrajhar</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ASSAM CURRENT AFFAIRS 2026 CARD -->
+<div class="memory-card ca-revision-card" data-category="NOTE" data-starred="true" data-date="2026-09-11T10:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">CURRENT AFFAIRS</span>
+    <span class="exam-pill">Forester • ADRE • APSC • 2026</span>
+  </div>
+
+  <h3 class="card-title ca-title">Assam Current Affairs 2026</h3>
+  <p class="card-description">Most Important (January – September 2026) • Quick Revision for Competitive Exams</p>
+
+  <div class="ca-container">
+
+    <!-- 1. BTR / BTC -->
+    <div class="ca-section border-red">
+      <div class="ca-sec-header text-red">
+        <i data-lucide="check-square"></i> <span>BTR / BTC</span>
+      </div>
+      <ul class="bullet-list ca-list">
+        <li><strong>BTR (Bodoland Territorial Region):</strong> Formed in 27 January 2020, consists of 5 districts — Kokrajhar (HQ), Chirang, Baksa, Udalguri, Tamulpur.</li>
+        <li><strong>BTC (Bodoland Territorial Council):</strong> Formed in 10 February 2003, reconstituted in 2020 under the BTR Agreement.</li>
+        <li><strong>2026 Leadership:</strong> Hagrama Mohilary – Chief Executive Member (CEM), BTC / Chief Executive, BTR (incumbent in 2026).</li>
+        <li><strong>Former CEM:</strong> Pramod Boro (2003–2020).</li>
+        <li><strong>Key Focus Areas:</strong> Peace, development, infrastructure, education, skill development, and cultural preservation.</li>
+        <li><strong>Welfare:</strong> BTR Govt. launched/continued several welfare schemes for youth, women, farmers, and indigenous communities.</li>
+      </ul>
+    </div>
+
+    <!-- 2. IMPORTANT APPOINTMENTS (2026) -->
+    <div class="ca-section border-blue">
+      <div class="ca-sec-header text-blue">
+        <i data-lucide="user-check"></i> <span>Important Appointments (2026)</span>
+      </div>
+      <table class="card-table ca-table">
+        <tbody>
+          <tr><td>Ranjan Gogoi</td><td>Chairperson, Assam State Human Rights Commission (re-appointment in 2026)</td></tr>
+          <tr><td>Dr. Himanta Biswa Sarma</td><td>Chief Minister of Assam (continues)</td></tr>
+          <tr><td>Dr. Ashok K. Singh</td><td>Governor of Assam (continues)</td></tr>
+          <tr><td>Harmeet Singh</td><td>DGP, Assam (continues in 2026)</td></tr>
+          <tr><td>New Police Chief (2026)</td><td>Additional DGP G.P. Singh (took charge in July 2026)</td></tr>
+          <tr><td>Pratiksha Borthakur</td><td>Chairperson, Assam Public Service Commission (APSC) (continues)</td></tr>
+          <tr><td>Dr. Rakesh Ranjan</td><td>Chairman, Assam State Election Commission (continues)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3. DISTRICTS & NEW DISTRICTS -->
+    <div class="ca-section border-green">
+      <div class="ca-sec-header text-green">
+        <i data-lucide="map-pin"></i> <span>Districts & New Districts</span>
+      </div>
+      <ul class="bullet-list ca-list">
+        <li><strong>New District Created (2026):</strong> Dima Hasao (created 2010; in 2026 received full administrative strengthening & new DC office).</li>
+        <li><strong>New Sub-division:</strong> Bihpuri (Baksa district) – upgraded in 2026.</li>
+        <li><strong>Karimganj District:</strong> Got new district hospital (2026).</li>
+        <li><strong>Tinsukia District:</strong> Became 1st in Assam to achieve 100% digital land records (2026).</li>
+        <li><strong>Goalpara:</strong> New degree college inaugurated (2026).</li>
+        <li><strong>Cachar:</strong> New sports complex (under construction, 2026).</li>
+      </ul>
+    </div>
+
+    <!-- 4. ENVIRONMENT & WILDLIFE -->
+    <div class="ca-section border-emerald">
+      <div class="ca-sec-header text-emerald">
+        <i data-lucide="leaf"></i> <span>Environment & Wildlife</span>
+      </div>
+      <ul class="bullet-list ca-list">
+        <li><strong>Kaziranga National Park:</strong> 2,613 rhinos (2026 census, highest in the world).</li>
+        <li><strong>Manas National Park:</strong> UNESCO World Heritage Site (declared 2024; saw major new conservation funding in 2026).</li>
+        <li><strong>Orang National Park:</strong> New eco-tourism facilities inaugurated (2026).</li>
+        <li><strong>Policy Milestone:</strong> Assam became 1st state in North East to launch Plastic Waste Management Policy (2026).</li>
+        <li><strong>Brahmaputra River:</strong> New riverfront development project phase-2 (2026).</li>
+        <li><strong>Corridor Restoration:</strong> Kaziranga–Karbi Anglong corridor – more forest cover restored (2026).</li>
+        <li><strong>Green Assam, Clean Assam:</strong> Campaign expanded across all districts (2026).</li>
+      </ul>
+    </div>
+
+    <!-- 5. SCHEMES & INITIATIVES -->
+    <div class="ca-section border-orange">
+      <div class="ca-sec-header text-orange">
+        <i data-lucide="cog"></i> <span>Schemes & Initiatives</span>
+      </div>
+      <table class="card-table ca-table">
+        <tbody>
+          <tr><td>Orunodoi 3.0</td><td>Continued (increased beneficiary amount)</td></tr>
+          <tr><td>Axom Sarothi</td><td>Youth employment & skill development (2026)</td></tr>
+          <tr><td>Mukhyamantri Atmanirbhar Asom Abhijan</td><td>Support to MSME, startups</td></tr>
+          <tr><td>PM-KISSAN</td><td>Continued in Assam (2026)</td></tr>
+          <tr><td>Ayushman Bharat</td><td>Health coverage expansion (2026)</td></tr>
+          <tr><td>Kanyashree Prakalpa</td><td>Continued (girl child education)</td></tr>
+          <tr><td>Jaivik Krishi Mission</td><td>Promotion of organic farming (2026)</td></tr>
+          <tr><td>Digital Assam Mission</td><td>E-governance, online services (2026)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6. ECONOMY & INFRASTRUCTURE -->
+    <div class="ca-section border-cyan">
+      <div class="ca-sec-header text-cyan">
+        <i data-lucide="trending-up"></i> <span>Economy & Infrastructure</span>
+      </div>
+      <ul class="bullet-list ca-list">
+        <li><strong>Assam's GSDP (2025–26 est.):</strong> ₹3.17 lakh crore (growth ~8.4%).</li>
+        <li><strong>Tea Exports:</strong> Crossed ₹10,000 crore in 2026 (new record).</li>
+        <li><strong>Oil & Natural Gas:</strong> Increased production from Assam fields (2026).</li>
+        <li><strong>Numaligarh Refinery (NRL):</strong> Expanded capacity (2026).</li>
+        <li><strong>Bogibeel Bridge:</strong> Enhanced rail connectivity (more trains, 2026).</li>
+        <li><strong>Guwahati Ring Road:</strong> 2nd phase work started (2026).</li>
+        <li><strong>Dibrugarh Airport:</strong> New terminal building inauguration (2026).</li>
+        <li><strong>Tezpur Airport:</strong> Upgraded (international operations under process, 2026).</li>
+        <li><strong>Rural Roads:</strong> PMGSY 2.0 projects accelerated (2026).</li>
+      </ul>
+    </div>
+
+    <!-- 7. AWARDS & RECOGNITIONS -->
+    <div class="ca-section border-purple">
+      <div class="ca-sec-header text-purple">
+        <i data-lucide="award"></i> <span>Awards & Recognitions</span>
+      </div>
+      <ul class="bullet-list ca-list">
+        <li><strong>Dr. Bhupen Hazarika:</strong> Bharat Ratna (posthumous) announced in Jan 2026 (officially conferred).</li>
+        <li><strong>Culture Award:</strong> Assam won "Best State for Culture & Heritage Promotion" at a national event (2026).</li>
+        <li><strong>Hima Das:</strong> Honoured with the Khel Ratna (2026).</li>
+        <li><strong>Muga Silk:</strong> Assam's traditional textile got GI tag recognition (new products list, 2026).</li>
+        <li><strong>Srimanta Sankardev:</strong> 575th birth anniversary (2026) – major cultural celebrations across the state.</li>
+      </ul>
+    </div>
+
+    <!-- 8. IMPORTANT GOVERNMENT DECISIONS (2026) -->
+    <div class="ca-section border-rose">
+      <div class="ca-sec-header text-rose">
+        <i data-lucide="file-text"></i> <span>Important Government Decisions (2026)</span>
+      </div>
+      <ul class="step-list ca-step-list">
+        <li><i data-lucide="check-circle" class="step-icon done"></i> Cabinet approved Assam Climate Action Plan 2.0 (2026).</li>
+        <li><i data-lucide="check-circle" class="step-icon done"></i> Decision to set up Assam Skill University (progress in 2026).</li>
+        <li><i data-lucide="check-circle" class="step-icon done"></i> Approval for new medical college in Barpeta (2026).</li>
+        <li><i data-lucide="check-circle" class="step-icon done"></i> Land ceiling limit revised for tea garden workers (2026).</li>
+        <li><i data-lucide="check-circle" class="step-icon done"></i> State cabinet approved 100% digitisation of land records (Tinsukia, 2026).</li>
+        <li><i data-lucide="check-circle" class="step-icon done"></i> Ban on single-use plastic in government offices (from July 2026).</li>
+        <li><i data-lucide="check-circle" class="step-icon done"></i> "One Nation One Ration Card" – full implementation in Assam (2026).</li>
+        <li><i data-lucide="check-circle" class="step-icon done"></i> Assam Biodiversity Board – strengthened with new guidelines (2026).</li>
+      </ul>
+    </div>
+
+    <!-- 9. SPORTS -->
+    <div class="ca-section border-teal">
+      <div class="ca-sec-header text-teal">
+        <i data-lucide="activity"></i> <span>Sports</span>
+      </div>
+      <ul class="bullet-list ca-list">
+        <li><strong>Hima Das:</strong> Won gold in 400m at a major international meet (2026).</li>
+        <li><strong>Indian Men's Hockey Team:</strong> Assam players secured medal in the 2026 Asia Cup (played in India).</li>
+        <li><strong>Assam Football Team:</strong> Reached 2nd round in Santosh Trophy (2026).</li>
+        <li><strong>Chess:</strong> Assam's young player (Suryavanshi Deka) won silver at National Chess Championship (2026).</li>
+        <li><strong>Preparatory Camp:</strong> Assam hosted North East Games Preparatory camp (2026).</li>
+      </ul>
+    </div>
+
+    <!-- 10. KEY EVENTS & OTHERS -->
+    <div class="ca-section border-pink">
+      <div class="ca-sec-header text-pink">
+        <i data-lucide="calendar"></i> <span>Key Events & Others</span>
+      </div>
+      <table class="card-table ca-table">
+        <tbody>
+          <tr><td>Republic Day 2026</td><td>Guwahati hosted the main state function.</td></tr>
+          <tr><td>Bihu 2026</td><td>Celebrated with state-level and international events.</td></tr>
+          <tr><td>Assam Literature Festival</td><td>Held in Feb 2026 (Guwahati).</td></tr>
+          <tr><td>Advantage Assam 2.0</td><td>Investors' summit (March 2026).</td></tr>
+          <tr><td>World Environment Day</td><td>Assam's mega plantation drive (June 2026).</td></tr>
+          <tr><td>Independence Day 2026</td><td>Special cultural program at Srimanta Sankaradev Kalakshetra, Guwahati.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">Current Affairs</span>
+    <span class="tag-chip">Assam 2026</span>
+    <span class="tag-chip">APSC</span>
+    <span class="tag-chip">Schemes</span>
+    <span class="tag-chip">BTR</span>
+    <span class="tag-chip">Appointments</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-11T17:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Types Of Levers</h3>
+          <p class="card-description">A lever is a simple machine that consists of a rigid bar that pivots around a fixed point called the fulcrum.</p>
+          <div class="card-image-wrap">
+          <a href="images/lever.jpeg" target="_blank" rel="noopener noreferrer">
+              <img src="images/lever.jpeg" alt="Grid preview" class="card-image" />
+          </a>
+            
+            <span class="card-image-caption">levers.jpeg</span>
+          </div>
+
+
+          <div class="card-tags">
+            <span class="tag-chip">Competitive</span>
+            <span class="tag-chip">Numerical</span>
+            <span class="tag-chip">Reasoning</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+<!-- ASSAM GK COMPLETE REVISION CARD -->
+<div class="memory-card gk-revision-card" data-category="NOTE" data-starred="true" data-date="2026-08-28T09:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-pink">NOTE</span>
+    <span class="exam-pill">Competitive Exams • 2026</span>
+  </div>
+
+  <h3 class="card-title gk-title">Assam GK — Complete Revision</h3>
+  <p class="card-description">Know Your State • Secure Your Future (Comprehensive Quick Reference)</p>
+
+  <div class="gk-container">
+    
+    <!-- 1. ASSAM AT A GLANCE -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="map-pin"></i> <span>1. Assam At A Glance</span>
+      </div>
+      <table class="card-table gk-table">
+        <tbody>
+          <tr><td>Capital</td><td><strong>Dispur</strong></td></tr>
+          <tr><td>Largest City</td><td><strong>Guwahati</strong></td></tr>
+          <tr><td>Area</td><td>78,438 sq km</td></tr>
+          <tr><td>Official Language</td><td>Assamese</td></tr>
+          <tr><td>Major River</td><td>Brahmaputra</td></tr>
+          <tr><td>Other Major Valley</td><td>Barak Valley</td></tr>
+          <tr><td>Statehood</td><td>26 January 1950 (as a state in Indian Union)</td></tr>
+          <tr><td>International Borders</td><td>Bhutan and Bangladesh</td></tr>
+          <tr><td>Neighboring States</td><td>Arunachal, Nagaland, Manipur, Mizoram, Tripura, Meghalaya, West Bengal</td></tr>
+          <tr><td>Administrative Divisions</td><td>4 (Divisions)</td></tr>
+          <tr><td>District Count</td><td><strong>35</strong> (Verify latest notification)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. GEOGRAPHY -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="mountain"></i> <span>2. Geography</span>
+      </div>
+      <table class="card-table gk-table">
+        <tbody>
+          <tr><td>Major Valleys</td><td>Brahmaputra Valley, Barak Valley, Karbi Anglong plateau/hills</td></tr>
+          <tr><td>Important Rivers</td><td>Brahmaputra, Barak, Subansiri, Manas, Dhansiri, Kopili, Jia-Bharali, Sankosh</td></tr>
+          <tr><td>Highest Peak</td><td>Thumjang (Dima Hasao)</td></tr>
+          <tr><td>Climate</td><td>Humid subtropical / monsoon</td></tr>
+          <tr><td>Famous For</td><td>Floods and rich riverine ecosystem</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3. HISTORY TIMELINE -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="landmark"></i> <span>3. History Timeline</span>
+      </div>
+      <table class="card-table gk-table timeline-table">
+        <thead>
+          <tr><th>Period / Year</th><th>Event / Significance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>c. 3rd century BC</code></td><td>Pragjyotisha (Kamarupa)</td></tr>
+          <tr><td><code>1228</code></td><td>Ahom Kingdom founded by <strong>Sukapha</strong></td></tr>
+          <tr><td><code>1671</code></td><td><strong>Battle of Saraighat</strong> (Lachit Borphukan)</td></tr>
+          <tr><td><code>1826</code></td><td><strong>Treaty of Yandabo</strong> (Ended Ahom rule)</td></tr>
+          <tr><td><code>1826–1838</code></td><td>British rule established in Assam</td></tr>
+          <tr><td><code>1838–1947</code></td><td>Assam Province (under British India)</td></tr>
+          <tr><td><code>1947–1950</code></td><td>Independence & post-independence reorganization</td></tr>
+          <tr><td><code>1985</code></td><td><strong>Assam Accord</strong></td></tr>
+          <tr><td><code>2003 onwards</code></td><td>Bodoland Territorial Council & related developments</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. CULTURE & FESTIVALS -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="sparkles"></i> <span>4. Culture & Festivals</span>
+      </div>
+      <ul class="bullet-list gk-list">
+        <li><strong>Rongali / Bohag Bihu (April):</strong> Assamese New Year & harvest festival.</li>
+        <li><strong>Bhogali / Magh Bihu (Jan):</strong> Harvest festival celebrated with bonfires (Meji).</li>
+        <li><strong>Kongali / Kati Bihu (Oct):</strong> Solemn festival for crops protection & prosperity.</li>
+        <li><strong>Sattriya Dance:</strong> Sangeet Natak Akademi recognized Classical Dance of India.</li>
+        <li><strong>Satras & Namghars:</strong> Neo-Vaishnavite religious & cultural institutional centers.</li>
+        <li><strong>Mekhela Chador:</strong> Traditional indigenous women attire.</li>
+        <li><strong>Gamosa:</strong> Traditional handwoven cloth, symbol of honor & identity.</li>
+        <li><strong>Majuli:</strong> World's largest inhabited freshwater river island.</li>
+        <li><strong>Ambubachi Mela:</strong> Annual fertility festival at Kamakhya Temple (June).</li>
+        <li><strong>Ali-Aye-Ligang:</strong> Spring agricultural festival of the Mising tribe.</li>
+        <li><strong>Baishagu (mid-april)</strong>: Bwisagu is one of the most popular seasonal festivals of the Bodos of Assam</li>
+        <li><strong>Kherai</strong>:Kherai is the greatest religious festival of Boros.</li>
+      </ul>
+    </div>
+
+    <!-- 5. WILDLIFE & NATIONAL PARKS -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="trees"></i> <span>5. Wildlife & 7 National Parks</span>
+      </div>
+      <table class="card-table gk-table national-parks-table">
+        <thead>
+          <tr><th>No.</th><th>National Park</th><th>Designation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Kaziranga National Park</strong></td><td>UNESCO WHS (1985)</td></tr>
+          <tr><td>2</td><td><strong>Manas National Park</strong></td><td>UNESCO WHS (1985)</td></tr>
+          <tr><td>3</td><td>Dibru-Saikhowa National Park</td><td>Biosphere Reserve</td></tr>
+          <tr><td>4</td><td>Nameri National Park</td><td>Tiger Reserve</td></tr>
+          <tr><td>5</td><td>Orang National Park</td><td>Mini Kaziranga</td></tr>
+          <tr><td>6</td><td>Dihing Patkai National Park</td><td>Rainforest National Park</td></tr>
+          <tr><td>7</td><td>Raimona National Park</td><td>Golden Langur Habitat</td></tr>
+          <tr><td>8</td><td>Sikhna Jwhwlao National Park</td><td>Vital habitat for wildlife </td></tr>
+        </tbody>
+      </table>
+      <div class="gk-flagship-box">
+        <strong>Flagship Species:</strong> One-horned Rhinoceros, Royal Bengal Tiger, Wild Water Buffalo, 
+        Pygmy Hog, Golden Langur, Hoolock Gibbon, Gangetic River Dolphin, over 460 species of butterflies, Asian Elephant.
+      </div> 
+    </div>
+
+    <!-- 6. IMPORTANT PLACES -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="compass"></i> <span>6. Important Places</span>
+      </div>
+      <table class="card-table gk-table">
+        <thead>
+          <tr><th>Place</th><th>Key Feature / Significance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Kamakhya Temple</td><td>Historic Shakti Peeth atop Nilachal Hill, Guwahati</td></tr>
+          <tr><td>Umananda</td><td>Peacock Island (Smallest inhabited river island)</td></tr>
+          <tr><td>Sivasagar / Rang Ghar</td><td>Royal amphitheater of Ahom Kingdom</td></tr>
+          <tr><td>Talatal Ghar</td><td>Ahom multi-storeyed underground army base palace</td></tr>
+          <tr><td>Charaideo Maidams</td><td><strong>UNESCO World Heritage Site (2024)</strong> — Royal Ahom burial mounds</td></tr>
+          <tr><td>Majuli</td><td>World's largest river island & seat of Vaishnavite Satras</td></tr>
+          <tr><td>Pobitora</td><td>Highest density of One-horned Rhinos in the world</td></tr>
+          <tr><td>Digboi</td><td>Asia's first and oldest operational oil refinery (1901)</td></tr>
+          <tr><td>Tezpur</td><td>City of Eternal Romance / Cultural capital</td></tr>
+          <tr><td>Haflong</td><td>Only hill station in Assam (Dima Hasao district)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 7. ECONOMY & RESOURCES -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="coins"></i> <span>7. Economy & Resources</span>
+      </div>
+      <table class="card-table gk-table">
+        <tbody>
+          <tr><td>Tea</td><td>Assam Tea (world famous black tea producer)</td></tr>
+          <tr><td>Petroleum</td><td>Digboi, Naharkatiya, Moran (Historic Oil hub)</td></tr>
+          <tr><td>Natural Gas</td><td>Key energy resource & fertilizer raw material</td></tr>
+          <tr><td>Coal</td><td>Makum, Ledo (Tertiary coal deposits)</td></tr>
+          <tr><td>Limestone</td><td>Dima Hasao & Karbi Anglong industrial resource</td></tr>
+          <tr><td>Silk (Pat, Muga, Eri)</td><td>Sualkuchi ("Manchester of Assam"); Golden Muga Silk</td></tr>
+          <tr><td>Crops</td><td>Rice (staple), Mustard, Jute, Sugarcane</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. STATE SYMBOLS -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="award"></i> <span>8. State Symbols & Quick Facts</span>
+      </div>
+      <table class="card-table gk-table">
+        <tbody>
+          <tr><td>State Animal</td><td><strong>One-horned Rhinoceros</strong> (<em>Rhinoceros unicornis</em>)</td></tr>
+          <tr><td>State Bird</td><td><strong>White-winged Wood Duck</strong> (<em>Asarcornis scutulata</em>)</td></tr>
+          <tr><td>State Tree</td><td><strong>Hollong</strong> (<em>Dipterocarpus macrocarpus</em>)</td></tr>
+          <tr><td>State Flower</td><td><strong>Foxtail Orchid / Kopou Phool</strong> (<em>Rhynchostylis retusa</em>)</td></tr>
+          <tr><td>State Song</td><td><strong>O Mur Apunar Desh</strong> (by Lakshminath Bezbaroa)</td></tr>
+          <tr><td>State Festival</td><td><strong>Bihu</strong> (Rongali, Kongali, Bhogali)</td></tr>
+          <tr><td>Major GI Products</td><td>Muga Silk, Assam Orthodox Tea, Karbi Anglong Ginger, Kaji Nemu, Chokuwa Rice, Gamosa</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 9. IMPORTANT PERSONALITIES -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="users"></i> <span>9. Important Personalities</span>
+      </div>
+      <table class="card-table gk-table">
+        <tbody>
+          <tr><td><strong>Srimanta Sankardeva</strong></td><td>15th–16th century saint, polymath, founder of Ekasarana Dharma</td></tr>
+          <tr><td><strong>Madhavdeva</strong></td><td>Chief disciple of Sankardeva, composer of <em>Naam Ghosha</em></td></tr>
+          <tr><td><strong>Sukapha</strong></td><td>First Ahom King, architect of greater Assamese identity (1228)</td></tr>
+          <tr><td><strong>Lachit Borphukan</strong></td><td>General who defeated Mughal Army at Battle of Saraighat (1671)</td></tr>
+          <tr><td><strong>Bhupen Hazarika</strong></td><td>"Sudhakantha", Bharat Ratna awardee legendary music maestro</td></tr>
+          <tr><td><strong>Jyoti Prasad Agarwala</strong></td><td>Rupkonwar, pioneer playwright, filmmaker (<em>Joymoti</em>, 1935)</td></tr>
+          <tr><td><strong>Bishnu Prasad Rabha</strong></td><td>Kalaguru, cultural icon, poet, and revolutionary artist</td></tr>
+          <tr><td><strong>Kanaklata Barua</strong></td><td>"Birbala", 17-yr-old martyr of 1942 Quit India Movement</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 10. EXAM TRAPS / MUST REMEMBER -->
+    <div class="gk-section highlight-sec">
+      <div class="gk-sec-header danger-header">
+        <i data-lucide="alert-triangle"></i> <span>10. Exam Traps / High-Yield Points</span>
+      </div>
+      <ul class="step-listu gk-checklist gk-list">
+        <li><strong>Treaty of Yandabo:</strong> 24 February 1826 (Ended First Anglo-Burmese War).</li>
+        <li><strong>Battle of Saraighat:</strong> 1671 (Naval battle on Brahmaputra river).</li>
+        <li><strong>Ahom dynasty arrival:</strong> 1228 AD via Patkai hills.</li>
+        <li><strong>Assam Accord:</strong> Signed on 15 August 1985 (Cutoff date: 24 March 1971).</li>
+        <li><strong>Charaideo Moidams:</strong> UNESCO World Heritage Site in <strong>2024</strong>.</li>
+        <li><strong>Sattriya Dance:</strong> Recognized as classical dance in the year <strong>2000</strong>.</li>
+        <li><strong>Brahmaputra entry:</strong> Enters Assam near Sadiya (as Dihang/Siang joined by Dibang and Lohit).</li>
+      </ul>
+    </div>
+
+    <!-- 11. LAST MINUTE 20 FACTS TABLE -->
+    <div class="gk-section">
+      <div class="gk-sec-header">
+        <i data-lucide="zap"></i> <span>11. Rapid-Fire Revision Facts</span>
+      </div>
+      <table class="card-table gk-table compact-table">
+        <tbody>
+          <tr><td>1. Capital</td><td>Dispur</td><td>11. Kaziranga UNESCO</td><td>1985</td></tr>
+          <tr><td>2. Largest City</td><td>Guwahati</td><td>12. Manas UNESCO</td><td>1985</td></tr>
+          <tr><td>3. State Animal</td><td>One-horned Rhino</td><td>13. Classical Dance</td><td>Sattriya</td></tr>
+          <tr><td>4. State Bird</td><td>White-winged Wood Duck</td><td>14. Sukapha Arrival</td><td>1228 AD</td></tr>
+          <tr><td>5. State Tree</td><td>Hollong</td><td>15. Saraighat Battle</td><td>1671</td></tr>
+          <tr><td>6. State Flower</td><td>Kopou Phool (Foxtail Orchid)</td><td>16. Treaty of Yandabo</td><td>1826</td></tr>
+          <tr><td>7. State Song</td><td>O Mur Apunar Desh</td><td>17. Assam Accord</td><td>1985</td></tr>
+          <tr><td>8. State Festival</td><td>Bihu</td><td>18. Charaideo UNESCO</td><td>2024</td></tr>
+          <tr><td>9. First Oil Well</td><td>Digboi (1889/1901)</td><td>19. No. of Districts</td><td>36 (approx)</td></tr>
+          <tr><td>10. First Film</td><td>Joymoti (1935)</td><td>20. Oldest Refinery</td><td>Digboi</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div> <!-- /gk-container -->
+
+  <div class="card-tags">
+    <span class="tag-chip">Competitive</span>
+    <span class="tag-chip">APSC</span>
+    <span class="tag-chip">Assam GK</span>
+    <span class="tag-chip">History</span>
+    <span class="tag-chip">Geography</span>
+    <span class="tag-chip">UNESCO</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+    </div>
+  </div>
+</div>
+
+
+
+
+        
+
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-12T17:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Government Of India 2026</h3>
+          <p class="card-description">Current Union Council of Minesters and other Important Posts.</p>
+          <div class="card-image-wrap">
+            <a href="images/govt of india.jpeg" target="_blank" rel="noopener noreferrer">
+              <img src="images/govt of india.jpeg" alt="Grid preview" class="card-image" />
+            </a>
+            
+            <span class="card-image-caption">govt of india.jpeg</span>
+          </div>
+
+
+          <div class="card-tags">
+            <span class="tag-chip">Competitive</span>
+            <span class="tag-chip">Political</span>
+            <span class="tag-chip">GK</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+        
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-12T17:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Government Of Assam 2026</h3>
+          <p class="card-description">Current Council and Minesters and other Important Posts.</p>
+          <div class="card-image-wrap">
+            <a href="images/govt of assam g.jpeg" target="_blank" rel="noopener noreferrer">
+              <img src="images/govt of assam g.jpeg" alt="Grid preview" class="card-image" />
+            </a>
+            
+            <span class="card-image-caption">govt of assam g.jpeg</span>
+          </div>
+
+
+          <div class="card-tags">
+            <span class="tag-chip">Competitive</span>
+            <span class="tag-chip">Political</span>
+            <span class="tag-chip">GK</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+        
+
+
+        
+
+
+        
+ <div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-09T14:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Fundamental Of Computer Notes</h3>
+          <p class="card-description">A complete biginners friendly self learning Computer notes.</p>
+          <div class="card-image-wrap">
+            <a href="images/fundamental tech 26 4test.pdf" target="_blank" rel="noopener noreferrer">
+              <img src="images/fundamental.png" alt="Grid preview" class="card-image" />
+            </a>
+            
+            <span class="card-image-caption">Fundamental of Computer Notes.pdf</span>
+          </div>
+<ul class="card-link-list">
+    <li>
+      <a href="images/fundamental tech 26 4test.pdf" target="_blank" rel="noopener noreferrer" class="link-item" download>
+        <span class="link-name"><i data-lucide="download"></i>Download Notes</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+
+          <div class="card-tags">
+            <span class="tag-chip">Fundamental</span>
+            <span class="tag-chip">Notes</span>
+            <span class="tag-chip">Computer</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+        
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-07T14:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">HTML Notes</h3>
+          <p class="card-description">A complete biginners friendly self learning HTML notes.</p>
+          <div class="card-image-wrap">
+            <a href="images/html-1.pdf" target="_blank" rel="noopener noreferrer" class="link-item">
+            <img src="images/html.png" alt="Grid preview" class="card-image" />
+               </a>
+            <span class="card-image-caption">A Complete HTML Notes.pdf</span>
+           
+          </div>
+<ul class="card-link-list">
+    <li>
+      <a href="images/html-1.pdf" target="_blank" rel="noopener noreferrer" class="link-item" download>
+        <span class="link-name"><i data-lucide="download"></i>Download Notes</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+
+          <div class="card-tags">
+            <span class="tag-chip">HTML</span>
+            <span class="tag-chip">Notes</span>
+            <span class="tag-chip">Computer</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+<!-- css notes -->
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-07T14:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">CSS Notes</h3>
+          <p class="card-description">A complete biginners friendly self learning CSS notes.</p>
+          <div class="card-image-wrap">
+            <a href="images/css-2.pdf" target="_blank" rel="noopener noreferrer" class="link-item">
+            <img src="images/css.png" alt="Grid preview" class="card-image" />
+            </a>
+            <span class="card-image-caption">A Complete CSS Notes.pdf</span>
+          </div>
+<ul class="card-link-list">
+    <li>
+      <a href="images/css-2.pdf" target="_blank" rel="noopener noreferrer" class="link-item" download>
+        <span class="link-name"><i data-lucide="download"></i>Download Notes</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+
+          <div class="card-tags">
+            <span class="tag-chip">CSS</span>
+            <span class="tag-chip">UI/UX</span>
+            <span class="tag-chip">Layout</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- kali linux -->
+<div class="memory-card" data-category="PROMPT" data-starred="false" data-date="2026-09-05T18:00:00Z">
+          <span class="card-badge badge-blue">PROMPT</span>
+          <h3 class="card-title">Khali Linux/Zphiser</h3>
+          <p class="card-description">A biginners friedly, Automated phishing tool with 30+ templates.</p>
+          <ul class="step-list">
+            <li><i data-lucide="check-square" class="step-icon done"></i>Just clone this repository</li>
+          </ul>
+          
+          <div class="code-snippet">git clone --depth=1 https://github.com/htr-tech/zphisher.git
+</div>
+ <ul class="step-list">
+            <li><i data-lucide="check-square" class="step-icon done"></i>Now go to cloned directory and run</li>
+          </ul>
+<div class="code-snippet">cd zphisher
+bash zphisher.sh
+</div>
+          <div class="card-tags">
+            <span class="tag-chip">Kali Linux</span>
+            <span class="tag-chip">Phishing</span>
+            <span class="tag-chip">Cybersecurity</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- windows acti -->
+<div class="memory-card" data-category="PROMPT" data-starred="false" data-date="2026-09-05T18:00:00Z">
+          <span class="card-badge badge-blue">PROMPT</span>
+          <h3 class="card-title">Windows/Microsoft Activator</h3>
+          <p class="card-description">Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS activation methods, along with advanced troubleshooting.</p>
+          <ul class="step-list">
+            <li><i data-lucide="check-square" class="step-icon done"></i>Click the Start Menu, type PowerShell.</li>
+            <li><i data-lucide="check-square" class="step-icon done"></i>and open it run as administration</li>
+            <li><i data-lucide="check square" class="step-icon done"></i>Enter the code below and press Enter.</li>
+          </ul>
+          
+          <div class="code-snippet"> irm https://get.activated.win| iex
+</div>
+          <div class="card-tags">
+            <span class="tag-chip">Windows</span>
+            <span class="tag-chip">Prompt</span>
+            <span class="tag-chip">Coding</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        
+
+
+
+<!-- windows speed -->
+<div class="memory-card" data-category="KEY" data-starred="false" data-date="2026-09-05T12:00:00Z">
+          <span class="card-badge badge-purple">KEY</span>
+          <h3 class="card-title">Windows Speed Up Command</h3>
+          <p class="card-description">Type cmd in the search box, right-click Command Prompt, and select Run as administrator.</p>
+          <div class="key-list">
+            <div class="key-row">
+              <span class="shortcut-kbd">sfc /scannow</span>
+              <span class="key-desc">Scan and repair system files</span>
+            </div>
+            <div class="key-row">
+              <span class="shortcut-kbd">DISM /Online /Cleanup-Image /RestoreHealth</span>
+              <span class="key-desc">Restore the health of the Windows image</span>
+            </div>
+            <div class="key-row">
+              <span class="shortcut-kbd">chkdsk C: /f /r</span>
+              <span class="key-desc">Check and repair disk errors</span>
+            </div>
+            
+            
+            
+          </div>
+          <div class="card-tags">
+            <span class="tag-chip">Command</span>
+            <span class="tag-chip">Key</span>
+            <span class="tag-chip">Windows</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- web link -->
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-01T20:00:00">
+  <span class="card-badge badge-green">LINK</span>
+  <h3 class="card-title">Web Links</h3>
+  <p class="card-description">Quick access links for my own web resources.</p>
+  
+  <ul class="card-link-list">
+    <li>
+      <a href="https://basumatary321.github.io/kabindra.github.io/" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="list-todo"></i> HTML & CSS Task</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://techno-batch.22web.org/" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="users"></i> Techno Batch</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="http://fee-tracker-4u.html-5.me/" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="wallet"></i>Techno Fee Tracker</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+
+    <li>
+      <a href="https://docs.google.com/spreadsheets/d/1PkQ8I9ahTt7JcUsJncuyEUudpojGbdoGYfRyatW5NPM/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="wallet"></i>Techno Fee.xlsx</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://basumatary321.github.io/kabindra.github.io/aronai/" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="pencil-sparkles"></i>Aronai Pattern</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+  </ul>
+
+  <div class="card-tags">
+    <span class="tag-chip">Bookmarks</span>
+    <span class="tag-chip">Resources</span>
+    <span class="tag-chip">Web Dev</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+        <!--dev link-->
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-09-01T20:00:00">
+  <span class="card-badge badge-green">LINK</span>
+  <h3 class="card-title">Essential Developer Links</h3>
+  <p class="card-description">Quick access bookmarks for documentation, AI tools, and assets.</p>
+  
+  <ul class="card-link-list">
+    <li>
+      <a href="https://github.com/Basumatary321" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="git-compare-arrows"></i> GitHub</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="book-open"></i> MDN Web Docs</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="sparkles"></i> Lucide Icons</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="type"></i> Google Fonts</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+  </ul>
+
+  <div class="card-tags">
+    <span class="tag-chip">Bookmarks</span>
+    <span class="tag-chip">Resources</span>
+    <span class="tag-chip">Web Dev</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite">
+        <i data-lucide="star"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- typing master -->
+        <div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-28T09:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Typing Master Product Key</h3>
+          <p class="card-description">A Valid Product Key for Typing Master</p>
+          <table class="card-table">
+            <thead>
+              <tr>
+      
+                <th>Description</th>
+                <th>Key</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                
+                <td>Licence Id</td>
+                <td><code>icycool</code></td>
+              </tr>
+              <tr>
+               
+                <td>Product Key</td>
+                 <td><code>E5XQWKF-XYE3-YRCK-3PPC24K</code></td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <ul class="card-link-list">
+    <li>
+      <a href="https://drive.google.com/drive/folders/10PKZz-sFZhzSi9zPaMMjb_pI-CYFRH1w" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="download"></i> Download Typing Master</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    </ul>
+
+          <div class="card-tags">
+            <span class="tag-chip">Web Dev</span>
+            <span class="tag-chip">API</span>
+            <span class="tag-chip">Reference</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- photoshop -->
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-28T09:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Photoshop 2007</h3>
+          <p class="card-description">A valid serial id of Adobe photoshop 2007</p>
+          <table class="card-table">
+            <thead>
+              <tr>
+      
+                <th>Description</th>
+                <th>Key</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                
+                <td>Serial No</td>
+                <td><code>1045-1209-6738-4668-7696-2783</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="card-link-list">
+    <li>
+      <a href="https://drive.google.com/drive/folders/19jymQw1_atW84mWnioSpV4-bo3exW8P4?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="download"></i> Download Photoshop 2007</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    </ul>
+
+          <div class="card-tags">
+            <span class="tag-chip">Web Dev</span>
+            <span class="tag-chip">API</span>
+            <span class="tag-chip">Reference</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- ms office -->
+ <div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-28T09:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">MS Office</h3>
+          <p class="card-description">You can download any ms office from below.</p>
+          
+          <ul class="card-link-list">
+    <li>
+      <a href="https://drive.google.com/drive/folders/15VvR1bKMq6HzEKxWb-8R5NyB0F8rDl2C?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="download"></i> Download MS Ofiice 2007</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://drive.google.com/drive/folders/1qfsdcPWACBkvtk37lKTEi_AnEuhy7JVe?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="download"></i> Download MS Ofiice 2024</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    </ul>
+
+          <div class="card-tags">
+            <span class="tag-chip">Web Dev</span>
+            <span class="tag-chip">API</span>
+            <span class="tag-chip">Reference</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+  <!-- foxit -->
+<div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-28T09:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Foxit PDFReader</h3>
+          <p class="card-description">Download foxit pdf viewer, pdf download, pdf editor, digital sign.</p>
+         
+          <ul class="card-link-list">
+    <li>
+      <a href="https://drive.google.com/drive/folders/1kWgi5dr6SKxD5SJFEc356h0m1HFCsjO1?usp=drive_link" target="_blank" rel="noopener noreferrer" class="link-item">
+        <span class="link-name"><i data-lucide="download"></i> Download Foxit PDFReader</span>
+        <i data-lucide="external-link" class="link-ext-icon"></i>
+      </a>
+    </li>
+    </ul>
+
+          <div class="card-tags">
+            <span class="tag-chip">Web Dev</span>
+            <span class="tag-chip">API</span>
+            <span class="tag-chip">Reference</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+
+<!-- PC PERFORMANCE SPEEDUP GUIDE CARD -->
+<div class="memory-card pc-speed-card" data-category="STEP" data-starred="true" data-date="2026-09-13T09:00:00Z">
+  <div class="card-header-top">
+    <span class="card-badge badge-blue">HARDWARE & OS</span>
+    <span class="exam-pill">PC Optimization</span>
+  </div>
+
+  <h3 class="card-title pc-speed-title">Basic Solutions to Make Your PC Run Faster</h3>
+  <p class="card-description">Simple upgrades and smart habits can dramatically improve your PC performance.</p>
+
+  <div class="pc-speed-container">
+
+    <!-- Why Your PC Gets Slow Box -->
+    <div class="pc-why-slow-box">
+      <div class="pc-box-title">
+        <i data-lucide="alert-triangle"></i> <span>Why Your PC Gets Slow</span>
+      </div>
+      <div class="pc-slow-grid">
+        <div class="pc-slow-item">
+          <i data-lucide="cpu" class="slow-icon"></i>
+          <div>
+            <strong>Low RAM:</strong> Not enough memory to handle concurrent tasks.
+          </div>
+        </div>
+        <div class="pc-slow-item">
+          <i data-lucide="hard-drive" class="slow-icon"></i>
+          <div>
+            <strong>HDD Instead of SSD:</strong> Slower data read/write speeds choke the OS.
+          </div>
+        </div>
+        <div class="pc-slow-item">
+          <i data-lucide="pie-chart" class="slow-icon"></i>
+          <div>
+            <strong>Low Disk Space:</strong> Full system drive slows down caching & swap files.
+          </div>
+        </div>
+        <div class="pc-slow-item">
+          <i data-lucide="layers" class="slow-icon"></i>
+          <div>
+            <strong>Too Many Background Apps:</strong> Consumes CPU, RAM, and system resources.
+          </div>
+        </div>
+        <div class="pc-slow-item">
+          <i data-lucide="thermometer" class="slow-icon"></i>
+          <div>
+            <strong>Dust & Overheating:</strong> Triggers thermal throttling and performance drops.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Hardware Upgrades -->
+    <div class="pc-section-banner">
+      <i data-lucide="zap"></i> <span>UPGRADE YOUR PC — BIGGEST PERFORMANCE BOOST</span>
+    </div>
+
+    <div class="pc-upgrades-grid">
+      
+      <!-- 1. RAM -->
+      <div class="pc-upgrade-card green-border">
+        <div class="pc-up-header green-text">
+          <i data-lucide="memory-stick"></i> <h4>Upgrade RAM</h4>
+        </div>
+        <span class="pc-subtag">More RAM = Smoother Multitasking</span>
+        <ul class="pc-check-list">
+          <li><i data-lucide="check"></i> <strong>4GB</strong> &rarr; Basic Use</li>
+          <li><i data-lucide="check"></i> <strong>8GB</strong> &rarr; Best for Most Users</li>
+          <li><i data-lucide="check"></i> <strong>16GB+</strong> &rarr; Heavy Work / Gaming</li>
+        </ul>
+        <div class="pc-card-badge-footer green-badge">
+          <i data-lucide="arrow-up-right"></i> Reduces lag & boosts overall speed
+        </div>
+      </div>
+
+      <!-- 2. SSD -->
+      <div class="pc-upgrade-card blue-border">
+        <div class="pc-up-header blue-text">
+          <i data-lucide="hard-drive"></i> <h4>Use SSD Instead of HDD</h4>
+        </div>
+        <span class="pc-subtag">SSD is 5x to 10x faster than HDD</span>
+        <ul class="pc-check-list">
+          <li><i data-lucide="check"></i> Faster Boot Time</li>
+          <li><i data-lucide="check"></i> Faster App Loading</li>
+          <li><i data-lucide="check"></i> Snappy System Responsiveness</li>
+        </ul>
+        <div class="pc-card-badge-footer blue-badge">
+          <i data-lucide="disc"></i> Install SSD for OS & primary apps
+        </div>
+      </div>
+
+      <!-- 3. C Drive -->
+      <div class="pc-upgrade-card purple-border">
+        <div class="pc-up-header purple-text">
+          <i data-lucide="pie-chart"></i> <h4>Keep C Drive Free</h4>
+        </div>
+        <span class="pc-subtag">Low disk space throttles your OS</span>
+        <ul class="pc-check-list">
+          <li><i data-lucide="check"></i> Keep at least 15–20% free space</li>
+          <li><i data-lucide="check"></i> Move bulky downloads/files to D drive</li>
+          <li><i data-lucide="check"></i> Uninstall unused software</li>
+        </ul>
+        <div class="pc-card-badge-footer purple-badge">
+          <i data-lucide="database"></i> More free space = Better performance
+        </div>
+      </div>
+
+      <!-- 4. Startup Apps -->
+      <div class="pc-upgrade-card orange-border">
+        <div class="pc-up-header orange-text">
+          <i data-lucide="play-circle"></i> <h4>Manage Startup Apps</h4>
+        </div>
+        <span class="pc-subtag">Too many startup apps delay boot times</span>
+        <ul class="pc-check-list">
+          <li><i data-lucide="check"></i> Disable unwanted startup apps in Task Manager</li>
+          <li><i data-lucide="check"></i> Keep only essential services enabled</li>
+          <li><i data-lucide="check"></i> Boot time will be noticeably faster</li>
+        </ul>
+        <div class="pc-card-badge-footer orange-badge">
+          <i data-lucide="rocket"></i> Faster boot + Lower background load
+        </div>
+      </div>
+
+      <!-- 5. Cooling -->
+      <div class="pc-upgrade-card cyan-border">
+        <div class="pc-up-header cyan-text">
+          <i data-lucide="wind"></i> <h4>Keep PC Cool & Clean</h4>
+        </div>
+        <span class="pc-subtag">Overheating = Thermal Throttling</span>
+        <ul class="pc-check-list">
+          <li><i data-lucide="check"></i> Clean out dust fans and filters regularly</li>
+          <li><i data-lucide="check"></i> Ensure unobstructed intake/exhaust airflow</li>
+          <li><i data-lucide="check"></i> Reapply quality thermal paste periodically</li>
+        </ul>
+        <div class="pc-card-badge-footer cyan-badge">
+          <i data-lucide="shield-check"></i> Cool PC runs faster and lasts longer
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Section: Smart Habits -->
+    <div class="pc-section-banner">
+      <i data-lucide="clock"></i> <span>SMART HABITS — SMALL STEPS, BIG DIFFERENCE</span>
+    </div>
+
+    <div class="pc-habits-grid">
+      <div class="pc-habit-item">
+        <i data-lucide="shield-alert" class="habit-icon"></i>
+        <div>
+          <strong>Scan for Malware</strong>
+          <p>Run regular scans to keep system clean & secure.</p>
+        </div>
+      </div>
+      <div class="pc-habit-item">
+        <i data-lucide="trash-2" class="habit-icon"></i>
+        <div>
+          <strong>Clear Temp Files</strong>
+          <p>Clean %temp% to free storage and reduce clutter.</p>
+        </div>
+      </div>
+      <div class="pc-habit-item">
+        <i data-lucide="refresh-cw" class="habit-icon"></i>
+        <div>
+          <strong>Keep Windows Updated</strong>
+          <p>Installs vital performance & security patches.</p>
+        </div>
+      </div>
+      <div class="pc-habit-item">
+        <i data-lucide="settings" class="habit-icon"></i>
+        <div>
+          <strong>Update Drivers</strong>
+          <p>Keep GPU & chipset drivers fresh for stability.</p>
+        </div>
+      </div>
+      <div class="pc-habit-item">
+        <i data-lucide="power" class="habit-icon"></i>
+        <div>
+          <strong>Restart Occasionally</strong>
+          <p>Flushes system RAM leaks and clears temp cache.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Extra Pro Tips & Bottom Summary -->
+    <div class="pc-bottom-summary">
+      <div class="pc-extra-tips">
+        <span class="extra-title"><i data-lucide="sparkles"></i> Extra Quick Tips:</span>
+        <ul>
+          <li>Use a lightweight, reliable Antivirus</li>
+          <li>Switch to 'High Performance' power plan in Windows</li>
+          <li>Avoid opening hundreds of idle browser tabs</li>
+          <li>Maintain regular backups for critical files</li>
+        </ul>
+      </div>
+      <div class="pc-upgrade-order-bar">
+        <strong>Best Upgrade Priority:</strong>
+        <span>SSD Upgrade &rarr; Add More RAM &rarr; Keep Drive Clean &rarr; Smart Habits</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-tags">
+    <span class="tag-chip">Hardware</span>
+    <span class="tag-chip">Windows</span>
+    <span class="tag-chip">PC Optimization</span>
+    <span class="tag-chip">SSD</span>
+    <span class="tag-chip">Troubleshooting</span>
+  </div>
+
+  <div class="card-footer">
+    <span class="card-date-label"></span>
+    <div class="card-footer-actions">
+      <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+    </div>
+  </div>
+</div>
+
+        <div class="memory-card" data-category="PROMPT" data-starred="false" data-date="2026-08-31T18:00:00Z">
+          <span class="card-badge badge-blue">PROMPT</span>
+          <h3 class="card-title">AI System Architect Prompt</h3>
+          <p class="card-description">AI system architect prompt, projects mode, send ideates, and configuration and personal automation.</p>
+          <div class="code-snippet">{
+  "role": "system",
+  "content": "You are a senior architect..."
+}</div>
+          <div class="card-tags">
+            <span class="tag-chip">AI</span>
+            <span class="tag-chip">Architecture</span>
+            <span class="tag-chip">React</span>
+            <span class="tag-chip">Coding</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-card" data-category="FORMULA" data-starred="false" data-date="2026-08-31T10:00:00Z">
+          <span class="card-badge badge-green">FORMULA</span>
+          <h3 class="card-title">Advanced SQL Join</h3>
+          <p class="card-description">Used to advance SQL Join from float stores the syntaxic human code.</p>
+          <div class="code-snippet">SELECT *
+FROM users u
+JOIN orders o ON u.id = o.user_id
+WHERE o.status = 'completed';</div>
+          <div class="card-tags">
+            <span class="tag-chip">SQL</span>
+            <span class="tag-chip">Database</span>
+            <span class="tag-chip">Join</span>
+            <span class="tag-chip">Coding</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+      
+      
+
+       
+
+        <div class="memory-card" data-category="NOTE" data-starred="false" data-date="2026-08-27T14:00:00Z">
+          <span class="card-badge badge-pink">NOTE</span>
+          <h3 class="card-title">Responsive Grid System</h3>
+          <p class="card-description">Diagram preview of 12-column mobile breakpoint architecture.</p>
+          <div class="card-image-wrap">
+             <a href="images/responsive css.png" target="_blank" rel="noopener noreferrer">
+            <img src="images/responsive css.png" alt="Grid preview" class="card-image" />
+             </a>
+            <span class="card-image-caption">Breakpoints: 576px, 768px, 992px, 1200px</span>
+          </div>
+          <div class="card-tags">
+            <span class="tag-chip">CSS</span>
+            <span class="tag-chip">UI/UX</span>
+            <span class="tag-chip">Layout</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date-label"></span>
+            <div class="card-footer-actions">
+              <button class="action-icon-btn star-btn" title="Toggle Favorite"><i data-lucide="star"></i></button>
+            </div>
+          </div>
+        </div>
+
+
+        
+
+      </div>
+
+      <footer class="vault-footer">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo">ग</div>
+            <div class="footer-brand-info">
+              <h4>गियान Memory Vault</h4>
+              <p>Personal knowledge vault for code snippets, formulas, keys, and notes.</p>
+            </div>
+          </div>
+
+          <div class="footer-meta">
+            <div class="footer-stat-pill">
+              <span class="pulse-dot"></span>
+              <span id="footerCardCount">23+</span> Memories Indexed
+            </div>
+            <!-- <button class="back-to-top-btn" id="backToTopBtn" title="Back to top">
+              <i data-lucide="arrow-up"></i>
+              <span>Back to Top</span>
+            </button> -->
+            
+            <a href="#sectionBar" class="back-to-top-btn" id="backToBrandBtn" title="Back to top" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+              <i data-lucide="arrow-up"></i> Back to Top
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <div class="footer-copy">
+            &copy; <span id="currentYear"></span>गियान Memory Vault. All rights reserved.
+          </div>
+          <div class="footer-links">
+            <a href="#searchInput" class="footer-link"><i data-lucide="search"></i> Search Vault</a>
+            <a href="#" class="footer-link" id="footerResetLink"><i data-lucide="rotate-ccw"></i> Reset Filters</a>
+            <a href="https://github.com/Basumatary321/gean_memory_vault" target="_blank" rel="noopener noreferrer" class="footer-link">
+              <i data-lucide="github"></i> Source</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+    </main>
+
+    <aside class="right-panel" id="rightPanel">
+      <div class="drawer-header-mobile">
+        <h3>Calendar & Insights</h3>
+        <button class="drawer-close-btn" id="closeRightPanelBtn">&times;</button>
+      </div>
+
+      <div class="calendar-card">
+        <div class="cal-header">
+          <button class="cal-nav" id="prevMonthBtn" aria-label="Previous Month"><i data-lucide="chevron-left" style="width: 14px; height: 14px;"></i></button>
+          <span id="calMonthYearLabel">Month Year</span>
+          <button class="cal-nav" id="nextMonthBtn" aria-label="Next Month"><i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i></button>
+        </div>
+        <div class="cal-grid" id="calendarDaysGrid"></div>
+      </div>
+
+      <div class="activity-section">
+        <h3 class="activity-title">Recent Activity</h3>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon-box" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+              <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+            </div>
+            <div class="activity-info">
+              <div class="activity-action">Added new prompt</div>
+              <div class="activity-target">AI System Architect Prompt</div>
+            </div>
+            <div class="activity-time">2h ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon-box" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+              <i data-lucide="function-square" style="width: 14px; height: 14px;"></i>
+            </div>
+            <div class="activity-info">
+              <div class="activity-action">Updated formula</div>
+              <div class="activity-target">Excel Financial Model</div>
+            </div>
+            <div class="activity-time">5h ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon-box" style="background: rgba(236, 72, 153, 0.15); color: #f472b6;">
+              <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+            </div>
+            <div class="activity-info">
+              <div class="activity-action">Added reference table</div>
+              <div class="activity-target">HTTP Status Codes</div>
+            </div>
+            <div class="activity-time">3 days ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <i data-lucide="quote" class="quote-icon"></i>
+        <p class="quote-text" id="quoteDisplay">The best way to predict the future is to create it.</p>
+        <span class="quote-author" id="authorDisplay">— Peter Drucker</span>
+      </div>
+    </aside>
+
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
