@@ -1,0 +1,1019 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Vault - Advanced PDF & Notes Library</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #6366f1;
+            --primary-dark: #3730a3;
+            --accent: #ec4899;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --sidebar-width: 260px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: var(--sidebar-width);
+            background: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
+            transition: var(--transition);
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .close-sidebar-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 1rem 0;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .menu-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            padding: 0.75rem 1.5rem 0.25rem;
+            font-weight: 600;
+        }
+
+        .menu-item {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+
+        .menu-item.active {
+            background: #eef2ff;
+            color: var(--primary);
+            border-left-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .badge {
+            background: #e2e8f0;
+            color: var(--text-muted);
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .menu-item.active .badge {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Backdrop overlay for mobile sidebar */
+        .sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Main Content Layout */
+        main {
+            margin-left: var(--sidebar-width);
+            flex-grow: 1;
+            padding: 2rem;
+            width: calc(100vw - var(--sidebar-width));
+            transition: var(--transition);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb span {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .breadcrumb span:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb .current {
+            color: var(--text-main);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .header-action-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .view-title-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hamburger-btn {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .hamburger-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .view-title-area h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .controls-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            min-width: 280px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.65rem 1rem 0.65rem 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 18px;
+            height: 18px;
+        }
+
+        .view-toggle-group {
+            display: flex;
+            background: #f1f5f9;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            gap: 0.25rem;
+        }
+
+        .view-btn {
+            background: transparent;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.35rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .view-btn.active {
+            background: var(--card-bg);
+            color: var(--primary);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Sub-Topic Pill Navigation */
+        .subtopic-tabs {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtopic-pill {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .subtopic-pill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .subtopic-pill.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* --- GRID VIEW STYLES --- */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .note-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .note-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .card-thumbnail {
+            height: 160px;
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .note-card:hover .card-thumbnail img {
+            transform: scale(1.03);
+        }
+
+        .card-thumbnail .fallback-icon {
+            font-size: 3rem;
+        }
+
+        .format-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.3rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        .format-badge.pdf { color: #dc2626; }
+        .format-badge.docs { color: #2563eb; }
+
+        .card-body {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .btn-action {
+            background: #eff6ff;
+            color: var(--primary);
+            border: none;
+            padding: 0.45rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-action:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* --- LIST VIEW STYLES --- */
+        .notes-list-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            overflow-x: auto;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .notes-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 650px;
+        }
+
+        .notes-table th {
+            background: #f8fafc;
+            padding: 1rem 1.5rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .notes-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .notes-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .notes-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .list-title-cell {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .list-desc-cell {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Empty State */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--card-bg);
+            border: 1px dashed var(--border-color);
+            border-radius: 1rem;
+        }
+
+        .empty-state h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            aside {
+                transform: translateX(-100%);
+            }
+            aside.mobile-open {
+                transform: translateX(0);
+            }
+            .close-sidebar-btn {
+                display: block;
+            }
+            .hamburger-btn {
+                display: flex;
+            }
+            main {
+                margin-left: 0;
+                width: 100vw;
+                padding: 1rem;
+            }
+            .search-box {
+                min-width: 100%;
+            }
+            .header-action-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .controls-area {
+                flex-direction: column;
+                width: 100%;
+            }
+            .view-toggle-group {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside id="appSidebar">
+        <div class="sidebar-header">
+            <h2>📚 StudyVault</h2>
+            <button class="close-sidebar-btn" onclick="toggleMobileSidebar()">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <ul class="sidebar-menu" id="sidebarMenu">
+            <!-- Dynamically populated categories -->
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Top Bar with Breadcrumbs & Controls -->
+        <div class="top-bar">
+            <div class="breadcrumb" id="breadcrumbNav">
+                <span>Home</span> &gt; <span class="current">Mathematics</span>
+            </div>
+
+            <div class="header-action-row">
+                <div class="view-title-area">
+                    <!-- 3-Line Hamburger Menu Button -->
+                    <button class="hamburger-btn" onclick="toggleMobileSidebar()" aria-label="Toggle Menu">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <h1 id="activeSubjectTitle">📐 Mathematics & Aptitude</h1>
+                </div>
+
+                <div class="controls-area">
+                    <div class="search-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Search notes, formulas, topics..." oninput="filterNotes()">
+                    </div>
+
+                    <div class="view-toggle-group">
+                        <button class="view-btn" id="listBtn" onclick="switchView('list')">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            List
+                        </button>
+                        <button class="view-btn active" id="gridBtn" onclick="switchView('grid')">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            Grid
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-topic Pill Navigation -->
+            <div class="subtopic-tabs" id="subtopicTabs">
+                <!-- Dynamically populated subtopics -->
+            </div>
+        </div>
+
+        <!-- Dynamic Content Display Area -->
+        <div id="contentDisplayArea">
+            <!-- Grid or List view renders here -->
+        </div>
+    </main>
+
+    <script>
+        const vaultData = {
+            "mathematics": {
+                name: "Mathematics & Aptitude",
+                icon: "📐",
+                topics: {
+                    "all": "All Mathematics Notes",
+                    "arithmetic": "Arithmetic",
+                    "algebra": "Algebra & Number System",
+                    "geometry": "Geometry & Mensuration",
+                   
+                },
+                notes: [
+                    {
+                        id: "m-01",
+                        topic: "arithmetic",
+                        title: "LCM & HCF Complete Shortcuts",
+                        description: "Prime factorization methods, shortcut tricks for competitive exams, and previous year exam questions solved.",
+                        format: "PDF",
+                        date: "Feb 15, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+                    {
+                        id: "m-02",
+                        topic: "arithmetic",
+                        title: "Time, Speed & Distance Mastery",
+                        description: "Relative speed formulas, train problems, circular tracks, and boat & stream concepts with step-by-step solutions.",
+                        format: "PDF",
+                        date: "Feb 18, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+                    {
+                        id: "m-03",
+                        topic: "arithmetic",
+                        title: "Percentage, Profit & Loss",
+                        description: "Successive percentage change formulas, discount shortcuts, and dishonest dealer problem techniques.",
+                        format: "Docs",
+                        date: "Jan 10, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+                ]
+            },
+            "reasoning": {
+                name: "Logical Reasoning",
+                icon: "🧠",
+                topics: {
+                    "all": "All Reasoning Notes",
+                    "verbal": "Verbal Reasoning",
+                    "non-verbal": "Non-Verbal & Analytical"
+                },
+                notes: [
+                    {
+                        id: "r-01",
+                        topic: "verbal",
+                        title: "Blood Relations & Family Trees",
+                        description: "Decoding coded relations, generation mapping techniques, and tricky exam problem sets.",
+                        format: "PDF",
+                        date: "Feb 10, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+                    {
+                        id: "r-02",
+                        topic: "verbal",
+                        title: "Syllogism & Venn Diagrams",
+                        description: "Possibility cases, 'Either-Or' conditions, and 100/50 method mastery guide.",
+                        format: "Docs",
+                        date: "Jan 14, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+                ]
+            },
+            "geography": {
+                name: "Geography (India & Assam)",
+                icon: "🌍",
+                topics: {
+                    "all": "All Geography Notes",
+                    "india-geo": "Indian Geography",
+                    "assam-geo": "Assam & Northeast Geo"
+                },
+                notes: [
+                    {
+                        id: "g-01",
+                        topic: "india-geo",
+                        title: "Indian River Systems & Tributaries",
+                        description: "Himalayan and Peninsular rivers, origin points, multipurpose dams, and drainage basins.",
+                        format: "PDF",
+                        date: "Feb 12, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    },
+                    {
+                        id: "g-02",
+                        topic: "assam-geo",
+                        title: "Assam National Parks & Sanctuaries",
+                        description: "Kaziranga, Manas, Nameri, Orang, Dehing Patkai, and biodiversity corridors detailed handbook.",
+                        format: "PDF",
+                        date: "Feb 20, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+                ]
+            },
+            "history": {
+                name: "History (Assam & Modern India)",
+                icon: "🏛️",
+                topics: {
+                    "all": "All History Notes",
+                    "assam-hist": "Assam History",
+                    "modern-india": "Modern Indian History"
+                },
+                notes: [
+                    {
+                        id: "h-01",
+                        topic: "assam-hist",
+                        title: "Ahom Dynasty & Administration",
+                        description: "Surgadevu rule, Paik system, Saraighat battle, and Burmese invasions of Assam.",
+                        format: "Docs",
+                        date: "Feb 05, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+                ]
+            },
+            "science": {
+                name: "General Science",
+                icon: "🔬",
+                topics: {
+                    "all": "All Science Notes",
+                    "physics": "Physics",
+                    "biology": "Biology"
+                },
+                notes: [
+                    {
+                        id: "s-01",
+                        topic: "physics",
+                        title: "Mechanics, Motion & Laws of Force",
+                        description: "Newton's laws, work, energy, power, gravitation, and important numerical formulas.",
+                        format: "PDF",
+                        date: "Feb 08, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+                ]
+            },
+            "english": {
+                name: "English Grammar & Vocabulary",
+                icon: "📖",
+                topics: {
+                    "all": "All English Notes",
+                    "grammar": "Grammar Rules",
+                    "vocab": "Vocabulary & Idioms"
+                },
+                notes: [
+                    {
+                        id: "e-01",
+                        topic: "grammar",
+                        title: "Active-Passive & Direct-Indirect Rules",
+                        description: "Comprehensive sentence transformation rules with exceptional cases and exercise sets.",
+                        format: "Docs",
+                        date: "Feb 14, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+                ]
+            },
+            "Pyq": {
+                name: "Previous Year Question",
+                icon: "📖",
+                topics: {
+                    "all": "All Year PYQ",
+                    "BTCFT": "Forester",
+                    "BTCFG": "Forest Guard"
+                },
+                notes: [
+                    {
+                        id: "f-01",
+                        topic: "BTCFT",
+                        title: "Active-Passive & Direct-Indirect Rules",
+                        description: "Comprehensive sentence transformation rules with exceptional cases and exercise sets.",
+                        format: "Docs",
+                        date: "Feb 14, 2026",
+                        thumbnail: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&auto=format&fit=crop&q=60",
+                        fileUrl: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                    }
+                ]
+            }
+
+        };
+
+        let currentSubjectKey = "mathematics";
+        let currentSubtopic = "all";
+        let currentView = "grid";
+
+        function initApp() {
+            renderSidebar();
+            loadSubject(currentSubjectKey);
+            renderNotesContent(); // <--- Added this so content renders immediately on page load / refresh
+        }
+
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById("appSidebar");
+            const overlay = document.getElementById("sidebarOverlay");
+            sidebar.classList.toggle("mobile-open");
+            overlay.classList.toggle("active");
+        }
+
+        function renderSidebar() {
+            const sidebarMenu = document.getElementById("sidebarMenu");
+            sidebarMenu.innerHTML = `<div class="menu-category">Subjects & Vaults</div>`;
+
+            for (const [key, subject] of Object.entries(vaultData)) {
+                const totalNotes = subject.notes.length;
+                const isActive = key === currentSubjectKey ? "active" : "";
+                
+                sidebarMenu.innerHTML += `
+                    <li class="menu-item ${isActive}" onclick="selectSubject('${key}')">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <span style="font-size: 1.1rem;">${subject.icon}</span>
+                            <span>${subject.name}</span>
+                        </div>
+                        <span class="badge">${totalNotes}</span>
+                    </li>
+                `;
+            }
+        }
+
+        function selectSubject(subjectKey) {
+            currentSubjectKey = subjectKey;
+            currentSubtopic = "all";
+            document.getElementById("searchInput").value = "";
+            renderSidebar();
+            loadSubject(subjectKey);
+            renderNotesContent();
+            
+            if (window.innerWidth <= 900) {
+                toggleMobileSidebar();
+            }
+        }
+
+        function loadSubject(subjectKey) {
+            const subject = vaultData[subjectKey];
+            
+            document.getElementById("activeSubjectTitle").innerHTML = `${subject.icon} ${subject.name}`;
+            document.getElementById("breadcrumbNav").innerHTML = `<span>Home</span> &gt; <span class="current">${subject.name}</span>`;
+
+            const subtopicTabs = document.getElementById("subtopicTabs");
+            subtopicTabs.innerHTML = "";
+            for (const [tKey, tName] of Object.entries(subject.topics)) {
+                const activeClass = tKey === currentSubtopic ? "active" : "";
+                subtopicTabs.innerHTML += `
+                    <button class="subtopic-pill ${activeClass}" onclick="selectSubtopic('${tKey}')">${tName}</button>
+                `;
+            }
+        }
+
+        function selectSubtopic(subtopicKey) {
+            currentSubtopic = subtopicKey;
+            
+            const pills = document.querySelectorAll(".subtopic-pill");
+            pills.forEach(pill => {
+                if (pill.innerText === vaultData[currentSubjectKey].topics[subtopicKey]) {
+                    pill.classList.add("active");
+                } else {
+                    pill.classList.remove("active");
+                }
+            });
+
+            renderNotesContent();
+        }
+
+        function switchView(viewType) {
+            currentView = viewType;
+            document.getElementById("gridBtn").classList.toggle("active", viewType === "grid");
+            document.getElementById("listBtn").classList.toggle("active", viewType === "list");
+            renderNotesContent();
+        }
+
+        function filterNotes() {
+            renderNotesContent();
+        }
+
+        function renderNotesContent() {
+            const subject = vaultData[currentSubjectKey];
+            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            const container = document.getElementById("contentDisplayArea");
+
+            let filteredNotes = subject.notes.filter(note => {
+                const matchesSubtopic = currentSubtopic === "all" || note.topic === currentSubtopic;
+                const matchesSearch = note.title.toLowerCase().includes(searchQuery) || note.description.toLowerCase().includes(searchQuery);
+                return matchesSubtopic && matchesSearch;
+            });
+
+            if (filteredNotes.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No notes found</h3>
+                        <p>Try searching for something else or switch sub-topics.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            if (currentView === "grid") {
+                let gridHtml = `<div class="notes-grid">`;
+                filteredNotes.forEach(note => {
+                    const formatClass = note.format.toLowerCase() === 'pdf' ? 'pdf' : 'docs';
+                    gridHtml += `
+                        <div class="note-card">
+                            <div class="card-thumbnail">
+                                <span class="format-badge ${formatClass}">${note.format}</span>
+                                <img src="${note.thumbnail}" alt="${note.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="fallback-icon" style="display:none;">${subject.icon}</div>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">${note.title}</h3>
+                                <p class="card-desc">${note.description}</p>
+                                <div class="card-footer">
+                                    <span class="card-date">${note.date}</span>
+                                    <a href="${note.fileUrl}" target="_blank" class="btn-action">
+                                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                        View Note
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                gridHtml += `</div>`;
+                container.innerHTML = gridHtml;
+            } else {
+                let listHtml = `
+                    <div class="notes-list-container">
+                        <table class="notes-table">
+                            <thead>
+                                <tr>
+                                    <th>Document Title & Description</th>
+                                    <th>Format</th>
+                                    <th>Date Added</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+                filteredNotes.forEach(note => {
+                    const formatClass = note.format.toLowerCase() === 'pdf' ? 'pdf' : 'docs';
+                    listHtml += `
+                        <tr>
+                            <td>
+                                <div class="list-title-cell">${subject.icon} ${note.title}</div>
+                                <div class="list-desc-cell">${note.description}</div>
+                            </td>
+                            <td><span class="format-badge ${formatClass}" style="position:static; display:inline-block;">${note.format}</span></td>
+                            <td style="color: var(--text-muted); font-size: 0.85rem;">${note.date}</td>
+                            <td>
+                                <a href="${note.fileUrl}" target="_blank" class="btn-action">
+                                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+                    `;
+                });
+                listHtml += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                container.innerHTML = listHtml;
+            }
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
