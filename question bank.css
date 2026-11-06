@@ -409,9 +409,9 @@ body.light-theme .study-grid-item {
 }
 
 body.light-theme .study-type-pill {
-  background: #ffffff;
-  color: #0284c7;
-  border-color: #bae6fd;
+  background: rgb(249, 59, 59);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ffffff;
 }
 
 /* Card Body Content */
@@ -446,9 +446,11 @@ body.light-theme .study-type-pill {
   gap: 5px;
   padding: 5px 8px;
   border-radius: 4px;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: #38bdf8;
+
+  background: rgba(240, 161, 161, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+
   text-decoration: none;
   font-size: 0.66rem;
   font-weight: 700;
@@ -468,13 +470,13 @@ body.light-theme .study-type-pill {
 }
 
 body.light-theme .study-open-btn {
-  background: #f0f9ff;
-  border-color: #bae6fd;
-  color: #0369a1;
+ background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
 }
 
 body.light-theme .study-open-btn:hover {
-  background: #0284c7;
-  color: #ffffff;
-  border-color: #0284c7;
+  background: rgba(246, 64, 64, 0.74);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fffafafd;
 }
