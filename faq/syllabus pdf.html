@@ -1,4 +1,4 @@
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +60,7 @@ body {
     padding: 11px 14px;
     border: none;
     border-radius: 8px;
-    background: #263c70;
+    background: #59595a;
     color: white;
     cursor: pointer;
 }
@@ -110,9 +110,9 @@ body {
 }
 
 .category {
-    border-left: 2px solid #dce3ef;
+    border-left: 1px dashed #202020;
     margin-top: 12px;
-    padding-left: 15px;
+    padding-left: 5px;
 }
 
 .category-title {
@@ -120,7 +120,7 @@ body {
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    padding: 9px 0;
+    padding: 5px 0;
     color: #34466b;
 }
 
@@ -128,17 +128,19 @@ body {
     content: "＋";
     display: inline-block;
     width: 23px;
-    color: #64748b;
+    /* font-weight: 900; */
+    color: #0f0f0f;
 }
 
 .category[open] > .category-title::before {
     content: "−";
+    font-weight: 300;
 }
 
 .topic-list {
     list-style: none;
     margin-left: 10px;
-    border-left: 1px dashed #cbd5e1;
+    border-left: 1px dashed #030303;
     padding-left: 16px;
 }
 
@@ -153,7 +155,7 @@ body {
     left: -17px;
     top: 18px;
     width: 12px;
-    border-top: 1px dashed #cbd5e1;
+    border-top: 1px dashed #0c0c0c;
 }
 
 .topic-row {
@@ -227,7 +229,7 @@ body {
 <div class="container">
 
     <div class="header">
-        <h2>📚 Syllabus Explorer</h2>
+        <h2>Syllabus Explorer</h2>
         <p>Explore subjects, topics and download study materials.</p>
     </div>
 
@@ -257,7 +259,7 @@ body {
                         <li class="topic">
                             <div class="topic-row">
                                 <span class="topic-name">Physical Geography of India</span>
-                                <a class="pdf-link" href="pdf/physical-geography-india.pdf" target="_blank">PDF ↗</a>
+                                <a class="pdf-link" href="../assets/ADRE Paper_I_SET_A 2022.pdf" target="_blank">PDF ↗</a>
                             </div>
                         </li>
                         <li class="topic">
@@ -394,6 +396,7 @@ body {
                         <li class="topic"><div class="topic-row"><span class="topic-name">Statement and Conclusion</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
                         <li class="topic"><div class="topic-row"><span class="topic-name">Syllogism</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
                         <li class="topic"><div class="topic-row"><span class="topic-name">Puzzle-Based Reasoning</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
+                        <li class="topic"><div class="topic-row"><span class="topic-name">Ranking Arrangemnent</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
                     </ul>
                 </details>
 
