@@ -5,6 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Syllabus Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+ <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
 * {
@@ -57,12 +62,13 @@ body {
 }
 
 .tool-btn {
-    padding: 11px 14px;
+    padding: 8px 13px;
     border: none;
     border-radius: 8px;
-    background: #59595a;
+    background: #7d7d80;
     color: white;
     cursor: pointer;
+    /* font-size: 18px; */
 }
 
 .subject {
@@ -180,6 +186,10 @@ body {
     padding: 6px 10px;
     font-size: 12px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .pdf-link:hover {
@@ -238,11 +248,11 @@ body {
                placeholder="Search syllabus topics...">
 
         <button class="tool-btn" onclick="expandAll()">
-            Expand All
+            <i data-lucide="maximize-2" style="width: 14px; height: 14px;"></i></a>
         </button>
 
         <button class="tool-btn" onclick="collapseAll()">
-            Collapse All
+            <i data-lucide="fold-vertical" style="width: 14px; height: 14px;"></i></a>
         </button>
     </div>
 
@@ -259,7 +269,9 @@ body {
                         <li class="topic">
                             <div class="topic-row">
                                 <span class="topic-name">Physical Geography of India</span>
-                                <a class="pdf-link" href="../assets/ADRE Paper_I_SET_A 2022.pdf" target="_blank">PDF ↗</a>
+                                <a class="pdf-link" href="../assets/ADRE Paper_I_SET_A 2022.pdf" target="_blank">PDF 
+                                     <i data-lucide="book-open" style="width: 14px; height: 14px;"></i></a>
+                               
                             </div>
                         </li>
                         <li class="topic">
@@ -570,6 +582,8 @@ category.style.display = categoryMatches > 0 ? '' : 'none';
         totalMatches === 0 ? 'block' : 'none';
 
 });
+
+  lucide.createIcons();
 </script>
 
 </body>
