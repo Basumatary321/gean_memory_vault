@@ -19,7 +19,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Lucida Sans;
     background: #f4f6fa;
     color: #253047;
     padding: 20px;
@@ -88,6 +88,7 @@ body {
     font-weight: bold;
     background: #fff;
     list-style: none;
+    
 }
 
 .subject-title::-webkit-details-marker,
@@ -96,7 +97,7 @@ body {
 }
 
 .subject-title::before {
-    content: "▶";
+    content: "▶▷";
     font-size: 11px;
     color: #64748b;
     transition: 0.2s;
@@ -116,7 +117,7 @@ body {
 }
 
 .category {
-    border-left: 1px dashed #202020;
+    border-left: 1px solid #09d174;
     margin-top: 12px;
     padding-left: 5px;
 }
@@ -125,28 +126,29 @@ body {
     list-style: none;
     cursor: pointer;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
+    font-family: Lucida Sans;
     padding: 5px 0;
-    color: #34466b;
+    color: #03683e;
 }
 
 .category-title::before {
-    content: "＋";
+    content: "⇛";
     display: inline-block;
     width: 23px;
     /* font-weight: 900; */
-    color: #0f0f0f;
+    color: #049947;
 }
 
 .category[open] > .category-title::before {
-    content: "−";
+    content: "⇲";
     font-weight: 300;
 }
 
 .topic-list {
     list-style: none;
     margin-left: 10px;
-    border-left: 1px dashed #030303;
+    border-left: 1px solid #2b74fc;
     padding-left: 16px;
 }
 
@@ -161,7 +163,7 @@ body {
     left: -17px;
     top: 18px;
     width: 12px;
-    border-top: 1px dashed #0c0c0c;
+    border-top: 1px solid #0a7fec;
 }
 
 .topic-row {
@@ -259,25 +261,29 @@ body {
     <div id="syllabus">
 
         <!-- 1. SOCIAL STUDIES -->
-        <details class="subject">
-            <summary class="subject-title">01. Social Studies</summary>
+        <details class="subject" open>
+            <summary class="subject-title">Social Studies</summary>
             <div class="subject-content">
 
-                <details class="category">
+                <details class="category" open>
                     <summary class="category-title">Geography</summary>
                     <ul class="topic-list">
                         <li class="topic">
                             <div class="topic-row">
                                 <span class="topic-name">Physical Geography of India</span>
                                 <a class="pdf-link" href="../assets/ADRE Paper_I_SET_A 2022.pdf" target="_blank">PDF 
-                                     <i data-lucide="book-open" style="width: 14px; height: 14px;"></i></a>
+                                     <i data-lucide="file" style="width: 14px; height: 14px;"></i></a>
                                
                             </div>
                         </li>
                         <li class="topic">
                             <div class="topic-row">
-                                <span class="topic-name">Physical Geography of World</span>
-                                <a class="pdf-link" href="#" target="_blank">PDF ↗</a>
+                                <span class="topic-name">Physical Geography of World </span>
+                                    
+                                    <a class="pdf-link" href="#" target="_blank">PDF
+                                       <i data-lucide="file" style="width: 14px; height: 14px;"></i></a>
+                               
+                                <!-- <a class="pdf-link" href="#" target="_blank">PDF ↗</a> -->
                             </div>
                         </li>
                         <li class="topic">
@@ -328,7 +334,7 @@ body {
 
         <!-- 2. GENERAL KNOWLEDGE -->
         <details class="subject">
-            <summary class="subject-title">02. General Knowledge</summary>
+            <summary class="subject-title">General Knowledge</summary>
             <div class="subject-content">
 
                 <details class="category">
@@ -388,7 +394,7 @@ body {
 
         <!-- 3. REASONING -->
         <details class="subject">
-            <summary class="subject-title">03. Logical Reasoning and Mental Ability</summary>
+            <summary class="subject-title">Logical Reasoning and Mental Ability</summary>
             <div class="subject-content">
 
                 <details class="category">
@@ -426,7 +432,7 @@ body {
 
         <!-- 4. GENERAL ENGLISH -->
         <details class="subject">
-            <summary class="subject-title">04. General English</summary>
+            <summary class="subject-title">General English</summary>
             <div class="subject-content">
 
                 <details class="category">
@@ -464,7 +470,7 @@ body {
 
         <!-- 5. GENERAL MATHEMATICS -->
         <details class="subject">
-            <summary class="subject-title">05. General Mathematics</summary>
+            <summary class="subject-title">General Mathematics</summary>
             <div class="subject-content">
 
                 <details class="category">
