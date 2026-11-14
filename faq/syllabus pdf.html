@@ -1,596 +1,782 @@
- 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syllabus Explorer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
- <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: Lucida Sans;
-    background: #f4f6fa;
-    color: #253047;
-    padding: 20px;
-}
+        body {
+            font-family: Lucida Sans;
+            background: #f4f6fa;
+            color: #253047;
+            padding: 20px;
+        }
 
-.container {
-    max-width: 850px;
-    margin: auto;
-}
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
 
-.header {
-    margin-bottom: 22px;
-}
+        .header {
+            margin-bottom: 22px;
+        }
 
-.header h2 {
-    font-size: 25px;
-    margin-bottom: 8px;
-}
+        .header h2 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
 
-.header p {
-    color: #697386;
-    font-size: 14px;
-}
+        .header p {
+            color: #697386;
+            font-size: 14px;
+        }
 
-.toolbar {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-}
+        .toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
 
-#search {
-    flex: 1;
-    min-width: 180px;
-    padding: 12px;
-    border: 1px solid #d8deea;
-    border-radius: 8px;
-    outline: none;
-    font-size: 14px;
-}
+        #search {
+            flex: 1;
+            min-width: 180px;
+            padding: 12px;
+            border: 1px solid #d8deea;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
 
-.tool-btn {
-    padding: 8px 13px;
-    border: none;
-    border-radius: 8px;
-    background: #7d7d80;
-    color: white;
-    cursor: pointer;
-    /* font-size: 18px; */
-}
+        .tool-btn {
+            padding: 8px 13px;
+            border: none;
+            border-radius: 8px;
+            background: #7d7d80;
+            color: white;
+            cursor: pointer;
+            /* font-size: 18px; */
+        }
 
-.subject {
-    background: white;
-    border: 1px solid #e0e5ed;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    overflow: hidden;
-}
+        .subject {
+            background: white;
+            border: 1px solid #e0e5ed;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
 
-.subject-title {
-    padding: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    background: #fff;
-    list-style: none;
-    
-}
+        .subject-title {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            background: #fff;
+            list-style: none;
 
-.subject-title::-webkit-details-marker,
-.category-title::-webkit-details-marker {
-    display: none;
-}
+        }
 
-.subject-title::before {
-    content: "▶▷";
-    font-size: 11px;
-    color: #64748b;
-    transition: 0.2s;
-}
+        .subject-title::-webkit-details-marker,
+        .category-title::-webkit-details-marker {
+            display: none;
+        }
 
-.subject[open] > .subject-title::before {
-    transform: rotate(90deg);
-}
+        .subject-title::before {
+            content: "▶▷";
+            font-size: 11px;
+            color: #64748b;
+            transition: 0.2s;
+        }
 
-.subject-title:hover {
-    background: #f7f9fd;
-}
+        .subject[open]>.subject-title::before {
+            transform: rotate(90deg);
+        }
 
-.subject-content {
-    padding: 5px 16px 16px 35px;
-    border-top: 1px solid #edf0f5;
-}
+        .subject-title:hover {
+            background: #f7f9fd;
+        }
 
-.category {
-    border-left: 1px solid #09d174;
-    margin-top: 12px;
-    padding-left: 5px;
-}
+        .subject-content {
+            padding: 5px 16px 16px 35px;
+            border-top: 1px solid #edf0f5;
+        }
 
-.category-title {
-    list-style: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: Lucida Sans;
-    padding: 5px 0;
-    color: #03683e;
-}
+        .category {
+            border-left: 1px solid #09d174;
+            margin-top: 12px;
+            padding-left: 5px;
+        }
 
-.category-title::before {
-    content: "⇛";
-    display: inline-block;
-    width: 23px;
-    /* font-weight: 900; */
-    color: #049947;
-}
+        .category-title {
+            list-style: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: Lucida Sans;
+            padding: 5px 0;
+            color: #03683e;
+        }
 
-.category[open] > .category-title::before {
-    content: "⇲";
-    font-weight: 300;
-}
+        .category-title::before {
+            content: "⇛";
+            display: inline-block;
+            width: 23px;
+            /* font-weight: 900; */
+            color: #049947;
+        }
 
-.topic-list {
-    list-style: none;
-    margin-left: 10px;
-    border-left: 1px solid #2b74fc;
-    padding-left: 16px;
-}
+        .category[open]>.category-title::before {
+            content: "⇲";
+            font-weight: 300;
+        }
 
-.topic {
-    position: relative;
-    padding: 9px 0;
-}
+        .topic-list {
+            list-style: none;
+            margin-left: 10px;
+            border-left: 1px solid #2b74fc;
+            padding-left: 16px;
+        }
 
-.topic::before {
-    content: "";
-    position: absolute;
-    left: -17px;
-    top: 18px;
-    width: 12px;
-    border-top: 1px solid #0a7fec;
-}
+        .topic {
+            position: relative;
+            padding: 9px 0;
+        }
 
-.topic-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-}
+        .topic::before {
+            content: "";
+            position: absolute;
+            left: -17px;
+            top: 18px;
+            width: 12px;
+            border-top: 1px solid #0a7fec;
+        }
 
-.topic-name {
-    line-height: 1.5;
-}
+        .topic-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
 
-.pdf-link {
-    flex-shrink: 0;
-    text-decoration: none;
-    background: #fff0f0;
-    color: #dc3838;
-    border: 1px solid #ffd5d5;
-    border-radius: 6px;
-    padding: 6px 10px;
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
+        .topic-name {
+            line-height: 1.5;
+        }
 
-.pdf-link:hover {
-    background: #dc3838;
-    color: white;
-}
+        .pdf-link {
+            flex-shrink: 0;
+            text-decoration: none;
+            background: #fff0f0;
+            color: #dc3838;
+            border: 1px solid #ffd5d5;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
 
-.no-result {
-    display: none;
-    text-align: center;
-    color: #777;
-    padding: 25px;
-}
+        .pdf-link:hover {
+            background: #dc3838;
+            color: white;
+        }
 
-@media(max-width: 500px) {
-    body {
-        padding: 12px;
-    }
+        .no-result {
+            display: none;
+            text-align: center;
+            color: #777;
+            padding: 25px;
+        }
 
-    .header h2 {
-        font-size: 21px;
-    }
+        @media(max-width: 500px) {
+            body {
+                padding: 12px;
+            }
 
-    .subject-title {
-        padding: 14px;
-        font-size: 14px;
-    }
+            .header h2 {
+                font-size: 21px;
+            }
 
-    .subject-content {
-        padding-left: 22px;
-    }
+            .subject-title {
+                padding: 14px;
+                font-size: 14px;
+            }
 
-    .topic-row {
-        align-items: flex-start;
-    }
+            .subject-content {
+                padding-left: 22px;
+            }
 
-    .pdf-link {
-        padding: 5px 7px;
-        font-size: 11px;
-    }
-}
-</style>
+            .topic-row {
+                align-items: flex-start;
+            }
+
+            .pdf-link {
+                padding: 5px 7px;
+                font-size: 11px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="header">
-        <h2>Syllabus Explorer</h2>
-        <p>Explore subjects, topics and download study materials.</p>
-    </div>
+        <div class="header">
+            <div class="row" style="display: flex; gap: 10px; align-items: center;">
+                <a href="https://basumatary321.github.io/gean_memory_vault/" >
+                    <span style="font-size: 18px; font-weight: 900;"> 
+<i data-lucide="chevron-left"style="width: 25px; height: 25px; background-color: #c7cac9; border-radius: 5px;"></i>
+                    </span>
+                </a>
+                <h2>Syllabus Explorer</h2>
+            </div>
+            <p>Explore subjects, topics and download study materials.</p>
+        </div>
 
-    <div class="toolbar">
-        <input type="text" id="search"
-               placeholder="Search syllabus topics...">
+        <div class="toolbar">
+            <input type="text" id="search" placeholder="Search syllabus topics...">
 
-        <button class="tool-btn" onclick="expandAll()">
-            <i data-lucide="maximize-2" style="width: 14px; height: 14px;"></i></a>
-        </button>
+            <button class="tool-btn" onclick="expandAll()">
+                <i data-lucide="maximize-2" style="width: 14px; height: 14px;"></i></a>
+            </button>
 
-        <button class="tool-btn" onclick="collapseAll()">
-            <i data-lucide="fold-vertical" style="width: 14px; height: 14px;"></i></a>
-        </button>
-    </div>
+            <button class="tool-btn" onclick="collapseAll()">
+                <i data-lucide="fold-vertical" style="width: 14px; height: 14px;"></i></a>
+            </button>
+        </div>
 
-    <div id="syllabus">
+        <div id="syllabus">
 
-        <!-- 1. SOCIAL STUDIES -->
-        <details class="subject" open>
-            <summary class="subject-title">Social Studies</summary>
-            <div class="subject-content">
+            <!-- 1. SOCIAL STUDIES -->
+            <details class="subject" open>
+                <summary class="subject-title">Social Studies</summary>
+                <div class="subject-content">
 
-                <details class="category" open>
-                    <summary class="category-title">Geography</summary>
-                    <ul class="topic-list">
-                        <li class="topic">
-                            <div class="topic-row">
-                                <span class="topic-name">Physical Geography of India</span>
-                                <a class="pdf-link" href="../assets/ADRE Paper_I_SET_A 2022.pdf" target="_blank">PDF 
-                                     <i data-lucide="file" style="width: 14px; height: 14px;"></i></a>
-                               
-                            </div>
-                        </li>
-                        <li class="topic">
-                            <div class="topic-row">
-                                <span class="topic-name">Physical Geography of World </span>
-                                    
+                    <details class="category" open>
+                        <summary class="category-title">Geography</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row">
+                                    <span class="topic-name">Physical Geography of India</span>
+                                    <a class="pdf-link" href="../assets/ADRE Paper_I_SET_A 2022.pdf" target="_blank">PDF
+                                        <i data-lucide="file" style="width: 14px; height: 14px;"></i></a>
+
+                                </div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row">
+                                    <span class="topic-name">Physical Geography of World </span>
+
                                     <a class="pdf-link" href="#" target="_blank">PDF
-                                       <i data-lucide="file" style="width: 14px; height: 14px;"></i></a>
-                               
-                                <!-- <a class="pdf-link" href="#" target="_blank">PDF ↗</a> -->
-                            </div>
-                        </li>
-                        <li class="topic">
-                            <div class="topic-row">
-                                <span class="topic-name">Physical Geography of Assam</span>
-                                <a class="pdf-link" href="#" target="_blank">PDF ↗</a>
-                            </div>
-                        </li>
-                    </ul>
-                </details>
+                                        <i data-lucide="file" style="width: 14px; height: 14px;"></i></a>
 
-                <details class="category">
-                    <summary class="category-title">Indian History</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Ancient Indian History</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Medieval Indian History</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Modern Indian History</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">The Indian Freedom Movement</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                                    <!-- <a class="pdf-link" href="#" target="_blank">PDF ↗</a> -->
+                                </div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row">
+                                    <span class="topic-name">Physical Geography of Assam</span>
+                                    <a class="pdf-link" href="#" target="_blank">PDF ↗</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Assam History</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">History of Assam</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Assam Historical Events</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Indian History</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Ancient Indian History</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Medieval Indian History</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Modern Indian History</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">The Indian Freedom Movement</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Indian Polity and Civics</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">The Indian Constitution</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Basic Principles of Civics</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Assam Constitutional Awareness</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Assam History</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">History of Assam</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Assam Historical Events</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Culture and Heritage</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Assam Cultural Heritage</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Indian Polity and Civics</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">The Indian Constitution</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Basic Principles of Civics</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Assam Constitutional Awareness</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-            </div>
-        </details>
+                    <details class="category">
+                        <summary class="category-title">Culture and Heritage</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Assam Cultural Heritage</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-        <!-- 2. GENERAL KNOWLEDGE -->
-        <details class="subject">
-            <summary class="subject-title">General Knowledge</summary>
-            <div class="subject-content">
+                </div>
+            </details>
 
-                <details class="category">
-                    <summary class="category-title">Current Affairs</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">National and International Events</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Recent Developments</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Current Affairs</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Major National Events</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+            <!-- 2. GENERAL KNOWLEDGE -->
+            <details class="subject">
+                <summary class="subject-title">General Knowledge</summary>
+                <div class="subject-content">
 
-                <details class="category">
-                    <summary class="category-title">Science and Technology</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Scientific Discoveries</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">General Science</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Computer Knowledge</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Current Affairs</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">National and International
+                                        Events</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Recent Developments</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Current Affairs</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Major National Events</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Assam General Knowledge</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Significant Facts About Assam</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Assam General Knowledge</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Science and Technology</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Scientific Discoveries</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">General Science</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Computer Knowledge</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Polity and Government</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Government Schemes</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Assam Polity</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Indian Polity</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Assam General Knowledge</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Significant Facts About Assam</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Assam General Knowledge</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">International Knowledge</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Major International Organizations</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Renowned Landmarks of India</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Polity and Government</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Government Schemes</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Assam Polity</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Indian Polity</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Awards and Recognition</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Important Personalities</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Awards</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">International Knowledge</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Major International
+                                        Organizations</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Renowned Landmarks of India</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-            </div>
-        </details>
+                    <details class="category">
+                        <summary class="category-title">Awards and Recognition</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Important Personalities</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Awards</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-        <!-- 3. REASONING -->
-        <details class="subject">
-            <summary class="subject-title">Logical Reasoning and Mental Ability</summary>
-            <div class="subject-content">
+                </div>
+            </details>
 
-                <details class="category">
-                    <summary class="category-title">Verbal Reasoning</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Number Series</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Coding-Decoding</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Analogies</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Blood Relations</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Direction and Distance</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+            <!-- 3. REASONING -->
+            <details class="subject">
+                <summary class="subject-title">Logical Reasoning and Mental Ability</summary>
+                <div class="subject-content">
 
-                <details class="category">
-                    <summary class="category-title">Logical Reasoning</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Statement and Conclusion</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Syllogism</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Puzzle-Based Reasoning</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Ranking Arrangemnent</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Verbal Reasoning</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Number Series</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Coding-Decoding</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Analogies</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Blood Relations</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Direction and Distance</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Non-Verbal Reasoning</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Figure Classification</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Pattern Recognition</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Embedded Figures</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Logical Reasoning</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Statement and Conclusion</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Syllogism</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Puzzle-Based Reasoning</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Ranking Arrangemnent</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-            </div>
-        </details>
+                    <details class="category">
+                        <summary class="category-title">Non-Verbal Reasoning</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Figure Classification</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Pattern Recognition</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Embedded Figures</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-        <!-- 4. GENERAL ENGLISH -->
-        <details class="subject">
-            <summary class="subject-title">General English</summary>
-            <div class="subject-content">
+                </div>
+            </details>
 
-                <details class="category">
-                    <summary class="category-title">Grammar</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Sentence Improvement</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Error Detection</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Active and Passive Voice</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Direct and Indirect Narration</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Fill in the Blanks</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Subject-Verb Agreement</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+            <!-- 4. GENERAL ENGLISH -->
+            <details class="subject">
+                <summary class="subject-title">General English</summary>
+                <div class="subject-content">
 
-                <details class="category">
-                    <summary class="category-title">Vocabulary</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Idioms and Phrases</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Synonyms</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Antonyms</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">One-Word Substitution</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Grammar</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Sentence Improvement</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Error Detection</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Active and Passive Voice</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Direct and Indirect Narration</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Fill in the Blanks</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Subject-Verb Agreement</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Comprehension</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Cloze Test</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Reading Comprehension Passages</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Vocabulary</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Idioms and Phrases</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Synonyms</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Antonyms</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">One-Word Substitution</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-            </div>
-        </details>
+                    <details class="category">
+                        <summary class="category-title">Comprehension</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Cloze Test</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Reading Comprehension Passages</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-        <!-- 5. GENERAL MATHEMATICS -->
-        <details class="subject">
-            <summary class="subject-title">General Mathematics</summary>
-            <div class="subject-content">
+                </div>
+            </details>
 
-                <details class="category">
-                    <summary class="category-title">Arithmetic</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Number System</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Percentage</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Profit and Loss</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Ratio and Proportion</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Average</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+            <!-- 5. GENERAL MATHEMATICS -->
+            <details class="subject">
+                <summary class="subject-title">General Mathematics</summary>
+                <div class="subject-content">
 
-                        <details class="category">
-                    <summary class="category-title">Time, Work and Distance</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Time and Work</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Speed and Distance</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Arithmetic</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Number System</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Percentage</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Profit and Loss</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Ratio and Proportion</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Average</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-                <details class="category">
-                    <summary class="category-title">Interest</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Simple and Compound Interest</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
-                         <details class="category">
-                    <summary class="category-title">Geometry</summary>
-                    <ul class="topic-list">
-                        <li class="topic"><div class="topic-row"><span class="topic-name">Basic Geometry</span><a class="pdf-link" href="#" target="_blank">PDF ↗</a></div></li>
-                    </ul>
-                </details>
+                    <details class="category">
+                        <summary class="category-title">Time, Work and Distance</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Time and Work</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Speed and Distance</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
 
-            </div>
-        </details>
+                    <details class="category">
+                        <summary class="category-title">Interest</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Simple and Compound Interest</span><a
+                                        class="pdf-link" href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
+                    <details class="category">
+                        <summary class="category-title">Geometry</summary>
+                        <ul class="topic-list">
+                            <li class="topic">
+                                <div class="topic-row"><span class="topic-name">Basic Geometry</span><a class="pdf-link"
+                                        href="#" target="_blank">PDF ↗</a></div>
+                            </li>
+                        </ul>
+                    </details>
+
+                </div>
+            </details>
+
+        </div>
+
+        <div class="no-result" id="noResult">
+            No matching topics found.
+        </div>
 
     </div>
-
-    <div class="no-result" id="noResult">
-        No matching topics found.
-    </div>
-
-</div>
-<script>
-// Expand all subjects and categories
-function expandAll() {
-    document.querySelectorAll('details').forEach(item => {
-        item.open = true;
-    });
-}
-
-// Collapse all subjects and categories
-function collapseAll() {
-    document.querySelectorAll('details').forEach(item => {
-        item.open = false;
-    });
-}
-
-// Search syllabus
-document.getElementById('search').addEventListener('input', function() {
-
-    const query = this.value.toLowerCase().trim();
-    const subjects = document.querySelectorAll('.subject');
-    let totalMatches = 0;
-
-    subjects.forEach(subject => {
-
-        let subjectMatches = 0;
-
-        const categories = subject.querySelectorAll('.category');
-
-        categories.forEach(category => {
-
-            const categoryName = category.querySelector('.category-title')
-                .textContent.toLowerCase();
-
-            const topics = category.querySelectorAll('.topic');
-            let categoryMatches = 0;
-
-            topics.forEach(topic => {
-
-                const topicName = topic.querySelector('.topic-name')
-                    .textContent.toLowerCase();
-
-                const match = topicName.includes(query) ||
-                              categoryName.includes(query);
-
-                topic.style.display = match ? '' : 'none';
-
-                if (match) {
-                    categoryMatches++;
-                    subjectMatches++;
-                }
+    <script>
+        // Expand all subjects and categories
+        function expandAll() {
+            document.querySelectorAll('details').forEach(item => {
+                item.open = true;
             });
-category.style.display = categoryMatches > 0 ? '' : 'none';
-
-            if (categoryMatches > 0 && query !== '') {
-                category.open = true;
-            }
-        });
-
-        subject.style.display = subjectMatches > 0 || query === ''
-            ? ''
-            : 'none';
-
-        if (subjectMatches > 0 && query !== '') {
-            subject.open = true;
         }
 
-        totalMatches += subjectMatches;
-    });
+        // Collapse all subjects and categories
+        function collapseAll() {
+            document.querySelectorAll('details').forEach(item => {
+                item.open = false;
+            });
+        }
 
-    document.getElementById('noResult').style.display =
-        totalMatches === 0 ? 'block' : 'none';
+        // Search syllabus
+        document.getElementById('search').addEventListener('input', function () {
 
-});
+            const query = this.value.toLowerCase().trim();
+            const subjects = document.querySelectorAll('.subject');
+            let totalMatches = 0;
 
-  lucide.createIcons();
-</script>
+            subjects.forEach(subject => {
+
+                let subjectMatches = 0;
+
+                const categories = subject.querySelectorAll('.category');
+
+                categories.forEach(category => {
+
+                    const categoryName = category.querySelector('.category-title')
+                        .textContent.toLowerCase();
+
+                    const topics = category.querySelectorAll('.topic');
+                    let categoryMatches = 0;
+
+                    topics.forEach(topic => {
+
+                        const topicName = topic.querySelector('.topic-name')
+                            .textContent.toLowerCase();
+
+                        const match = topicName.includes(query) ||
+                            categoryName.includes(query);
+
+                        topic.style.display = match ? '' : 'none';
+
+                        if (match) {
+                            categoryMatches++;
+                            subjectMatches++;
+                        }
+                    });
+                    category.style.display = categoryMatches > 0 ? '' : 'none';
+
+                    if (categoryMatches > 0 && query !== '') {
+                        category.open = true;
+                    }
+                });
+
+                subject.style.display = subjectMatches > 0 || query === ''
+                    ? ''
+                    : 'none';
+
+                if (subjectMatches > 0 && query !== '') {
+                    subject.open = true;
+                }
+
+                totalMatches += subjectMatches;
+            });
+
+            document.getElementById('noResult').style.display =
+                totalMatches === 0 ? 'block' : 'none';
+
+        });
+
+        lucide.createIcons();
+    </script>
 
 </body>
+
 </html>
