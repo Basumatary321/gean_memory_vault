@@ -508,7 +508,7 @@ main.main-content {
   gap: 8px;
 }
 
-.view-all-link {
+.sy{
   font-size: 0.75rem;
   color: var(--text-muted);
   text-decoration: none;
@@ -518,7 +518,7 @@ main.main-content {
   cursor: pointer;
 }
 
-.view-all-link:hover { color: var(--text-main); }
+.sy:hover { color: var(--text-main); }
 
 /* Cards Grid */
 .cards-grid {
